@@ -26,9 +26,10 @@ USER paleta
 EXPOSE 8080
 
 # El contenedor va limitado a 512 MB: se le dice a la JVM que ese es su mundo, en vez de
-# dejar que calcule el heap mirando la RAM del VPS entero. headless porque se usa
-# java.awt.image sin pantalla.
-ENV JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=70 -Djava.awt.headless=true"
+# dejar que calcule el heap mirando la RAM del VPS entero. El 65 % son ~333 MB de heap y
+# deja ~180 MB para metaspace, code cache, stacks y memoria nativa de ImageIO. headless
+# porque se usa java.awt.image sin pantalla.
+ENV JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=65 -Djava.awt.headless=true"
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
   CMD curl -fsS http://localhost:8080/api/salud || exit 1

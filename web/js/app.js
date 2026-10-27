@@ -524,6 +524,14 @@
 
   // --- Salud ---------------------------------------------------------------
 
+  /**
+   * Pregunta a la API si está viva antes de ofrecer la subida.
+   *
+   * Esta llamada hace dos cosas. La evidente: decidir si se puede subir una foto. La otra:
+   * si la API duerme para no gastar —en Fly la máquina se suspende cuando nadie la usa—,
+   * esta petición la despierta mientras el visitante lee el titular. Para cuando arrastre
+   * su foto, ya lleva un rato en marcha.
+   */
   async function comprobarSalud() {
     if (!API) {
       estado.apiViva = false;
@@ -534,6 +542,7 @@
       );
       return;
     }
+    decirEstado("Comprobando que la API está despierta…", "trabajando");
     try {
       const respuesta = await fetch(API + "/api/salud", { method: "GET" });
       estado.apiViva = respuesta.ok;

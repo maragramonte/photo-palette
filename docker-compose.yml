@@ -28,12 +28,8 @@ services:
       PHOTOPALETTE_PETICIONES_POR_MINUTO: "10"
       PHOTOPALETTE_ANALISIS_SIMULTANEOS: "2"
 
-    healthcheck:
-      test: ["CMD", "curl", "-fsS", "http://localhost:8080/api/salud"]
-      interval: 30s
-      timeout: 3s
-      start_period: 40s
-      retries: 3
+    # El healthcheck lo define el Dockerfile, para que valga tambien con `docker run`
+    # pelado. Aqui estaba repetido palabra por palabra: dos sitios que se desincronizan.
 
     logging:
       driver: json-file

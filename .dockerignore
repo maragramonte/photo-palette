@@ -1,0 +1,8 @@
+# Lista blanca: la imagen solo necesita el pom y el código fuente.
+#
+# Sin esto, `docker build` y `fly deploy` suben el repositorio entero como contexto:
+# el historial de git, target/, las fotos del feed y las capturas del README. Son
+# decenas de megas por despliegue que no acaban dentro de la imagen.
+*
+!pom.xml
+!src
