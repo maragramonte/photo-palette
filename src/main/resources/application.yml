@@ -1,5 +1,8 @@
 server:
-  port: 8080
+  # El puerto lo decide el host cuando hay uno: Render y companeros lo inyectan en PORT
+  # y matan el contenedor si no se escucha ahi. En local y con docker-compose no existe
+  # esa variable y manda el 8080 de siempre.
+  port: ${PORT:8080}
   tomcat:
     # Si la subida se pasa de tamano, Tomcat tiene que terminar de leer el cuerpo
     # para poder contestar un 413 por la misma conexion. Sin este margen corta la
@@ -11,9 +14,23 @@ server:
     threads:
       max: 25
     max-connections: 100
-  # Detras de Caddy, Tomcat lee X-Forwarded-For y X-Forwarded-Proto, pero solo cuando la
-  # conexion viene de un proxy de la red interna (10.x, 172.16-31.x, 192.168.x, 127.x).
-  # Sin esto, el límite por IP contaría todas las visitas como una sola.
+    # Tomcat solo hace caso a X-Forwarded-For cuando la conexion viene de una direccion
+    # que reconoce como proxy propio, y la lista que trae de serie es toda IPv4 mas el
+    # loopback: le falta la IPv6 privada, que es desde donde conecta el proxy de casi
+    # cualquier host gestionado. Fly lo hacia desde fdaa::/16. Sin completar la lista,
+    # Tomcat ignora la cabecera, todas las visitas se ven como una sola direccion y
+    # comparten un unico cupo de 10 por minuto. No se rompe nada y ningun test se pone
+    # en rojo por su cuenta: por eso ProxiesDeConfianzaTest mira justo a esto.
+    #
+    # fc00::/7 no se enruta por internet, asi que fiarse de ella es igual de seguro que
+    # fiarse de 10.x: nadie de fuera puede presentarse con una IP de origen de esa
+    # familia, y por tanto nadie de fuera puede elegir su propio cupo.
+    remoteip:
+      internal-proxies: '10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.1[6-9]\.\d{1,3}\.\d{1,3}|172\.2[0-9]\.\d{1,3}\.\d{1,3}|172\.3[0-1]\.\d{1,3}\.\d{1,3}|0:0:0:0:0:0:0:1|::1|f[cd][0-9a-f]{2}:.*'
+  # Detras de un proxy (Caddy en el VPS, el de Render al desplegar), Tomcat lee
+  # X-Forwarded-For y X-Forwarded-Proto, pero solo si la conexion viene de una de las
+  # direcciones de internal-proxies de aqui arriba. Sin esto, el limite por IP contaria
+  # todas las visitas como una sola.
   forward-headers-strategy: native
   error:
     whitelabel:
