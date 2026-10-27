@@ -31,7 +31,9 @@ EXPOSE 8080
 # porque se usa java.awt.image sin pantalla.
 ENV JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=65 -Djava.awt.headless=true"
 
+# El mismo PORT que escucha la aplicacion: si el host lo inyecta y aqui siguiera clavado el
+# 8080, el contenedor se declararia enfermo estando perfectamente sano.
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD curl -fsS http://localhost:8080/api/salud || exit 1
+  CMD curl -fsS "http://localhost:${PORT:-8080}/api/salud" || exit 1
 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
