@@ -1,0 +1,711 @@
+/*
+ * Estilos de Photo Palette. Todos los valores vienen de tokens.css (D02).
+ * Lo único que entra en línea desde JavaScript son los colores de cada paleta,
+ * porque los calcula la API.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--fuente);
+  font-weight: var(--peso-cuerpo);
+  font-size: var(--txt-m);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--accent-soft);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 3px;
+  border-radius: var(--radio-muestra);
+}
+
+.salto-al-contenido {
+  position: absolute;
+  left: var(--e-2);
+  top: calc(var(--e-1) * -6);
+  z-index: 40;
+  padding: var(--e-1) var(--e-2);
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radio-boton);
+  transition: top var(--transicion);
+}
+
+.salto-al-contenido:focus {
+  top: var(--e-1);
+}
+
+/* --- Cabecera ----------------------------------------------------------- */
+
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.cabecera__interior,
+.hero,
+.feed,
+.api,
+.pie > p {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin-inline: auto;
+  padding-inline: var(--e-3);
+}
+
+.cabecera__interior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-2);
+  min-height: var(--e-8);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--e-1);
+  color: var(--accent-soft);
+  font-weight: var(--peso-titular);
+  font-size: var(--txt-l);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.logo__luna {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+
+.logo__texto {
+  color: var(--text);
+}
+
+.navegacion {
+  display: flex;
+  gap: var(--e-3);
+  font-size: var(--txt-s);
+  font-weight: var(--peso-nombre);
+}
+
+.navegacion a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.navegacion a:hover {
+  color: var(--text);
+}
+
+/* --- Hero --------------------------------------------------------------- */
+
+.hero {
+  display: grid;
+  gap: var(--e-5);
+  padding-block: var(--e-8) var(--e-6);
+}
+
+.hero__frase {
+  margin: 0;
+  font-size: var(--txt-hero);
+  font-weight: var(--peso-titular);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.hero__frase em {
+  font-style: normal;
+  color: var(--accent-soft);
+}
+
+.hero__apoyo {
+  margin: var(--e-2) 0 0;
+  max-width: 46ch;
+  color: var(--text-2);
+}
+
+.subida__caja {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--e-1);
+  padding: var(--e-5) var(--e-3);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radio-tarjeta);
+  text-align: center;
+  transition: border-color var(--transicion), background var(--transicion);
+}
+
+.subida__caja.esta-encima {
+  border-color: var(--accent);
+  background: var(--surface-alta);
+}
+
+.subida__caja.esta-ocupada {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.subida__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.subida__icono {
+  width: 28px;
+  height: 28px;
+  color: var(--accent-soft);
+}
+
+.subida__titulo {
+  margin: 0;
+  font-weight: var(--peso-nombre);
+  font-size: var(--txt-l);
+}
+
+.subida__ayuda {
+  margin: 0 0 var(--e-2);
+  color: var(--text-3);
+  font-size: var(--txt-s);
+}
+
+.subida__estado {
+  margin: var(--e-2) 0 0;
+  min-height: 1.6em;
+  font-size: var(--txt-s);
+  color: var(--text-2);
+}
+
+.subida__estado[data-tono="error"] {
+  padding: var(--e-1) var(--e-2);
+  border-radius: var(--radio-boton);
+  background: var(--error-fondo);
+  color: var(--error);
+}
+
+.subida__estado[data-tono="trabajando"] {
+  color: var(--accent-soft);
+}
+
+/* --- Botones ------------------------------------------------------------ */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-1);
+  min-height: 44px;
+  padding: 0 var(--e-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radio-boton);
+  background: var(--surface-alta);
+  color: var(--text);
+  font: inherit;
+  font-weight: var(--peso-nombre);
+  font-size: var(--txt-s);
+  cursor: pointer;
+  transition: background var(--transicion), border-color var(--transicion);
+}
+
+.boton:hover {
+  border-color: var(--accent-soft);
+}
+
+.boton--principal {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.boton--principal:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent-soft);
+}
+
+.boton--icono {
+  min-height: 40px;
+  width: 40px;
+  padding: 0;
+}
+
+.boton--icono svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Feed --------------------------------------------------------------- */
+
+.feed {
+  padding-block: var(--e-5) var(--e-8);
+}
+
+.feed__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--e-2);
+  margin-bottom: var(--e-1);
+}
+
+.feed__titulo,
+.api__titulo {
+  margin: 0;
+  font-size: var(--txt-xl);
+  font-weight: var(--peso-titular);
+  letter-spacing: -0.02em;
+}
+
+.feed__apoyo {
+  margin: 4px 0 0;
+  color: var(--text-3);
+  font-size: var(--txt-s);
+}
+
+.interruptor {
+  display: inline-flex;
+  padding: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radio-pildora);
+}
+
+.interruptor__opcion {
+  min-height: 36px;
+  padding: 0 var(--e-2);
+  border: 0;
+  border-radius: var(--radio-pildora);
+  background: transparent;
+  color: var(--text-2);
+  font: inherit;
+  font-size: var(--txt-s);
+  font-weight: var(--peso-nombre);
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion);
+}
+
+.interruptor__opcion[aria-checked="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.interruptor__explicacion {
+  margin: 0 0 var(--e-3);
+  max-width: 62ch;
+  color: var(--text-3);
+  font-size: var(--txt-s);
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--e-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radio-tarjeta);
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--transicion), transform var(--transicion);
+}
+
+.tarjeta:hover {
+  border-color: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+.tarjeta.es-nueva {
+  border-color: var(--accent);
+}
+
+.tarjeta__foto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--surface-alta);
+}
+
+.tarjeta__pie {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--e-2);
+  padding: var(--e-2) var(--e-2) var(--e-1);
+}
+
+.tarjeta__nombre {
+  font-weight: var(--peso-nombre);
+}
+
+.tarjeta__cuantos {
+  color: var(--text-3);
+  font-size: var(--txt-xs);
+  white-space: nowrap;
+}
+
+.tarjeta__etiqueta {
+  display: inline-block;
+  margin: 0 var(--e-2) var(--e-1);
+  padding: 2px var(--e-1);
+  background: var(--accent-tenue);
+  border-radius: var(--radio-pildora);
+  color: var(--accent-soft);
+  font-size: var(--txt-xs);
+  font-weight: var(--peso-nombre);
+}
+
+.muestras {
+  display: flex;
+  width: 100%;
+  gap: 4px;
+  padding: 0 var(--e-2) var(--e-2);
+}
+
+/*
+ * El ancho se calcula como si siempre hubiera seis muestras y se alinean a la
+ * izquierda. En modo vivos una foto puede dar una sola, y sin este tope esa
+ * muestra ocupaba la fila entera: un azul muy oscuro a lo ancho de la tarjeta no
+ * se lee como un color, se lee como una barra vacia.
+ */
+.muestras__color {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: calc((100% - 5 * 4px) / 6);
+  height: 40px;
+  border-radius: var(--radio-muestra);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* --- Detalle ------------------------------------------------------------ */
+
+/*
+ * El atributo hidden lo pone el UA con display:none, y una regla de clase con
+ * display:flex le gana por especificidad. Sin esto, el panel de detalle se ve al
+ * cargar la pagina, tapando la zona de subida.
+ */
+.telon[hidden],
+.detalle[hidden] {
+  display: none;
+}
+
+.telon {
+  position: fixed;
+  inset: 0;
+  z-index: 25;
+  background: rgba(5, 6, 15, 0.7);
+  backdrop-filter: blur(2px);
+}
+
+.detalle {
+  position: fixed;
+  z-index: 30;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-radius: var(--radio-tarjeta) var(--radio-tarjeta) 0 0;
+  box-shadow: var(--sombra-flotante);
+}
+
+.detalle__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-2);
+  padding: var(--e-2) var(--e-2) var(--e-2) var(--e-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.detalle__nombre {
+  margin: 0;
+  font-size: var(--txt-l);
+  font-weight: var(--peso-titular);
+}
+
+.detalle__cuerpo {
+  padding: var(--e-3);
+  overflow-y: auto;
+}
+
+.bloque + .bloque {
+  margin-top: var(--e-4);
+}
+
+.bloque__titulo {
+  margin: 0 0 var(--e-2);
+  color: var(--text-3);
+  font-size: var(--txt-xs);
+  font-weight: var(--peso-nombre);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.paleta-grande {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: var(--e-1);
+}
+
+.color-grande {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+  min-height: 112px;
+  padding: var(--e-1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radio-muestra);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.color-grande__hex {
+  font-family: var(--fuente-mono);
+  font-size: var(--txt-s);
+  font-weight: var(--peso-nombre);
+}
+
+.color-grande__dato {
+  font-size: var(--txt-xs);
+  opacity: 0.75;
+}
+
+.codigo {
+  position: relative;
+  margin: 0;
+  padding: var(--e-2);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radio-boton);
+  overflow-x: auto;
+  font-family: var(--fuente-mono);
+  font-size: var(--txt-s);
+  line-height: 1.7;
+  color: var(--text-2);
+}
+
+.codigo__acciones {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--e-1);
+}
+
+.vista-previa {
+  display: grid;
+  gap: var(--e-2);
+  padding: var(--e-3);
+  border-radius: var(--radio-tarjeta);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vista-previa__tarjeta {
+  display: grid;
+  gap: var(--e-1);
+  padding: var(--e-3);
+  border-radius: var(--radio-boton);
+}
+
+.vista-previa__titulo {
+  margin: 0;
+  font-size: var(--txt-l);
+  font-weight: var(--peso-titular);
+}
+
+.vista-previa__texto {
+  margin: 0;
+  font-size: var(--txt-s);
+  opacity: 0.85;
+}
+
+.vista-previa__boton {
+  justify-self: start;
+  margin-top: var(--e-1);
+  min-height: 40px;
+  padding: 0 var(--e-2);
+  border: 0;
+  border-radius: var(--radio-boton);
+  font: inherit;
+  font-weight: var(--peso-nombre);
+  font-size: var(--txt-s);
+}
+
+.contraste {
+  margin: 0;
+  color: var(--text-3);
+  font-size: var(--txt-xs);
+}
+
+/* --- Aviso de copiado --------------------------------------------------- */
+
+.aviso-copiado {
+  position: fixed;
+  z-index: 40;
+  left: 50%;
+  bottom: var(--e-3);
+  transform: translate(-50%, 16px);
+  margin: 0;
+  padding: var(--e-1) var(--e-2);
+  background: var(--text);
+  border-radius: var(--radio-pildora);
+  color: var(--bg);
+  font-size: var(--txt-s);
+  font-weight: var(--peso-nombre);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transicion), transform var(--transicion);
+}
+
+.aviso-copiado.se-ve {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* --- API y pie ---------------------------------------------------------- */
+
+.api {
+  padding-block: var(--e-6);
+  border-top: 1px solid var(--border);
+}
+
+.api__apoyo {
+  max-width: 60ch;
+  color: var(--text-2);
+}
+
+.api__codigo {
+  margin: var(--e-3) 0;
+  padding: var(--e-2);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radio-boton);
+  overflow-x: auto;
+  font-family: var(--fuente-mono);
+  font-size: var(--txt-s);
+  color: var(--accent-soft);
+}
+
+.api__tabla {
+  display: grid;
+  gap: var(--e-2);
+  margin: 0;
+}
+
+.api__tabla > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  padding-bottom: var(--e-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.api__tabla dt {
+  font-weight: var(--peso-nombre);
+}
+
+.api__tabla dd {
+  margin: 0;
+  color: var(--text-2);
+}
+
+.api__tabla code,
+.api__tabla dt code {
+  font-family: var(--fuente-mono);
+  font-size: var(--txt-s);
+  color: var(--accent-soft);
+}
+
+.api__pie {
+  margin-top: var(--e-3);
+  font-size: var(--txt-s);
+}
+
+.pie {
+  padding-block: var(--e-4);
+  border-top: 1px solid var(--border);
+  color: var(--text-3);
+  font-size: var(--txt-xs);
+}
+
+.vacio {
+  padding: var(--e-5) var(--e-3);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radio-tarjeta);
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* --- Escritorio --------------------------------------------------------- */
+
+@media (min-width: 720px) {
+  .hero {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    padding-block: var(--e-10) var(--e-8);
+  }
+
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .api__tabla > div {
+    grid-template-columns: 160px 1fr;
+    gap: var(--e-2);
+  }
+
+  .detalle {
+    top: 0;
+    left: auto;
+    width: min(520px, 92vw);
+    max-height: 100vh;
+    border-radius: var(--radio-tarjeta) 0 0 var(--radio-tarjeta);
+    border-top: 0;
+    border-left: 1px solid var(--border);
+  }
+}

@@ -1,0 +1,10 @@
+# Maven
+target/
+
+# Herramientas locales
+.gstack/
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db

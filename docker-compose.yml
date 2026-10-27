@@ -1,0 +1,42 @@
+# Despliegue de la API en el VPS (tarea P02).
+#
+# Contenedor propio, separado del Dr. Agramonte: si alguien tira abajo este, el otro sigue
+# en pie. Los límites no son decorativos, son lo que impide que un análisis grande se lleve
+# por delante al vecino.
+services:
+  photo-palette:
+    build: .
+    image: photo-palette:1.0.0
+    container_name: photo-palette
+    restart: unless-stopped
+
+    # Los dos límites del backlog (I03 comprueba que se respetan bajo carga).
+    mem_limit: 512m
+    cpus: 1.0
+
+    # Solo escucha en el loopback del VPS: a internet se llega por Caddy, con HTTPS.
+    # Si Caddy también va en Docker, borra este bloque, deja solo `expose` y mete los dos
+    # contenedores en la misma red.
+    ports:
+      - "127.0.0.1:8080:8080"
+    expose:
+      - "8080"
+
+    environment:
+      # La web publicada. Para probar desde otro sitio, añade orígenes separados por comas.
+      PHOTOPALETTE_ORIGENES_PERMITIDOS: "https://maragramonte.github.io"
+      PHOTOPALETTE_PETICIONES_POR_MINUTO: "10"
+      PHOTOPALETTE_ANALISIS_SIMULTANEOS: "2"
+
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8080/api/salud"]
+      interval: 30s
+      timeout: 3s
+      start_period: 40s
+      retries: 3
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

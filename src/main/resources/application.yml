@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  tomcat:
+    # Si la subida se pasa de tamano, Tomcat tiene que terminar de leer el cuerpo
+    # para poder contestar un 413 por la misma conexion. Sin este margen corta la
+    # conexion y el navegador muestra un error de red en vez del mensaje de la API.
+    max-swallow-size: 15MB
+  # Detras de Caddy, Tomcat lee X-Forwarded-For y X-Forwarded-Proto, pero solo cuando la
+  # conexion viene de un proxy de la red interna (10.x, 172.16-31.x, 192.168.x, 127.x).
+  # Sin esto, el límite por IP contaría todas las visitas como una sola.
+  forward-headers-strategy: native
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  application:
+    name: photo-palette
+  servlet:
+    multipart:
+      # El tope duro de la subida: a partir de aquí, 413.
+      max-file-size: 10MB
+      max-request-size: 11MB
+  mvc:
+    problemdetails:
+      enabled: true
+
+photopalette:
+  # La web publicada. En local se añade http://localhost:5173 con el perfil dev.
+  origenes-permitidos: https://maragramonte.github.io
+  peticiones-por-minuto: 10
+  analisis-simultaneos: 2
+
+logging:
+  level:
+    root: INFO
+    com.maragramonte.photopalette: INFO
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+photopalette:
+  origenes-permitidos: http://localhost:5173,http://127.0.0.1:5173,http://localhost:8000

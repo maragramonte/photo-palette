@@ -1,0 +1,8 @@
+[
+  { "archivo": "marcador-01.jpg", "nombre": "Marcador 1", "alt": "Foto de relleno: degradado naranja sobre un horizonte oscuro." },
+  { "archivo": "marcador-02.jpg", "nombre": "Marcador 2", "alt": "Foto de relleno: cielo nocturno azul con puntos de luz." },
+  { "archivo": "marcador-03.jpg", "nombre": "Marcador 3", "alt": "Foto de relleno: verdes de un bosque con luz lateral." },
+  { "archivo": "marcador-04.jpg", "nombre": "Marcador 4", "alt": "Foto de relleno: interior cálido en tonos tierra." },
+  { "archivo": "marcador-05.jpg", "nombre": "Marcador 5", "alt": "Foto de relleno: mar turquesa bajo un cielo claro." },
+  { "archivo": "marcador-06.jpg", "nombre": "Marcador 6", "alt": "Foto de relleno: estudio en grises de una pared." }
+]

@@ -1,0 +1,49 @@
+# Publica web/ en GitHub Pages (tarea P03).
+#
+# Pages no ejecuta Java: lo que se sube es HTML, CSS, JS, las fotos y el paletas.json que
+# genera `mvn compile exec:java@paletas`. La URL de la API vive en web/js/config.js.
+name: web
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "web/**"
+      - ".github/workflows/web.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Un despliegue a la vez, y que el nuevo gane al que estuviera en cola.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.desplegar.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Comprobar que hay paletas que enseñar
+        run: |
+          test -f web/paletas.json || {
+            echo "Falta web/paletas.json. Ejecuta: mvn compile exec:java@paletas" >&2
+            exit 1
+          }
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+      - id: desplegar
+        uses: actions/deploy-pages@v4
