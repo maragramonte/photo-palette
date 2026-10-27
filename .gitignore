@@ -1,8 +1,7 @@
 # Maven
 target/
 
-# Herramientas locales
-.gstack/
+# Registros y temporales
 *.log
 
 # Sistema
