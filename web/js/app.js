@@ -45,6 +45,7 @@
     formulario: $("formularioSubida"),
     caja: document.querySelector(".subida__caja"),
     archivo: $("archivo"),
+    probarEjemplo: $("probarEjemplo"),
     estadoSubida: $("subidaEstado"),
     telon: $("telon"),
     detalle: $("detalle"),
@@ -181,7 +182,7 @@
 
   // --- Detalle -------------------------------------------------------------
 
-  function abrirDetalle(foto, origen) {
+  function abrirDetalle(foto, origen, enVivo) {
     const paleta = paletaDe(foto);
     if (!paleta) {
       return;
@@ -189,12 +190,13 @@
     estado.abierta = foto;
     estado.devolverFocoA = origen || null;
 
+    const bloques = [bloqueMuestras(paleta), bloqueCss(paleta), bloqueVistaPrevia(paleta)];
+    if (enVivo) {
+      bloques.unshift(avisoEnVivo());
+    }
+
     nodos.detalleNombre.textContent = foto.nombre;
-    nodos.detalleCuerpo.replaceChildren(
-      bloqueMuestras(paleta),
-      bloqueCss(paleta),
-      bloqueVistaPrevia(paleta)
-    );
+    nodos.detalleCuerpo.replaceChildren(...bloques);
 
     nodos.telon.hidden = false;
     nodos.detalle.hidden = false;
@@ -319,6 +321,19 @@
 
     bloque.append(marco, nota);
     return bloque;
+  }
+
+  /** Deja claro que esta paleta no sale de paletas.json: la API la acaba de calcular. */
+  function avisoEnVivo() {
+    const aviso = document.createElement("p");
+    aviso.className = "en-vivo";
+    const punto = document.createElement("span");
+    punto.className = "en-vivo__punto";
+    punto.setAttribute("aria-hidden", "true");
+    const texto = document.createElement("span");
+    texto.textContent = "Calculada ahora mismo por la API, no leída de paletas.json.";
+    aviso.append(punto, texto);
+    return aviso;
   }
 
   function seccion(titulo) {
@@ -522,6 +537,61 @@
     nodos.estadoSubida.after(boton);
   }
 
+  // --- Foto de ejemplo -----------------------------------------------------
+
+  /**
+   * Analiza una foto del feed en vivo, para quien llega sin ninguna a mano.
+   *
+   * Usa las mismas fotos del feed a propósito: no hay que mantener un juego aparte de
+   * imágenes de ejemplo, y el día que el feed lleve fotos de verdad este botón las usa
+   * sin tocar nada.
+   *
+   * No añade tarjeta, porque duplicaría una foto que ya está en el feed. Abre el detalle
+   * directamente, que es donde está lo que se viene a ver: los colores y el bloque CSS.
+   * Y de paso demuestra algo que el feed solo no puede: que la API está viva, porque esta
+   * paleta se acaba de calcular y no viene del JSON.
+   */
+  async function analizarEjemplo() {
+    const candidatas = estado.fotos.filter((foto) => !foto.esTuya);
+    if (!candidatas.length) {
+      decirEstado("Todavía no hay ninguna foto en el feed que analizar.", "error");
+      return;
+    }
+    if (!estado.apiViva) {
+      decirEstado("La API no está disponible, así que no se puede analizar nada.", "error");
+      return;
+    }
+
+    const elegida = candidatas[Math.floor(Math.random() * candidatas.length)];
+    nodos.probarEjemplo.disabled = true;
+    decirEstado("Analizando " + elegida.nombre + " con la API…", "trabajando");
+
+    try {
+      const descarga = await fetch(elegida.archivo);
+      if (!descarga.ok) {
+        throw new Error("No se ha podido leer " + elegida.archivo + ".");
+      }
+      const blob = await descarga.blob();
+      const fichero = new File([blob], elegida.archivo.split("/").pop(), { type: blob.type });
+
+      const paleta = await conUnReintento(() => pedirPaleta(fichero, estado.modo));
+      decirEstado(
+        elegida.nombre + ": " + paleta.colores.length +
+          (paleta.colores.length === 1 ? " color" : " colores") + " en modo " + paleta.modo + ".",
+        null
+      );
+      abrirDetalle(
+        { nombre: elegida.nombre, paletas: { [estado.modo]: paleta } },
+        nodos.probarEjemplo,
+        true
+      );
+    } catch (error) {
+      decirEstado(mensajeDe(error), "error");
+    } finally {
+      nodos.probarEjemplo.disabled = false;
+    }
+  }
+
   // --- Salud ---------------------------------------------------------------
 
   /**
@@ -534,6 +604,7 @@
   async function comprobarSalud() {
     if (!API) {
       estado.apiViva = false;
+      nodos.probarEjemplo.disabled = true;
       decirEstado(
         "La subida está apagada porque no hay ninguna API configurada (web/js/config.js). " +
           "El feed funciona igual: sus paletas son estáticas.",
@@ -548,6 +619,8 @@
     } catch (error) {
       estado.apiViva = false;
     }
+
+    nodos.probarEjemplo.disabled = !estado.apiViva;
 
     if (estado.apiViva) {
       decirEstado("");
@@ -590,6 +663,7 @@
     );
 
     nodos.archivo.addEventListener("change", (evento) => subir(evento.target.files[0]));
+    nodos.probarEjemplo.addEventListener("click", analizarEjemplo);
     nodos.formulario.addEventListener("submit", (evento) => evento.preventDefault());
 
     ["dragenter", "dragover"].forEach((nombre) =>

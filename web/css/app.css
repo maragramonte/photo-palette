@@ -196,6 +196,13 @@ a {
   font-size: var(--txt-s);
 }
 
+.subida__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--e-1);
+}
+
 .subida__estado {
   margin: var(--e-2) 0 0;
   min-height: 1.6em;
@@ -234,8 +241,14 @@ a {
   transition: background var(--transicion), border-color var(--transicion);
 }
 
-.boton:hover {
+.boton:hover:not(:disabled) {
   border-color: var(--accent-soft);
+}
+
+/* Un botón desactivado que parece pulsable es una promesa falsa. */
+.boton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .boton--principal {
@@ -579,6 +592,27 @@ a {
   margin: 0;
   color: var(--text-3);
   font-size: var(--txt-xs);
+}
+
+/* Avisa de que esta paleta no sale de paletas.json: la acaba de calcular la API. */
+.en-vivo {
+  display: flex;
+  align-items: center;
+  gap: var(--e-1);
+  margin: 0 0 var(--e-2);
+  padding: var(--e-1) var(--e-2);
+  background: var(--accent-tenue);
+  border-radius: var(--radio-boton);
+  color: var(--accent-soft);
+  font-size: var(--txt-xs);
+}
+
+.en-vivo__punto {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
 }
 
 /* --- Aviso de copiado --------------------------------------------------- */

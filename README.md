@@ -64,6 +64,9 @@ Después pulsa cualquier tarjeta y copia un color.
   que cumple WCAG AA.
 - **Subir tu foto** arrastrándola o desde el botón, con sus estados de cargando, error, API
   no disponible y reintentar.
+- **Probar con una de ejemplo** para quien llega sin foto a mano: coge una del feed y la
+  manda a la API en vivo. La paleta que sale coincide con la de `paletas.json`, lo que
+  enseña de paso que el k-means es determinista y que el feed no miente.
 - **Errores legibles**: la API contesta en ProblemDetail y la web pinta ese texto tal cual,
   así que el mensaje que ves lo escribió el backend para que lo leyeras tú.
 
