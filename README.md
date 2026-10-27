@@ -5,7 +5,7 @@ te devuelve los colores en HEX y RGB, cuánto ocupa cada uno y un bloque `:root`
 de un clic. Los calcula k-means escrito a mano, sin librerías de color de terceros, y la
 foto se analiza en memoria sin guardarse en ningún sitio.
 
-`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `Fly.io` · `Caddy` · `GitHub Pages`
+`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `Caddy` · `GitHub Pages`
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
@@ -217,7 +217,7 @@ funcionando con la API caída. Para cambiar las fotos, mira
 Hace falta **JDK 21** y **Maven 3.9**. Nada más: ni base de datos, ni Node, ni cuentas.
 
 ```bash
-mvn test                                              # 90 tests
+mvn test                                              # 77 tests
 mvn spring-boot:run -Dspring-boot.run.profiles=dev    # la API en localhost:8080
 ```
 
@@ -264,7 +264,7 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
 mvn test
 ```
 
-90 tests. Los que importan no comprueban que el código corre, sino que las decisiones de
+77 tests. Los que importan no comprueban que el código corre, sino que las decisiones de
 producto se cumplen:
 
 - El naranja del sol entra entre los tres primeros colores en `vivos` y **no** entra en
@@ -276,8 +276,6 @@ producto se cumplen:
   con su `Retry-After`.
 - Ese 429 lleva cabeceras CORS, para que la web pueda enseñar el motivo en lugar de un error
   de red.
-- La lista de proxies de confianza del perfil de Fly sigue cubriendo su red privada. Si se
-  recorta, el límite por IP se vuelve un cupo único para todo el mundo sin que nada falle.
 
 ---
 
@@ -287,25 +285,16 @@ producto se cumplen:
 carpeta `web/` en cada push. Antes, pon la URL de tu API en
 [`web/js/config.js`](web/js/config.js).
 
-**La API** se despliega desde el mismo `Dockerfile` en los dos sitios:
+**La API** va a tu servidor, en su propio contenedor:
 
 ```bash
-# En tu servidor, con Caddy delante y HTTPS
 docker compose up -d --build
 curl -fsS http://localhost:8080/api/salud   # 200 sin cuerpo
 ```
 
-El contenedor no publica el 8080 a internet: solo escucha en el loopback del servidor.
-
-```bash
-# En Fly.io, mientras el servidor no esté levantado
-fly launch --no-deploy --copy-config --name photo-palette --region mad
-fly deploy
-```
-
-Los pasos completos, el coste y las dos trampas del despliegue gestionado están en
-[docs/DESPLIEGUE-FLY.md](docs/DESPLIEGUE-FLY.md). Es la misma imagen: cambiar de un sitio a
-otro no toca ni una línea de código, solo la URL de `web/js/config.js`.
+Caddy delante, con HTTPS. El contenedor no publica el 8080 a internet: solo escucha en el
+loopback del servidor. Después, la URL en
+[`web/js/config.js`](web/js/config.js) y `git push`: Pages se republica solo.
 
 ---
 
@@ -316,8 +305,8 @@ otro no toca ni una línea de código, solo la URL de `web/js/config.js`.
 - [ ] **I02** — Pasar Lighthouse en móvil y dejarlo en 90 o más.
 - [ ] **I03** — Prueba de carga: 20 subidas de 10 MB a la vez contra el mismo
       `docker-compose`. **Sin esto, la subida no se publica.**
-- [ ] **P02** — Desplegar la API, en Fly.io o en el servidor propio, y poner esa URL en
-      `web/js/config.js`.
+- [ ] **P02** — Desplegar la API en tu servidor y poner esa URL en `web/js/config.js`.
+      Antes hay que decidir su dominio.
 - [ ] **P04** — El GIF del flujo para este README.
 
 ---

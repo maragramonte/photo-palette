@@ -49,23 +49,3 @@ spring:
       on-profile: dev
 photopalette:
   origenes-permitidos: http://localhost:5173,http://127.0.0.1:5173,http://localhost:8000
-
----
-# Perfil para Fly.io.
-#
-# Fly conecta con el contenedor desde su red privada, que es IPv6 y empieza por fdaa:.
-# Esa familia no esta en la lista de proxies de confianza que Tomcat trae de serie, toda
-# IPv4, asi que sin esta linea Tomcat ignoraria X-Forwarded-For y todas las visitas
-# compartirian un unico cupo de peticiones por minuto. Es el tipo de fallo que no rompe
-# nada y deja el limite por IP sin efecto, asi que hay un test que lo vigila.
-#
-# La lista es la de Tomcat por defecto (10/8, 192.168/16, 169.254/16, 127/8, 172.16-31/12
-# y el loopback IPv6) mas el rango de Fly al final.
-spring:
-  config:
-    activate:
-      on-profile: fly
-server:
-  tomcat:
-    remoteip:
-      internal-proxies: '10\.\d{1,3}\.\d{1,3}\.\d{1,3}|192\.168\.\d{1,3}\.\d{1,3}|169\.254\.\d{1,3}\.\d{1,3}|127\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.1[6-9]\.\d{1,3}\.\d{1,3}|172\.2[0-9]\.\d{1,3}\.\d{1,3}|172\.3[0-1]\.\d{1,3}\.\d{1,3}|0:0:0:0:0:0:0:1|::1|fdaa:.*'
