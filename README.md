@@ -5,7 +5,7 @@ te devuelve los colores en HEX y RGB, cuánto ocupa cada uno y un bloque `:root`
 de un clic. Los calcula k-means escrito a mano, sin librerías de color de terceros, y la
 foto se analiza en memoria sin guardarse en ningún sitio.
 
-`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `Caddy` · `GitHub Pages`
+`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `Caddy` · `Render` · `GitHub Pages`
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
@@ -80,6 +80,77 @@ Las fotos subidas no se guardan.
 
 ---
 
+## Arquitectura
+
+Dos piezas que se despliegan por separado y no comparten estado, porque el sitio donde vive
+la web no ejecuta Java:
+
+```
+[Navegador]
+   │
+   ├─→ [GitHub Pages]  web/ estática: index.html, css, js
+   │        └── paletas.json  ← generado en tu portátil, sin pasar por la API
+   │
+   └─→ [Render] HTTPS ─→ [Spring Boot]  POST /api/paletas
+                              │             GET  /api/salud
+                              ├── FiltroLimitePorIp   10 req/min por IP (Bucket4j)
+                              ├── ServicioPaletas     Semaphore(2)
+                              ├── LectorImagen        cabecera → 40 MP → submuestreo
+                              └── ExtractorPaleta     k-means++, semilla fija
+```
+
+No hay base de datos, ni caché, ni cola, ni disco: la foto entra por el multipart, se
+decodifica a unos 40.000 píxeles en memoria y se descarta al responder. El contenedor se
+puede tirar y volver a levantar en cualquier momento sin perder nada.
+
+El feed **no llama a la API al cargar**. Sus paletas están en `paletas.json`, que un comando
+genera con el mismo código del backend, así que la página funciona entera con la API caída.
+Lo único que la necesita es subir tu propia foto, y la web lo comprueba antes de ofrecerlo:
+pregunta por `/api/salud` y, si no contesta, desactiva la zona de subida con un aviso en
+lugar de dejarla muerta.
+
+Hoy la API está en Render, en un contenedor construido con el `Dockerfile` de este
+repositorio. No hay nada del proveedor en el árbol —el puerto se lee de `PORT`— así que el
+mismo repositorio vale para Render y para un servidor propio detrás de Caddy. El frontend es
+estático, sin framework ni paso de compilación: 703 líneas de JavaScript y ni un
+`npm install`.
+
+---
+
+## Decisiones técnicas
+
+Las cuatro que explican el proyecto. Cada una está razonada en su sección.
+
+**La paleta fiel no es la paleta útil, y hacen falta las dos.** Contar píxeles es exacto y
+casi siempre inútil: en un atardecer el naranja del sol no llega al 6 % y se queda fuera.
+`vivos` cambia las cinco reglas que hacen falta para que ese naranja salga primero, a costa
+de dejar de ser un inventario de la imagen. Las dos conviven, y el interruptor del feed las
+enseña una al lado de la otra, que es la mejor forma de justificar la segunda.
+[→](#los-dos-modos)
+
+**La semilla del k-means es fija.** `new Random(42)`, y k-means++ para elegir los centros
+iniciales. Sembrar del todo al azar da una paleta distinta en cada ejecución: imposible de
+testear e imposible de publicar, porque el feed cambiaría de color entre despliegues sin que
+nadie tocara una foto. A cambio, la misma foto da siempre la misma paleta, y hay tests que
+lo comprueban.
+[→](#cómo-funciona-el-k-means)
+
+**La foto no se decodifica entera.** `LectorImagen` lee primero solo las dimensiones de la
+cabecera y rechaza más de 40 MP **sin decodificar un píxel**; después decodifica con
+`setSourceSubsampling` saltando píxeles hasta dejar unos 40.000. Una foto de 12 MP, que
+serían 48 MB en memoria, se queda en cientos de kilobytes. Es lo que hace que 512 MB de
+contenedor basten.
+[→](#cómo-funciona-el-k-means)
+
+**Los límites son parte del contrato, no de la configuración.** 10 MB, 40 MP, dos análisis
+simultáneos y diez peticiones por minuto y por IP están documentados con su código HTTP
+—413, 422, 503, 429— porque esta API va a compartir servidor y un pico de uso no puede
+llevarse por delante al vecino. CORS no es uno de ellos: solo decide qué webs pueden
+llamarla desde el navegador, y un script sin navegador lo ignora.
+[→](#los-límites-y-por-qué-están)
+
+---
+
 ## Los dos modos
 
 `presentes` agrupa los píxeles y los ordena por cuántos hay. Fin.
@@ -92,10 +163,12 @@ Las fotos subidas no se guardan.
 3. Descarta los grupos con menos del 0,5 % de los píxeles con luz. Eso es ruido del sensor o
    una mota, no un color de la foto.
 4. Ordena por saturación, no por tamaño.
-5. Descarta el color que repite **el tono y el brillo** de uno ya elegido. Los cuatro azules
-   casi iguales de un cielo nocturno colapsan en uno; el marrón de la sombra y el naranja del
-   sol, que comparten tono pero no brillo, sobreviven los dos, porque para quien va a pintar
-   una web ese par es justo el útil.
+5. Descarta el color que repite **el tono y el brillo** de uno ya elegido: entra si su tono
+   se separa 25° o más en el círculo, o si comparte tono pero el brillo cambia en 0,25. Los
+   cuatro azules casi iguales de un cielo nocturno colapsan en uno; el marrón de la sombra y
+   el naranja del sol, que comparten tono pero no brillo, sobreviven los dos, porque para
+   quien va a pintar una web ese par es justo el útil. Por debajo de 0,12 de saturación un
+   color no tiene tono que comparar, así que los grises se separan solo por brillo.
 
 Por eso `vivos` **puede devolver menos colores de los que pides**, y uno solo si la foto es
 monocroma. No es un fallo: está en el contrato y el feed lo pinta bien.
@@ -223,7 +296,7 @@ funcionando con la API caída. Para cambiar las fotos, mira
 Hace falta **JDK 21** y **Maven 3.9**. Nada más: ni base de datos, ni Node, ni cuentas.
 
 ```bash
-mvn test                                              # 77 tests
+mvn test                                              # 92 tests
 mvn spring-boot:run -Dspring-boot.run.profiles=dev    # la API en localhost:8080
 ```
 
@@ -270,7 +343,7 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
 mvn test
 ```
 
-77 tests. Los que importan no comprueban que el código corre, sino que las decisiones de
+92 tests. Los que importan no comprueban que el código corre, sino que las decisiones de
 producto se cumplen:
 
 - El naranja del sol entra entre los tres primeros colores en `vivos` y **no** entra en
