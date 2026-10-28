@@ -12,8 +12,9 @@
   const EN_LOCAL = ["localhost", "127.0.0.1", ""].includes(location.hostname);
 
   window.PHOTO_PALETTE = {
-    // Publicado: pon aquí la URL de tu API en el VPS, por ejemplo "https://api.tudominio.com".
-    api: EN_LOCAL ? "http://localhost:8080" : "",
+    // Publicado: la API en Render, en su contenedor con este mismo Dockerfile. Cuando el
+    // servidor propio esté levantado, aquí se pone su dominio y no hay que tocar nada más.
+    api: EN_LOCAL ? "http://localhost:8080" : "https://photo-palette.onrender.com",
     repositorio: "https://github.com/maragramonte/photo-palette",
   };
 })();
