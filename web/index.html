@@ -139,7 +139,14 @@
 
   <p class="aviso-copiado" id="avisoCopiado" role="status" aria-live="polite"></p>
 
-  <script src="js/config.js"></script>
-  <script src="js/app.js"></script>
+  <!--
+    El ?v= no es decoración: Pages sirve estos dos ficheros con Cache-Control: max-age=600.
+    Sin él, quien ya tuviera la página abierta seguía ejecutando el config.js viejo durante
+    diez minutos después de un despliegue, mientras el index.html sí se revalidaba. Esa
+    mezcla enseñaba «no hay ninguna API configurada» con la API funcionando, que es peor que
+    no decir nada. Súbele el número cada vez que cambie config.js o app.js.
+  -->
+  <script src="js/config.js?v=2"></script>
+  <script src="js/app.js?v=2"></script>
 </body>
 </html>
