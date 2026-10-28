@@ -110,6 +110,14 @@ monocroma. No es un fallo: está en el contrato y el feed lo pinta bien.
 curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F imagen=@atardecer.jpg
 ```
 
+> **En PowerShell, `curl` no es curl**: es un alias de `Invoke-WebRequest`, que no entiende
+> `-X` ni `-F` y falla antes de salir de tu máquina. Llama al de verdad por su nombre
+> completo, y entrecomilla el `-F` para que PowerShell no parta el argumento por el `@`:
+>
+> ```powershell
+> curl.exe -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F "imagen=@atardecer.jpg"
+> ```
+
 ```json
 {
   "modo": "vivos",
