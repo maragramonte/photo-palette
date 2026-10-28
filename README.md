@@ -42,10 +42,13 @@ de esa página está escrito a mano.
 entero. La foto gris de abajo a la derecha saca de pronto un rojo que `presentes` ni ve.
 Después pulsa cualquier tarjeta y copia un color.
 
-> **Estado del despliegue.** La web está en marcha; **la API todavía no**. Por eso la zona
-> de subida aparece apagada con el motivo escrito. El feed funciona igual, porque sus
-> paletas viven en un JSON estático. Para levantar la API en tu máquina, abajo están los dos
-> comandos.
+> **Estado del despliegue.** Las dos piezas están en marcha: la web en GitHub Pages y la API
+> en Render, en un contenedor construido con el mismo `Dockerfile` de este repositorio. La
+> instancia es gratuita y **se duerme a los quince minutos sin tráfico**, así que si eres el
+> primero en llegar en un rato, la primera llamada tarda unos treinta segundos. La web lo
+> sabe: pregunta por `/api/salud` al cargar y te lo dice mientras despierta, en vez de
+> dejar la zona de subida muda. El feed no espera a nadie, porque sus paletas viven en un
+> JSON estático.
 
 ![El feed en modo Vivos: dos tarjetas con su foto y sus muestras de color debajo. La del atardecer da seis colores encabezados por el naranja del sol; la del cielo estrellado da uno solo, porque sus cuatro azules son el mismo tono](docs/capturas/02-feed-vivos.jpg)
 
@@ -104,7 +107,7 @@ monocroma. No es un fallo: está en el contrato y el feed lo pinta bien.
 `POST /api/paletas` · `multipart/form-data`, campo `imagen`
 
 ```bash
-curl -X POST "https://TU-API/api/paletas?n=6&modo=vivos" -F imagen=@atardecer.jpg
+curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F imagen=@atardecer.jpg
 ```
 
 ```json
@@ -288,7 +291,12 @@ producto se cumplen:
 carpeta `web/` en cada push. Antes, pon la URL de tu API en
 [`web/js/config.js`](web/js/config.js).
 
-**La API** va a tu servidor, en su propio contenedor:
+**La API** está hoy en Render, en un contenedor que Render construye con este mismo
+`Dockerfile`. No hay un `render.yaml` ni nada específico del proveedor en el repositorio: el
+puerto se lee de `PORT`, que es lo único que pide un host gestionado, y por eso el mismo
+árbol vale para Render y para un servidor propio sin tocar una línea.
+
+En tu servidor es un `docker compose`:
 
 ```bash
 docker compose up -d --build
@@ -296,7 +304,7 @@ curl -fsS http://localhost:8080/api/salud   # 200 sin cuerpo
 ```
 
 Caddy delante, con HTTPS. El contenedor no publica el 8080 a internet: solo escucha en el
-loopback del servidor. Después, la URL en
+loopback del servidor. Sea cual sea el host, la URL va a
 [`web/js/config.js`](web/js/config.js) y `git push`: Pages se republica solo.
 
 ---
@@ -306,10 +314,13 @@ loopback del servidor. Después, la URL en
 - [ ] **D03** — Las seis fotos del feed son relleno generado. Cambiarlas por las reales
       ([`web/fotos/LEEME.md`](web/fotos/LEEME.md)) y volver a ejecutar el generador.
 - [ ] **I02** — Pasar Lighthouse en móvil y dejarlo en 90 o más.
-- [ ] **I03** — Prueba de carga: 20 subidas de 10 MB a la vez contra el mismo
-      `docker-compose`. **Sin esto, la subida no se publica.**
-- [ ] **P02** — Desplegar la API en tu servidor y poner esa URL en `web/js/config.js`.
-      Antes hay que decidir su dominio.
+- [ ] **I03** — Prueba de carga: 20 subidas de 10 MB a la vez contra los mismos 512 MB.
+      **La subida se publicó antes de hacerla**, así que por ahora lo único que sujeta la
+      instancia son los límites del contrato: 10 MB por archivo, 40 MP, dos análisis
+      simultáneos y diez peticiones por minuto y por IP. Es una deuda consciente, no un
+      descuido.
+- [x] **P02** — La API está desplegada y su URL vive en `web/js/config.js`. Está en Render
+      y no en servidor propio, que sigue siendo el destino cuando haya dominio que decidir.
 - [ ] **P04** — El GIF del flujo para este README.
 
 ---
