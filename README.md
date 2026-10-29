@@ -181,7 +181,7 @@ consulta al cargar: si falla, apaga la subida con un aviso y el feed sigue funci
 5. Los grupos vacíos se descartan. Pedirle 6 colores a una foto que solo tiene 3 devuelve 3.
 
 La distancia es euclídea sobre RGB. Es la que peor se parece a cómo vemos los colores
-—CIELAB sería más fiel—, pero es la que se entiende de un vistazo y la que hace necesario el
+(CIELAB sería más fiel), pero es la que se entiende de un vistazo y la que hace necesario el
 modo `vivos`. Cambiarla es una mejora futura, no una corrección pendiente.
 
 ---
@@ -248,7 +248,7 @@ llamadas desde `localhost`; sin él, la API solo responde al navegador desde
 
 Cómo se trabaja en el repositorio, en [docs/DESARROLLO.md](docs/DESARROLLO.md). El concepto,
 el sketch y el backlog, en
-[Photo Palette — concepto, sketch y backlog.md](Photo%20Palette%20%E2%80%94%20concepto,%20sketch%20y%20backlog.md).
+[docs/CONCEPTO.md](docs/CONCEPTO.md).
 
 ---
 
@@ -319,17 +319,17 @@ loopback del servidor. Sea cual sea el host, la URL va a
 
 ## Lo que falta
 
-- [ ] **D03** — Las seis fotos del feed son relleno generado. Cambiarlas por las reales
+- [ ] **D03**: Las seis fotos del feed son relleno generado. Cambiarlas por las reales
       ([`web/fotos/LEEME.md`](web/fotos/LEEME.md)) y volver a ejecutar el generador.
-- [ ] **I02** — Pasar Lighthouse en móvil y dejarlo en 90 o más.
-- [ ] **I03** — Prueba de carga: 20 subidas de 10 MB a la vez contra los mismos 512 MB.
+- [ ] **I02**: Pasar Lighthouse en móvil y dejarlo en 90 o más.
+- [ ] **I03**, Prueba de carga: 20 subidas de 10 MB a la vez contra los mismos 512 MB.
       **La subida se publicó antes de hacerla**, así que por ahora lo único que sujeta la
       instancia son los límites del contrato: 10 MB por archivo, 40 MP, dos análisis
       simultáneos y diez peticiones por minuto y por IP. Es una deuda consciente, no un
       descuido.
-- [x] **P02** — La API está desplegada y su URL vive en `web/js/config.js`. Está en Render
+- [x] **P02**: La API está desplegada y su URL vive en `web/js/config.js`. Está en Render
       y no en servidor propio, que sigue siendo el destino cuando haya dominio que decidir.
-- [ ] **P04** — El GIF del flujo para este README.
+- [ ] **P04**: El GIF del flujo para este README.
 
 ---
 

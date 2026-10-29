@@ -1,4 +1,4 @@
-# Photo Palette — concepto, sketch y backlog
+# Photo Palette: concepto, sketch y backlog
 
 Oct 26, 2026 · @Mar
 
@@ -110,47 +110,47 @@ Son 26 tareas en 14–17 días a tiempo parcial. Es menos que el plan anterior p
 
 ### 01 · Cerrar backend (1–2 días)
 
-- [ ] **B01** Compilar `paleta` en local y dejar los 21 tests en verde — *`mvn test` pasa sin tocar nada a mano.*
-- [ ] **B02** Renombrar a `photo-palette` (repo, `artifactId`, README) — *el nombre es el mismo en GitHub, la web y las redes.*
-- [ ] **B03** Modo `vivos` en `ExtractorPaleta` — *con el atardecer, el naranja del sol sale entre los 3 primeros colores.*
-- [ ] **B04** Añadir `modo` y `variable` al JSON — *la respuesta coincide con la sección Contrato.*
-- [ ] **B05** Tests del modo `vivos` y de `modo` inválido — *un test por regla nueva y el 400 cubierto.*
+- [ ] **B01** Compilar `paleta` en local y dejar los 21 tests en verde: *`mvn test` pasa sin tocar nada a mano.*
+- [ ] **B02** Renombrar a `photo-palette` (repo, `artifactId`, README): *el nombre es el mismo en GitHub, la web y las redes.*
+- [ ] **B03** Modo `vivos` en `ExtractorPaleta`: *con el atardecer, el naranja del sol sale entre los 3 primeros colores.*
+- [ ] **B04** Añadir `modo` y `variable` al JSON: *la respuesta coincide con la sección Contrato.*
+- [ ] **B05** Tests del modo `vivos` y de `modo` inválido: *un test por regla nueva y el 400 cubierto.*
 
-* [ ] **B06** Comando Java que genera `paletas.json` con las fotos del feed en los dos modos — *un `mvn` y el JSON queda en la carpeta de la web.*
-* [ ] **B07** CORS solo para `https://maragramonte.github.io` — *un test que compruebe que otro origen se rechaza.*
+* [ ] **B06** Comando Java que genera `paletas.json` con las fotos del feed en los dos modos: *un `mvn` y el JSON queda en la carpeta de la web.*
+* [ ] **B07** CORS solo para `https://maragramonte.github.io`: *un test que compruebe que otro origen se rechaza.*
 
-- [ ] **B08** Lectura segura: leer primero las dimensiones con `ImageReader` y rechazar más de 40 MP; después decodificar con `setSourceSubsampling` — *una foto de 12 MP no pasa de 10 MB de memoria al analizarse.*
-- [ ] **B09** Límites de uso: `Semaphore(2)` con 503 y 10 peticiones por minuto por IP con 429 (Bucket4j, con server.forward-headers-strategy=native para leer la IP real de X-Forwarded-For solo si viene de la red interna de Docker, y el puerto 8080 sin publicar fuera del VPS) — *un test para cada código, y otro que compruebe que dos IP distintas detrás del proxy tienen límites separados.*
-- [ ] **B10** `GET /api/salud` — *responde 200 y está fuera del límite por IP.*
+- [ ] **B08** Lectura segura: leer primero las dimensiones con `ImageReader` y rechazar más de 40 MP; después decodificar con `setSourceSubsampling`: *una foto de 12 MP no pasa de 10 MB de memoria al analizarse.*
+- [ ] **B09** Límites de uso: `Semaphore(2)` con 503 y 10 peticiones por minuto por IP con 429 (Bucket4j, con server.forward-headers-strategy=native para leer la IP real de X-Forwarded-For solo si viene de la red interna de Docker, y el puerto 8080 sin publicar fuera del VPS): *un test para cada código, y otro que compruebe que dos IP distintas detrás del proxy tienen límites separados.*
+- [ ] **B10** `GET /api/salud`: *responde 200 y está fuera del límite por IP.*
 
 ### 02 · Diseño (2 días)
 
-- [ ] **D01** Cerrar el sketch de este documento — *una sola página con: cabecera, hero con subida, feed y panel de detalle.*
-- [ ] **D02** Tokens en CSS: colores, tipografía (Inter), espaciado de 8 en 8, radio 16 — *un `tokens.css` y ningún valor suelto en el resto.*
-- [ ] **D03** Elegir 6 fotos, exportarlas en JPG a 1600 px (la API no lee WebP) — *cada una pesa menos de 300 KB y tiene un texto `alt`.*
+- [ ] **D01** Cerrar el sketch de este documento, *una sola página con: cabecera, hero con subida, feed y panel de detalle.*
+- [ ] **D02** Tokens en CSS: colores, tipografía (Inter), espaciado de 8 en 8, radio 16: *un `tokens.css` y ningún valor suelto en el resto.*
+- [ ] **D03** Elegir 6 fotos, exportarlas en JPG a 1600 px (la API no lee WebP): *cada una pesa menos de 300 KB y tiene un texto `alt`.*
 
 ### 03 · Frontend (4–5 días)
 
-- [ ] **F01** Cabecera, hero y feed responsive — *1 columna en móvil y 2 en escritorio, sin scroll horizontal a 360 px.*
-- [ ] **F02** El feed lee paletas.json (generado en B06) al cargar — *ningún color escrito a mano en el HTML.*
-- [ ] **F03** Subida por arrastre o botón, con estados de cargando, error, API no disponible y reintentar — *el error muestra el `detail` de la API.*
-- [ ] **F04** Clic en un color copia el HEX, con aviso "Copiado" — *funciona con teclado (Enter) además de con ratón.*
-- [ ] **F05** Vista previa: tarjeta con fondo, texto y botón de la paleta — *el texto elige blanco o negro según el contraste (WCAG AA).*
-- [ ] **F06** Interruptor presentes / vivos — *cambia la paleta sin recargar la página.*
+- [ ] **F01** Cabecera, hero y feed responsive: *1 columna en móvil y 2 en escritorio, sin scroll horizontal a 360 px.*
+- [ ] **F02** El feed lee paletas.json (generado en B06) al cargar: *ningún color escrito a mano en el HTML.*
+- [ ] **F03** Subida por arrastre o botón, con estados de cargando, error, API no disponible y reintentar: *el error muestra el `detail` de la API.*
+- [ ] **F04** Clic en un color copia el HEX, con aviso "Copiado": *funciona con teclado (Enter) además de con ratón.*
+- [ ] **F05** Vista previa: tarjeta con fondo, texto y botón de la paleta: *el texto elige blanco o negro según el contraste (WCAG AA).*
+- [ ] **F06** Interruptor presentes / vivos: *cambia la paleta sin recargar la página.*
 
 ### 04 · Integración y pruebas (2 días)
 
-- [ ] **I01** Probar fotos de 10 MB, un .txt renombrado a .jpg, un PNG transparente y una foto de un solo color — *ninguna rompe la página.*
-- [ ] **I02** Accesibilidad y rendimiento — *Lighthouse ≥ 90 en accesibilidad y rendimiento en móvil.*
+- [ ] **I01** Probar fotos de 10 MB, un .txt renombrado a .jpg, un PNG transparente y una foto de un solo color: *ninguna rompe la página.*
+- [ ] **I02** Accesibilidad y rendimiento: *Lighthouse ≥ 90 en accesibilidad y rendimiento en móvil.*
 
-* [ ] **I03** Prueba de carga en local, con el mismo `docker-compose` y los mismos límites que en el VPS: 20 subidas de 10 MB a la vez — *el contenedor no pasa de 512 MB, responde 503 o 429 en vez de caerse, y el Dr. Agramonte sigue respondiendo. Sin esto, la subida no se publica.*
+* [ ] **I03** Prueba de carga en local, con el mismo `docker-compose` y los mismos límites que en el VPS: 20 subidas de 10 MB a la vez: *el contenedor no pasa de 512 MB, responde 503 o 429 en vez de caerse, y el Dr. Agramonte sigue respondiendo. Sin esto, la subida no se publica.*
 
 ### 05 · Publicación (2–3 días)
 
-- [ ] **P01** Dockerfile probado y GitHub Actions con `mvn test` en cada push — *el badge del README está en verde.*
-- [ ] **P02** Desplegar la API en tu VPS, solo después de I03: contenedor propio con mem\_limit 512m, cpus 1.0 y restart: unless-stopped, detrás de Caddy con HTTPS. Primero a mano, sin automatizar — *`curl` a `/api/paletas` desde fuera devuelve 200.*
-- [ ] **P03** Publicar la web en GitHub Pages con un workflow de Actions; la URL de la API va en un `config.js` — *la demo abre en `maragramonte.github.io/photo-palette` y la subida funciona desde el móvil.*
-- [ ] **P04** README con GIF del flujo, contrato y explicación del k-means — *alguien lo arranca sin preguntarte nada.*
+- [ ] **P01** Dockerfile probado y GitHub Actions con `mvn test` en cada push: *el badge del README está en verde.*
+- [ ] **P02** Desplegar la API en tu VPS, solo después de I03: contenedor propio con mem\_limit 512m, cpus 1.0 y restart: unless-stopped, detrás de Caddy con HTTPS. Primero a mano, sin automatizar: *`curl` a `/api/paletas` desde fuera devuelve 200.*
+- [ ] **P03** Publicar la web en GitHub Pages con un workflow de Actions; la URL de la API va en un `config.js`: *la demo abre en `maragramonte.github.io/photo-palette` y la subida funciona desde el móvil.*
+- [ ] **P04** README con GIF del flujo, contrato y explicación del k-means: *alguien lo arranca sin preguntarte nada.*
 
 **Pregunta abierta:** ¿qué dominio propio usas para la API? No la colgaría de dragramonte.com. Decide antes de P02. Lo demás ya está decidido: la web en GitHub Pages y la API en tu VPS.
 
