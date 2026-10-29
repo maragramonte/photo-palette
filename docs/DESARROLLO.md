@@ -2,7 +2,7 @@
 
 Cómo se trabaja en este repositorio. Qué es el proyecto y por qué está en el
 [README](../README.md); el contrato, el sketch y el backlog están en
-[`Photo Palette — concepto, sketch y backlog.md`](../Photo%20Palette%20%E2%80%94%20concepto,%20sketch%20y%20backlog.md),
+[`CONCEPTO.md`](CONCEPTO.md),
 que es la fuente de la verdad.
 
 ## Cómo se mueve esto

@@ -9,34 +9,28 @@ foto se analiza en memoria sin guardarse en ningún sitio.
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
-### 👉 **<https://maragramonte.github.io/photo-palette/>**
+Web: <https://maragramonte.github.io/photo-palette/>
 
 ![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta. Esta API la encuentra» junto a una zona para soltar una foto, y debajo el feed con el interruptor entre «Más presentes» y «Vivos»](docs/capturas/01-portada.jpg)
 
 ---
 
-## El problema
+## Por qué dos modos
 
-Un extractor de paletas corriente te da los colores que más píxeles ocupan. Es exacto y casi
-siempre inútil. En un atardecer, los dos tonos oscuros se comen más de la mitad de la imagen
-y el naranja del sol no llega al 6 %: la paleta sale correcta, apagada y sin el color por el
-que hiciste la foto. En un cielo estrellado salen cuatro azules casi iguales.
+La mayoría de extractores de paletas te dan los colores que más píxeles ocupan. Con un
+atardecer eso falla: los dos tonos oscuros ocupan más de la mitad de la imagen y el naranja
+del sol no llega al 6 %. La paleta es correcta, pero le falta justo el color por el que
+hiciste la foto. Con un cielo estrellado salen cuatro azules casi iguales.
 
-Quien busca una paleta no quiere un inventario de la imagen. Quiere los cuatro colores con
-los que podría pintar una web mañana.
-
-**La decisión de producto que define este proyecto es que la paleta fiel no es la paleta
-útil**, y que las dos merecen existir. De ahí los dos modos: `presentes` cuenta píxeles,
-`vivos` busca los colores que uno recuerda de la foto. El interruptor del feed las enseña
-una al lado de la otra, que es la mejor forma de explicar por qué hacía falta la segunda.
+Por eso hay dos modos. `presentes` cuenta píxeles; `vivos` busca los colores que recuerdas
+de la foto. En el feed puedes cambiar de uno a otro y ver la diferencia.
 
 ---
 
 ## Probarlo
 
-**▶ [La web está publicada](https://maragramonte.github.io/photo-palette/).** Cada `git push`
-a `main` la republica sola. Las seis fotos del feed llevan su paleta real: ni un solo color
-de esa página está escrito a mano.
+[La web está publicada](https://maragramonte.github.io/photo-palette/) y cada `git push` a
+`main` la vuelve a publicar. Las seis fotos del feed llevan la paleta que calcula la API.
 
 **Para verlo en diez segundos:** dale al interruptor **Vivos** y mira cómo cambia el feed
 entero. La foto gris de abajo a la derecha saca de pronto un rojo que `presentes` ni ve.
@@ -181,7 +175,7 @@ consulta al cargar: si falla, apaga la subida con un aviso y el feed sigue funci
 5. Los grupos vacíos se descartan. Pedirle 6 colores a una foto que solo tiene 3 devuelve 3.
 
 La distancia es euclídea sobre RGB. Es la que peor se parece a cómo vemos los colores
-—CIELAB sería más fiel—, pero es la que se entiende de un vistazo y la que hace necesario el
+(CIELAB sería más fiel), pero es la que se entiende de un vistazo y la que hace necesario el
 modo `vivos`. Cambiarla es una mejora futura, no una corrección pendiente.
 
 ---
@@ -196,7 +190,7 @@ se lleve por delante al vecino:
 | Tamaño del archivo | 10 MB | Un POST de 500 MB llena el disco del multipart |
 | Megapíxeles | 40 MP | Una foto de 200 MP reserva 800 MB antes de hacer nada |
 | Muestra del k-means | ~40.000 píxeles | El análisis pasa de milisegundos a segundos |
-| Análisis simultáneos | 2 (`Semaphore`) | Diez a la vez se comen los 512 MB del contenedor |
+| Análisis simultáneos | 2 (`Semaphore`) | Diez a la vez agotan los 512 MB del contenedor |
 | Peticiones por IP | 10 por minuto (Bucket4j) | Un script sin navegador tumba el VPS gratis |
 | Memoria del contenedor | 512 MB (`mem_limit`) | El OOM killer elige a quién matar, y puede no ser este |
 
@@ -248,7 +242,7 @@ llamadas desde `localhost`; sin él, la API solo responde al navegador desde
 
 Cómo se trabaja en el repositorio, en [docs/DESARROLLO.md](docs/DESARROLLO.md). El concepto,
 el sketch y el backlog, en
-[Photo Palette — concepto, sketch y backlog.md](Photo%20Palette%20%E2%80%94%20concepto,%20sketch%20y%20backlog.md).
+[docs/CONCEPTO.md](docs/CONCEPTO.md).
 
 ---
 
@@ -319,17 +313,17 @@ loopback del servidor. Sea cual sea el host, la URL va a
 
 ## Lo que falta
 
-- [ ] **D03** — Las seis fotos del feed son relleno generado. Cambiarlas por las reales
+- [ ] **D03**: Las seis fotos del feed son relleno generado. Cambiarlas por las reales
       ([`web/fotos/LEEME.md`](web/fotos/LEEME.md)) y volver a ejecutar el generador.
-- [ ] **I02** — Pasar Lighthouse en móvil y dejarlo en 90 o más.
-- [ ] **I03** — Prueba de carga: 20 subidas de 10 MB a la vez contra los mismos 512 MB.
+- [ ] **I02**: Pasar Lighthouse en móvil y dejarlo en 90 o más.
+- [ ] **I03**, Prueba de carga: 20 subidas de 10 MB a la vez contra los mismos 512 MB.
       **La subida se publicó antes de hacerla**, así que por ahora lo único que sujeta la
       instancia son los límites del contrato: 10 MB por archivo, 40 MP, dos análisis
       simultáneos y diez peticiones por minuto y por IP. Es una deuda consciente, no un
       descuido.
-- [x] **P02** — La API está desplegada y su URL vive en `web/js/config.js`. Está en Render
+- [x] **P02**: La API está desplegada y su URL vive en `web/js/config.js`. Está en Render
       y no en servidor propio, que sigue siendo el destino cuando haya dominio que decidir.
-- [ ] **P04** — El GIF del flujo para este README.
+- [ ] **P04**: El GIF del flujo para este README.
 
 ---
 
