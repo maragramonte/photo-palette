@@ -9,34 +9,28 @@ foto se analiza en memoria sin guardarse en ningún sitio.
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
-### 👉 **<https://maragramonte.github.io/photo-palette/>**
+Web: <https://maragramonte.github.io/photo-palette/>
 
 ![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta. Esta API la encuentra» junto a una zona para soltar una foto, y debajo el feed con el interruptor entre «Más presentes» y «Vivos»](docs/capturas/01-portada.jpg)
 
 ---
 
-## El problema
+## Por qué dos modos
 
-Un extractor de paletas corriente te da los colores que más píxeles ocupan. Es exacto y casi
-siempre inútil. En un atardecer, los dos tonos oscuros se comen más de la mitad de la imagen
-y el naranja del sol no llega al 6 %: la paleta sale correcta, apagada y sin el color por el
-que hiciste la foto. En un cielo estrellado salen cuatro azules casi iguales.
+La mayoría de extractores de paletas te dan los colores que más píxeles ocupan. Con un
+atardecer eso falla: los dos tonos oscuros ocupan más de la mitad de la imagen y el naranja
+del sol no llega al 6 %. La paleta es correcta, pero le falta justo el color por el que
+hiciste la foto. Con un cielo estrellado salen cuatro azules casi iguales.
 
-Quien busca una paleta no quiere un inventario de la imagen. Quiere los cuatro colores con
-los que podría pintar una web mañana.
-
-**La decisión de producto que define este proyecto es que la paleta fiel no es la paleta
-útil**, y que las dos merecen existir. De ahí los dos modos: `presentes` cuenta píxeles,
-`vivos` busca los colores que uno recuerda de la foto. El interruptor del feed las enseña
-una al lado de la otra, que es la mejor forma de explicar por qué hacía falta la segunda.
+Por eso hay dos modos. `presentes` cuenta píxeles; `vivos` busca los colores que recuerdas
+de la foto. En el feed puedes cambiar de uno a otro y ver la diferencia.
 
 ---
 
 ## Probarlo
 
-**▶ [La web está publicada](https://maragramonte.github.io/photo-palette/).** Cada `git push`
-a `main` la republica sola. Las seis fotos del feed llevan su paleta real: ni un solo color
-de esa página está escrito a mano.
+[La web está publicada](https://maragramonte.github.io/photo-palette/) y cada `git push` a
+`main` la vuelve a publicar. Las seis fotos del feed llevan la paleta que calcula la API.
 
 **Para verlo en diez segundos:** dale al interruptor **Vivos** y mira cómo cambia el feed
 entero. La foto gris de abajo a la derecha saca de pronto un rojo que `presentes` ni ve.
@@ -196,7 +190,7 @@ se lleve por delante al vecino:
 | Tamaño del archivo | 10 MB | Un POST de 500 MB llena el disco del multipart |
 | Megapíxeles | 40 MP | Una foto de 200 MP reserva 800 MB antes de hacer nada |
 | Muestra del k-means | ~40.000 píxeles | El análisis pasa de milisegundos a segundos |
-| Análisis simultáneos | 2 (`Semaphore`) | Diez a la vez se comen los 512 MB del contenedor |
+| Análisis simultáneos | 2 (`Semaphore`) | Diez a la vez agotan los 512 MB del contenedor |
 | Peticiones por IP | 10 por minuto (Bucket4j) | Un script sin navegador tumba el VPS gratis |
 | Memoria del contenedor | 512 MB (`mem_limit`) | El OOM killer elige a quién matar, y puede no ser este |
 
