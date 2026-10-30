@@ -22,11 +22,11 @@ en memoria dentro de los propios tests.
 
 ## Qué hay
 
-**94 pruebas** en dos niveles:
+**98 pruebas** en dos niveles:
 
 | Nivel | Pruebas | Qué cubre |
 | --- | --- | --- |
-| Unitarias | 70 | `ExtractorPaleta` (29), `LectorImagen` (11), el contrato del JSON de salida (12), `ServicioPaletas` (3) y la lista de proxies de confianza (15) |
+| Unitarias | 74 | `ExtractorPaleta` (29), `LectorImagen` (11), el contrato del JSON de salida (12), `ServicioPaletas` (3), la lista de proxies de confianza (15) y la purga del límite por IP (4) |
 | HTTP | 24 | La aplicación entera levantada con `@SpringBootTest` y MockMvc: el controlador, los errores en ProblemDetail, el límite por IP, el tope de subidas, CORS y el servidor ocupado |
 
 Las que importan no comprueban que el código corre, sino que las decisiones de producto se
@@ -46,6 +46,9 @@ cumplen:
 - Si alguien recorta la IPv6 privada de la lista de proxies de confianza, falla un test. Sin
   él no fallaría nada: el servicio respondería igual, pero todas las visitas compartirían un
   único cupo.
+- Al pasar de 10.000 IP, el límite olvida las que llevan diez minutos sin volver, pero no a
+  las activas: una IP con su 429 no lo pierde porque otras manden peticiones. Se prueba con
+  un tope de 3 y el reloj movido a mano.
 
 ---
 
@@ -54,9 +57,9 @@ cumplen:
 | | Líneas | Ramas |
 | --- | --- | --- |
 | `dominio` | 97,9 % | 93,8 % |
-| `web` | 93,2 % | 76,9 % |
-| **La API entera** | **96,2 %** | **90,6 %** |
-| Contando el generador de `paletas.json` | 79,7 % | 78,3 % |
+| `web` | 97,9 % | 80,8 % |
+| **La API entera** | **97,4 %** | **91,4 %** |
+| Contando el generador de `paletas.json` | 80,9 % | 78,9 % |
 
 `mvn verify` falla si la API baja del 90 % de líneas o del 85 % de ramas. El suelo está por
 debajo de lo medido a propósito: tiene que avisar cuando se deja de probar algo, no cuando
@@ -66,10 +69,8 @@ El generador de `paletas.json` (`cli/`) no tiene tests. Se ejecuta a mano con
 `mvn compile exec:java@paletas` y su resultado se mira en la web antes de publicarlo. Sale en
 el informe con su 0 %, pero no cuenta para el suelo.
 
-Las ramas de `web` son las más flojas. Lo que importa de lo que queda fuera es la purga de
-`FiltroLimitePorIp`: cuando el mapa pasa de 10.000 IP, olvida las que llevan diez minutos sin
-volver, y es lo que impide que crezca sin tope. Ningún test llega a esas 10.000. El resto son
-caminos poco probables, como un `IOException` al leer la subida en el controlador.
+Las ramas de `web` son las más flojas, pero lo que queda fuera son caminos poco probables,
+como un `IOException` al leer la subida en el controlador.
 
 ---
 

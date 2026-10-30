@@ -80,7 +80,7 @@
             <phase>verify</phase>
             <goals><goal>report</goal></goals>
           </execution>
-          <!-- Suelo por debajo de lo medido (96 % de líneas y 91 % de ramas en la API),
+          <!-- Suelo por debajo de lo medido (97 % de líneas y 91 % de ramas en la API),
                para que avise si baja de verdad y no por un if de más. El generador de
                paletas.json es una herramienta de desarrollo que se ejecuta a mano: sale en
                el informe, pero no cuenta para el suelo. -->
