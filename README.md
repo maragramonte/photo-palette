@@ -240,10 +240,11 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
 
 ## Hacia dónde va
 
-- [ ] **I02**: Pasar Lighthouse en móvil y dejarlo en 90 o más.
 - [ ] **P04**: El GIF del flujo para este README.
 - [ ] Medir la distancia entre colores en CIELAB en lugar de RGB, más cerca de cómo los vemos.
 - [ ] Llevar la API a servidor propio cuando haya dominio que decidir.
+- [x] **I02**: Lighthouse en móvil: rendimiento de 96 a 100 y accesibilidad 100, después de
+      quitar los bloqueos del primer pintado y subir dos tokens de contraste.
 - [x] **I03**: Prueba de carga, 20 subidas de 10 MB a la vez contra los mismos 512 MB. Pasa
       con 171 MB de margen, después de cortar las subidas sobrantes antes de leerlas.
 - [x] **D03**: Las seis fotos del feed son reales y llevan mi marca de agua.

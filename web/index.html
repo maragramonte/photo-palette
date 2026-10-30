@@ -13,7 +13,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+  <!-- La hoja de Google Fonts no bloquea el primer pintado: el titular sale con la fuente del
+       sistema y Inter entra cuando llega. Bloqueando, Lighthouse en móvil perdía ~1,6 s (I02). -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"></noscript>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -146,7 +149,7 @@
     mezcla enseñaba «no hay ninguna API configurada» con la API funcionando, que es peor que
     no decir nada. Súbele el número cada vez que cambie config.js o app.js.
   -->
-  <script src="js/config.js?v=2"></script>
-  <script src="js/app.js?v=2"></script>
+  <script src="js/config.js?v=3" defer></script>
+  <script src="js/app.js?v=3" defer></script>
 </body>
 </html>
