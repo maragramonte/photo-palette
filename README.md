@@ -5,7 +5,7 @@ te devuelve los colores en HEX y RGB, cuánto ocupa cada uno y un bloque `:root`
 de un clic. Los calcula k-means escrito a mano, sin librerías de color de terceros, y la
 foto se analiza en memoria sin guardarse en ningún sitio.
 
-`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `Caddy` · `GitHub Pages`
+`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `Caddy` · `Render` · `GitHub Pages`
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
