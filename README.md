@@ -150,6 +150,10 @@ producto, no que el código corre: que el naranja del sol entra en `vivos` y no 
 `presentes`, que la misma foto da siempre la misma paleta, que un `.txt` renombrado a `.jpg`
 da 422 y no 500, o que una cabecera de 48 MP se rechaza sin decodificar un píxel.
 
+La cobertura de la API es del **96 % de las líneas y el 91 % de las ramas** (JaCoCo), y
+`mvn verify` falla si baja del 90 y el 85. El generador de `paletas.json` no tiene tests: es
+una herramienta que se ejecuta a mano y se queda fuera de ese suelo, aunque sale en el informe.
+
 En cada push, el CI ejecuta `mvn verify` y construye la imagen Docker. Lo que llega a `main`
 se publica además en GitHub Container Registry, como `:latest` y como `:sha-xxxxxxx`:
 
@@ -157,8 +161,8 @@ se publica además en GitHub Container Registry, como `:latest` y como `:sha-xxx
 docker pull ghcr.io/maragramonte/photo-palette:latest
 ```
 
-Lo que **no** está cubierto, dicho sin adornos: la cobertura no está medida (no hay JaCoCo),
-el frontend no tiene pruebas automatizadas y no hay E2E. La prueba de carga (I03) está hecha
+Lo que **no** está cubierto, dicho sin adornos: el frontend no tiene pruebas automatizadas y
+no hay E2E. La prueba de carga (I03) está hecha
 y repetible con `carga/i03.py`: 20 subidas de 10 MB a la vez dejan el contenedor en 341 MB
 de sus 512.
 

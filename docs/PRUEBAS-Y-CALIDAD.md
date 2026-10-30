@@ -15,6 +15,9 @@ mvn test
 No hace falta Docker ni base de datos: todo corre en la JVM, y las fotos de prueba se generan
 en memoria dentro de los propios tests.
 
+`mvn verify` además mide la cobertura con JaCoCo y deja el informe en
+`target/site/jacoco/index.html`.
+
 ---
 
 ## Qué hay
@@ -46,11 +49,36 @@ cumplen:
 
 ---
 
+## Cobertura
+
+| | Líneas | Ramas |
+| --- | --- | --- |
+| `dominio` | 97,9 % | 93,8 % |
+| `web` | 93,2 % | 76,9 % |
+| **La API entera** | **96,2 %** | **90,6 %** |
+| Contando el generador de `paletas.json` | 79,7 % | 78,3 % |
+
+`mvn verify` falla si la API baja del 90 % de líneas o del 85 % de ramas. El suelo está por
+debajo de lo medido a propósito: tiene que avisar cuando se deja de probar algo, no cuando
+un refactor añade un `if`.
+
+El generador de `paletas.json` (`cli/`) no tiene tests. Se ejecuta a mano con
+`mvn compile exec:java@paletas` y su resultado se mira en la web antes de publicarlo. Sale en
+el informe con su 0 %, pero no cuenta para el suelo.
+
+Las ramas de `web` son las más flojas. Lo que importa de lo que queda fuera es la purga de
+`FiltroLimitePorIp`: cuando el mapa pasa de 10.000 IP, olvida las que llevan diez minutos sin
+volver, y es lo que impide que crezca sin tope. Ningún test llega a esas 10.000. El resto son
+caminos poco probables, como un `IOException` al leer la subida en el controlador.
+
+---
+
 ## En cada push
 
 El workflow [`tests.yml`](../.github/workflows/tests.yml) ejecuta `mvn verify` y, si pasa,
 construye la imagen Docker. Un `Dockerfile` que solo funciona en un portátil no sirve de nada
-el día del despliegue. El badge del README mira a este workflow.
+el día del despliegue. El badge del README mira a este workflow. La cobertura sale en el
+resumen de cada run, y el informe HTML completo como artefacto `jacoco`.
 
 El de la web, [`web.yml`](../.github/workflows/web.yml), se niega a publicar si falta
 `web/paletas.json`.
@@ -97,7 +125,6 @@ En ningún escenario hubo OOM, reinicios ni otra respuesta que 200, 429 o 503.
 
 Dicho sin adornos:
 
-- **La cobertura no está medida.** No hay JaCoCo, así que no hay porcentaje.
 - **El frontend no tiene pruebas automatizadas** ni hay pruebas E2E. La web se prueba a mano
   en el navegador.
 - **La prueba de carga no corre en el CI.** Se lanza a mano con `carga/i03.py`, y el vecino
