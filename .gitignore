@@ -7,3 +7,6 @@ target/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Python
+__pycache__/
