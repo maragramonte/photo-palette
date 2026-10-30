@@ -27,6 +27,7 @@ services:
       PHOTOPALETTE_ORIGENES_PERMITIDOS: "https://maragramonte.github.io"
       PHOTOPALETTE_PETICIONES_POR_MINUTO: "10"
       PHOTOPALETTE_ANALISIS_SIMULTANEOS: "2"
+      PHOTOPALETTE_SUBIDAS_SIMULTANEAS: "4"
 
     # El healthcheck lo define el Dockerfile, para que valga tambien con `docker run`
     # pelado. Aqui estaba repetido palabra por palabra: dos sitios que se desincronizan.

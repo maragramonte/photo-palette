@@ -81,6 +81,7 @@ un pico de uso no se lleve por delante al vecino:
 | Tamaño del archivo | 10 MB | Un POST de 500 MB llena el disco del multipart |
 | Megapíxeles | 40 MP | Una foto de 200 MP reserva 800 MB antes de hacer nada |
 | Muestra del k-means | ~40.000 píxeles | El análisis pasa de milisegundos a segundos |
+| Subidas en curso | 4 (`FiltroSubidasEnCurso`) | Veinte fotos de 10 MB en el heap antes de saber si hay hueco |
 | Análisis simultáneos | 2 (`Semaphore`) | Diez a la vez agotan los 512 MB del contenedor |
 | Peticiones por IP | 10 por minuto (Bucket4j) | Un script sin navegador tumba el VPS gratis |
 | Memoria del contenedor | 512 MB (`mem_limit`) | El OOM killer elige a quién matar, y puede no ser este |
@@ -97,9 +98,12 @@ privada (`fc00::/7`), que es desde donde conecta el proxy de casi cualquier host
 Si alguien la recortara no se rompería nada visible: todas las visitas pasarían a contar como
 una sola IP y compartirían diez peticiones por minuto. Por eso hay un test que la vigila.
 
-**Lo que falta.** La prueba de carga (I03): 20 subidas de 10 MB a la vez contra los mismos
-512 MB. La subida se publicó antes de hacerla, así que por ahora lo único que sujeta la
-instancia son estos límites. Es una deuda consciente, no un descuido.
+**Cortar antes de leer.** La prueba de carga (I03) pasó a la primera, pero a 21 MB del
+límite. El semáforo de análisis llegaba tarde: cuando decía que no, la foto ya estaba copiada
+en el heap. `FiltroSubidasEnCurso` corre antes que Spring lea el multipart y rechaza con el
+mismo 503 a partir de la cuarta subida, sin leer el cuerpo. Con él, el mismo minuto de carga
+se queda en 341 MB y termina el triple de análisis. Los números están en
+[PRUEBAS-Y-CALIDAD.md](PRUEBAS-Y-CALIDAD.md#prueba-de-carga-i03).
 
 ---
 

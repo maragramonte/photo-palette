@@ -144,7 +144,7 @@ de la web está escrito a mano, y el feed funciona igual con la API dormida.
 mvn test
 ```
 
-**92 pruebas** en dos niveles: 70 unitarias del dominio y la configuración, y 22 de la capa
+**94 pruebas** en dos niveles: 70 unitarias del dominio y la configuración, y 24 de la capa
 HTTP con la aplicación entera levantada y MockMvc. Las que importan comprueban decisiones de
 producto, no que el código corre: que el naranja del sol entra en `vivos` y no en
 `presentes`, que la misma foto da siempre la misma paleta, que un `.txt` renombrado a `.jpg`
@@ -158,7 +158,9 @@ docker pull ghcr.io/maragramonte/photo-palette:latest
 ```
 
 Lo que **no** está cubierto, dicho sin adornos: la cobertura no está medida (no hay JaCoCo),
-el frontend no tiene pruebas automatizadas, no hay E2E y la prueba de carga está pendiente.
+el frontend no tiene pruebas automatizadas y no hay E2E. La prueba de carga (I03) está hecha
+y repetible con `carga/i03.py`: 20 subidas de 10 MB a la vez dejan el contenedor en 341 MB
+de sus 512.
 
 **→ [docs/PRUEBAS-Y-CALIDAD.md](docs/PRUEBAS-Y-CALIDAD.md)**
 
@@ -199,10 +201,11 @@ llamadas desde `localhost`; sin él, la API solo responde al navegador desde
 │   ├── dominio/      ExtractorPaleta (k-means), LectorImagen (lectura segura),
 │   │                 ServicioPaletas (semáforo), Modo, ColorPaleta, RespuestaPaleta
 │   ├── web/          ControladorPaletas, ControladorSalud, ManejadorErrores (ProblemDetail),
-│   │                 FiltroLimitePorIp (Bucket4j)
+│   │                 FiltroLimitePorIp (Bucket4j), FiltroSubidasEnCurso
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, el que escribe paletas.json
-├── src/test/         92 pruebas: dominio, configuración y capa HTTP
+├── src/test/         94 pruebas: dominio, configuración y capa HTTP
+├── carga/i03.py      La prueba de carga contra el docker-compose
 ├── web/              La web que publica GitHub Pages
 │   ├── index.html · css/ · js/
 │   ├── fotos/        Las seis fotos del feed, su fotos.json y su LEEME
@@ -234,12 +237,11 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
 ## Hacia dónde va
 
 - [ ] **I02**: Pasar Lighthouse en móvil y dejarlo en 90 o más.
-- [ ] **I03**: Prueba de carga, 20 subidas de 10 MB a la vez contra los mismos 512 MB. La
-      subida se publicó antes de hacerla, así que por ahora la sujetan solo los límites del
-      contrato. Es una deuda consciente, no un descuido.
 - [ ] **P04**: El GIF del flujo para este README.
 - [ ] Medir la distancia entre colores en CIELAB en lugar de RGB, más cerca de cómo los vemos.
 - [ ] Llevar la API a servidor propio cuando haya dominio que decidir.
+- [x] **I03**: Prueba de carga, 20 subidas de 10 MB a la vez contra los mismos 512 MB. Pasa
+      con 171 MB de margen, después de cortar las subidas sobrantes antes de leerlas.
 - [x] **D03**: Las seis fotos del feed son reales y llevan mi marca de agua.
 - [x] **P02**: La API está desplegada en Render y su URL vive en `web/js/config.js`.
 
