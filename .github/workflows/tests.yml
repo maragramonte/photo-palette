@@ -33,6 +33,30 @@ jobs:
           path: target/surefire-reports/
           if-no-files-found: ignore
 
+      # El porcentaje en el resumen del run, para no tener que bajar el informe para verlo.
+      # El HTML completo va como artefacto, por si hay que buscar qué línea se quedó fuera.
+      - name: Cobertura
+        if: always()
+        run: |
+          test -f target/site/jacoco/jacoco.csv || exit 0
+          awk -F, 'NR > 1 {
+              lm += $8; lc += $9; bm += $6; bc += $7
+              if ($2 !~ /\.cli$/) { alm += $8; alc += $9; abm += $6; abc += $7 }
+            } END {
+              print "### Cobertura\n"
+              print "| | Líneas | Ramas |\n| --- | --- | --- |"
+              printf "| API (sin el generador de paletas.json) | %.1f %% | %.1f %% |\n", 100*alc/(alm+alc), 100*abc/(abm+abc)
+              printf "| Todo | %.1f %% | %.1f %% |\n", 100*lc/(lm+lc), 100*bc/(bm+bc)
+            }' target/site/jacoco/jacoco.csv >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Informe de cobertura
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco
+          path: target/site/jacoco/
+          if-no-files-found: ignore
+
   imagen:
     name: docker build
     runs-on: ubuntu-latest
