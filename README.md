@@ -144,13 +144,13 @@ de la web está escrito a mano, y el feed funciona igual con la API dormida.
 mvn test
 ```
 
-**94 pruebas** en dos niveles: 70 unitarias del dominio y la configuración, y 24 de la capa
+**98 pruebas** en dos niveles: 74 unitarias del dominio y la configuración, y 24 de la capa
 HTTP con la aplicación entera levantada y MockMvc. Las que importan comprueban decisiones de
 producto, no que el código corre: que el naranja del sol entra en `vivos` y no en
 `presentes`, que la misma foto da siempre la misma paleta, que un `.txt` renombrado a `.jpg`
 da 422 y no 500, o que una cabecera de 48 MP se rechaza sin decodificar un píxel.
 
-La cobertura de la API es del **96 % de las líneas y el 91 % de las ramas** (JaCoCo), y
+La cobertura de la API es del **97 % de las líneas y el 91 % de las ramas** (JaCoCo), y
 `mvn verify` falla si baja del 90 y el 85. El generador de `paletas.json` no tiene tests: es
 una herramienta que se ejecuta a mano y se queda fuera de ese suelo, aunque sale en el informe.
 
@@ -208,7 +208,7 @@ llamadas desde `localhost`; sin él, la API solo responde al navegador desde
 │   │                 FiltroLimitePorIp (Bucket4j), FiltroSubidasEnCurso
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, el que escribe paletas.json
-├── src/test/         94 pruebas: dominio, configuración y capa HTTP
+├── src/test/         98 pruebas: dominio, configuración y capa HTTP
 ├── carga/i03.py      La prueba de carga contra el docker-compose
 ├── web/              La web que publica GitHub Pages
 │   ├── index.html · css/ · js/

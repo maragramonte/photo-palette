@@ -7,10 +7,12 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.Clock;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -45,11 +47,25 @@ public class FiltroLimitePorIp extends OncePerRequestFilter {
     private final Map<String, Visitante> visitantes = new ConcurrentHashMap<>();
     private final ObjectMapper json;
     private final int peticionesPorMinuto;
+    private final Clock reloj;
+    private final int maxIps;
 
+    @Autowired
     public FiltroLimitePorIp(
             ObjectMapper json, @Value("${photopalette.peticiones-por-minuto:10}") int peticionesPorMinuto) {
+        this(json, peticionesPorMinuto, Clock.systemUTC(), MAX_IPS);
+    }
+
+    /** Para los tests: la purga no se puede probar esperando diez minutos ni con 10.000 IP. */
+    FiltroLimitePorIp(ObjectMapper json, int peticionesPorMinuto, Clock reloj, int maxIps) {
         this.json = json;
         this.peticionesPorMinuto = peticionesPorMinuto;
+        this.reloj = reloj;
+        this.maxIps = maxIps;
+    }
+
+    int ipsRecordadas() {
+        return visitantes.size();
     }
 
     @Override
@@ -72,26 +88,27 @@ public class FiltroLimitePorIp extends OncePerRequestFilter {
     }
 
     private Bucket cuboDe(String ip) {
-        if (visitantes.size() > MAX_IPS) {
+        if (visitantes.size() > maxIps) {
             purgar();
         }
+        Instant ahora = reloj.instant();
         Visitante visitante = visitantes.compute(
                 ip == null ? "desconocida" : ip,
-                (clave, actual) -> actual == null ? nuevoVisitante() : actual.visto());
+                (clave, actual) -> actual == null ? nuevoVisitante(ahora) : actual.visto(ahora));
         return visitante.cubo();
     }
 
-    private Visitante nuevoVisitante() {
+    private Visitante nuevoVisitante(Instant ahora) {
         Bucket cubo = Bucket.builder()
                 .addLimit(limite -> limite.capacity(peticionesPorMinuto)
                         .refillGreedy(peticionesPorMinuto, VENTANA))
                 .build();
-        return new Visitante(cubo, Instant.now());
+        return new Visitante(cubo, ahora);
     }
 
     /** Las IP que no vuelven se olvidan: el mapa no puede crecer sin tope. */
     private void purgar() {
-        Instant limite = Instant.now().minus(CADUCIDAD);
+        Instant limite = reloj.instant().minus(CADUCIDAD);
         visitantes.values().removeIf(visitante -> visitante.ultimaVez().isBefore(limite));
     }
 
@@ -113,8 +130,8 @@ public class FiltroLimitePorIp extends OncePerRequestFilter {
 
     private record Visitante(Bucket cubo, Instant ultimaVez) {
 
-        Visitante visto() {
-            return new Visitante(cubo, Instant.now());
+        Visitante visto(Instant ahora) {
+            return new Visitante(cubo, ahora);
         }
     }
 }
