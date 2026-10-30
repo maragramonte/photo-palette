@@ -49,7 +49,7 @@ nombre de variable CSS que le toca, más el bloque `:root` ya montado:
 | `413` | La imagen pasa de 10 MB |
 | `422` | No es un JPG o PNG legible, o pasa de 40 megapíxeles |
 | `429` | Esa IP ha superado 10 análisis por minuto |
-| `503` | Ya hay 2 análisis en curso. Reintenta en unos segundos |
+| `503` | Ya hay 2 análisis o 4 subidas en curso. Reintenta en unos segundos |
 
 Por qué existe cada límite está en
 [DECISIONES-TECNICAS.md](DECISIONES-TECNICAS.md#3-límites-pensados-para-compartir-servidor).

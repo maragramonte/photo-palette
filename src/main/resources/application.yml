@@ -53,6 +53,9 @@ photopalette:
   origenes-permitidos: https://maragramonte.github.io
   peticiones-por-minuto: 10
   analisis-simultaneos: 2
+  # Subidas que se leen a la vez, contando las que se están analizando. Las demás reciben
+  # el 503 sin que se lea su cuerpo (FiltroSubidasEnCurso). Ver la prueba de carga I03.
+  subidas-simultaneas: 4
 
 logging:
   level:

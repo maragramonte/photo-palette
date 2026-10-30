@@ -19,12 +19,12 @@ en memoria dentro de los propios tests.
 
 ## Qué hay
 
-**92 pruebas** en dos niveles:
+**94 pruebas** en dos niveles:
 
 | Nivel | Pruebas | Qué cubre |
 | --- | --- | --- |
 | Unitarias | 70 | `ExtractorPaleta` (29), `LectorImagen` (11), el contrato del JSON de salida (12), `ServicioPaletas` (3) y la lista de proxies de confianza (15) |
-| HTTP | 22 | La aplicación entera levantada con `@SpringBootTest` y MockMvc: el controlador, los errores en ProblemDetail, el límite por IP, CORS y el servidor ocupado |
+| HTTP | 24 | La aplicación entera levantada con `@SpringBootTest` y MockMvc: el controlador, los errores en ProblemDetail, el límite por IP, el tope de subidas, CORS y el servidor ocupado |
 
 Las que importan no comprueban que el código corre, sino que las decisiones de producto se
 cumplen:
@@ -57,6 +57,42 @@ El de la web, [`web.yml`](../.github/workflows/web.yml), se niega a publicar si 
 
 ---
 
+## Prueba de carga (I03)
+
+El criterio del backlog: 20 subidas de 10 MB a la vez contra el mismo `docker-compose` que
+en el VPS (512 MB, 1 CPU). El contenedor no pasa de 512 MB, responde 503 o 429 en vez de
+caerse, y el vecino sigue respondiendo.
+
+```bash
+docker compose up -d --build
+python carga/i03.py --fotos <carpeta con JPG de ~10 MB> --vecino http://127.0.0.1:18081/
+```
+
+El script solo usa la biblioteca estándar. Lanza tres escenarios: 20 a la vez desde una IP,
+20 a la vez desde 20 IP (con `X-Forwarded-For`, que Tomcat acepta porque la conexión llega
+por la pasarela de Docker) y 20 sin parar durante un minuto, cada petición con una IP nueva
+para que el límite por IP no alivie nada. La memoria se lee del cgroup, separando la caché de
+disco, que el kernel recupera, de la que no se puede recuperar.
+
+Con dos fotos de 9,5 MB, una de 24 MP y otra de 39,6 MP, en Docker Desktop:
+
+| Un minuto sin parar | Sin `FiltroSubidasEnCurso` | Con él |
+| --- | --- | --- |
+| Memoria sin caché de disco | 491 MB | **341 MB** |
+| `memory.peak` del cgroup | 545 MB, contra el techo | 482 MB |
+| Análisis terminados | 6 | **21** |
+| La petición más lenta | 41 s | 12 s |
+| Fallos del vecino | 0 | 0 |
+
+La primera pasada cumplía el criterio, pero a 21 MB del límite. El motivo: el semáforo de
+`ServicioPaletas` se consulta después de que el controlador copie la foto al heap, así que
+las 18 subidas que iban a recibir un 503 ocupaban antes 10 MB cada una. Ahora un filtro corta
+a partir de la cuarta subida en curso sin leer el cuerpo.
+
+En ningún escenario hubo OOM, reinicios ni otra respuesta que 200, 429 o 503.
+
+---
+
 ## Lo que no está cubierto
 
 Dicho sin adornos:
@@ -64,6 +100,6 @@ Dicho sin adornos:
 - **La cobertura no está medida.** No hay JaCoCo, así que no hay porcentaje.
 - **El frontend no tiene pruebas automatizadas** ni hay pruebas E2E. La web se prueba a mano
   en el navegador.
-- **No hay prueba de carga** (I03). Los límites están puestos, pero nadie ha comprobado aún
-  cuántas subidas de 10 MB a la vez aguantan los 512 MB del contenedor.
+- **La prueba de carga no corre en el CI.** Se lanza a mano con `carga/i03.py`, y el vecino
+  fue un nginx en Docker Desktop, no el Dr. Agramonte en el VPS.
 - **Lighthouse está pendiente** (I02): el objetivo es 90 o más en móvil.
