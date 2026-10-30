@@ -38,10 +38,52 @@ jobs:
     runs-on: ubuntu-latest
     needs: backend
 
+    # packages: write es lo único que necesita el GITHUB_TOKEN para subir a GHCR. No hay
+    # secretos que crear ni que caduquen.
+    permissions:
+      contents: read
+      packages: write
+
+    # Solo se publica lo que llega a main. En un PR la imagen se construye igual (el
+    # criterio de P01 sigue en pie), pero no se sube: un PR de un fork ni siquiera tendría
+    # permiso, y una rama a medias no debe acabar como :latest.
+    env:
+      PUBLICAR: ${{ github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') }}
+
     steps:
       - uses: actions/checkout@v4
 
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Entrar en GHCR
+        if: env.PUBLICAR == 'true'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # :latest para quien solo quiere lo último, y sha-xxxxxxx para poder volver a una
+      # versión concreta sin adivinar cuál era. La etiqueta org.opencontainers.image.source
+      # que añade metadata-action es la que enlaza el paquete con este repositorio.
+      - name: Etiquetas
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/photo-palette
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=sha
+
       # Que la imagen se construya es parte del criterio de P01: un Dockerfile que solo
-      # funciona en tu portátil no sirve de nada el día del despliegue.
-      - name: Construir la imagen
-        run: docker build -t photo-palette:ci .
+      # funciona en tu portátil no sirve de nada el día del despliegue. La caché de Actions
+      # evita repetir el dependency:go-offline cuando el pom no ha cambiado.
+      - name: Construir (y publicar si es main)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: ${{ env.PUBLICAR == 'true' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
