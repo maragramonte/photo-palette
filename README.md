@@ -150,7 +150,12 @@ producto, no que el código corre: que el naranja del sol entra en `vivos` y no 
 `presentes`, que la misma foto da siempre la misma paleta, que un `.txt` renombrado a `.jpg`
 da 422 y no 500, o que una cabecera de 48 MP se rechaza sin decodificar un píxel.
 
-En cada push, el CI ejecuta `mvn verify` y construye la imagen Docker.
+En cada push, el CI ejecuta `mvn verify` y construye la imagen Docker. Lo que llega a `main`
+se publica además en GitHub Container Registry, como `:latest` y como `:sha-xxxxxxx`:
+
+```
+docker pull ghcr.io/maragramonte/photo-palette:latest
+```
 
 Lo que **no** está cubierto, dicho sin adornos: la cobertura no está medida (no hay JaCoCo),
 el frontend no tiene pruebas automatizadas, no hay E2E y la prueba de carga está pendiente.
