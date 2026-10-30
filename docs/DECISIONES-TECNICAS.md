@@ -31,10 +31,12 @@ hiciste la foto.
 3. Descarta los grupos con menos del 0,5 % de los píxeles con luz. Eso es ruido del sensor o
    una mota, no un color de la foto.
 4. Ordena por saturación, no por tamaño.
-5. Descarta el color que repite **el tono y el brillo** de uno ya elegido. Los azules casi
-   iguales de un cielo nocturno colapsan en uno; el marrón de la sombra y el naranja del sol,
-   que comparten tono pero no brillo, sobreviven los dos, porque para quien va a pintar una
-   web ese par es justo el útil.
+5. Descarta el color que repite **el tono y el brillo** de uno ya elegido: menos de 25
+   grados de tono y menos de 0,25 de brillo. Los azules casi iguales de un cielo nocturno
+   colapsan en uno; el marrón de la sombra y el naranja del sol, que comparten tono pero no
+   brillo, sobreviven los dos, porque para quien va a pintar una web ese par es justo el
+   útil. Por debajo de 0,12 de saturación el tono ya no significa nada, así que dos grises
+   solo se comparan por brillo, y un gris nunca se confunde con un color.
 
 En «Estrellas y tejado», `vivos` devuelve dos colores: el `#623321` de la teja primero y un
 solo azul `#1e252b` para todo el cielo.
