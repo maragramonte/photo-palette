@@ -20,6 +20,7 @@
   <properties>
     <java.version>21</java.version>
     <bucket4j.version>8.10.1</bucket4j.version>
+    <jacoco.version>0.8.13</jacoco.version>
   </properties>
 
   <dependencies>
@@ -59,6 +60,55 @@
                 <argument>web/fotos</argument>
                 <argument>web/paletas.json</argument>
               </arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Cobertura: el agente se engancha a surefire y el informe sale en
+           target/site/jacoco con `mvn verify`. -->
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.version}</version>
+        <executions>
+          <execution>
+            <id>agente</id>
+            <goals><goal>prepare-agent</goal></goals>
+          </execution>
+          <execution>
+            <id>informe</id>
+            <phase>verify</phase>
+            <goals><goal>report</goal></goals>
+          </execution>
+          <!-- Suelo por debajo de lo medido (96 % de líneas y 91 % de ramas en la API),
+               para que avise si baja de verdad y no por un if de más. El generador de
+               paletas.json es una herramienta de desarrollo que se ejecuta a mano: sale en
+               el informe, pero no cuenta para el suelo. -->
+          <execution>
+            <id>suelo</id>
+            <phase>verify</phase>
+            <goals><goal>check</goal></goals>
+            <configuration>
+              <excludes>
+                <exclude>com/maragramonte/photopalette/cli/**</exclude>
+              </excludes>
+              <rules>
+                <rule>
+                  <element>BUNDLE</element>
+                  <limits>
+                    <limit>
+                      <counter>LINE</counter>
+                      <value>COVEREDRATIO</value>
+                      <minimum>0.90</minimum>
+                    </limit>
+                    <limit>
+                      <counter>BRANCH</counter>
+                      <value>COVEREDRATIO</value>
+                      <minimum>0.85</minimum>
+                    </limit>
+                  </limits>
+                </rule>
+              </rules>
             </configuration>
           </execution>
         </executions>
