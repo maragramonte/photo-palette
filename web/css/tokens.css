@@ -16,14 +16,18 @@
   --border: #1e2240;
 
   /* Marca */
-  --accent: #7c5cff;
+  /* Un punto más oscuro que el violeta original (#7c5cff): con él, el texto blanco de los
+     botones se quedaba en 4,34 de contraste y WCAG AA pide 4,5 (I02). */
+  --accent: #7654ff;
   --accent-soft: #a78bfa;
   --accent-tenue: rgba(124, 92, 255, 0.14);
 
   /* Texto */
   --text: #e8ebff;
   --text-2: #aab0d6;
-  --text-3: #6f76a0;
+  /* Lo justo para pasar de 4,5 de contraste sobre los tres fondos; antes, #6f76a0, se
+     quedaba en 4,08 sobre --surface (I02). */
+  --text-3: #7e85aa;
 
   /* Estados */
   --error: #ff8080;

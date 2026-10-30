@@ -122,6 +122,40 @@ En ningún escenario hubo OOM, reinicios ni otra respuesta que 200, 429 o 503.
 
 ---
 
+## Lighthouse en móvil (I02)
+
+El objetivo: 90 o más en accesibilidad y en rendimiento, con la simulación de móvil de
+Lighthouse.
+
+```bash
+npx lighthouse https://maragramonte.github.io/photo-palette/ --form-factor=mobile
+```
+
+| | Antes | Después |
+| --- | --- | --- |
+| Rendimiento | 89, 98 y 90 en tres pasadas | 96 a 100 |
+| Accesibilidad | 97 | 100 |
+| Buenas prácticas | 100 | 100 |
+| SEO | 100 | 100 |
+
+Lo que lo dejaba en el filo:
+
+- **El titular esperaba a dos archivos.** El elemento más grande de la pantalla es el texto
+  del hero, y no se pintaba hasta tener la hoja de Google Fonts y `app.js`. La hoja de
+  fuentes se carga ahora sin bloquear (el titular sale con la fuente del sistema y cambia a
+  Inter al llegar) y los scripts van con `defer`.
+- **Contraste.** El texto terciario (`--text-3`) se quedaba en 4,08 sobre las tarjetas y el
+  blanco de los botones en 4,34 sobre el violeta; WCAG AA pide 4,5. Los dos tokens se han
+  movido lo justo: `#6f76a0` → `#7e85aa` y `#7c5cff` → `#7654ff`.
+- **El nombre de las tarjetas.** Su `aria-label` empezaba por «Ver la paleta de», que no se
+  ve en pantalla: quien maneja la web por voz dice lo que lee. Ahora el nombre sale de los
+  propios textos de la tarjeta con `aria-labelledby`.
+
+El «después» se midió con la web servida en local y la misma simulación de móvil, antes de
+publicarla.
+
+---
+
 ## Lo que no está cubierto
 
 Dicho sin adornos:
@@ -130,4 +164,5 @@ Dicho sin adornos:
   en el navegador.
 - **La prueba de carga no corre en el CI.** Se lanza a mano con `carga/i03.py`, y el vecino
   fue un nginx en Docker Desktop, no el Dr. Agramonte en el VPS.
-- **Lighthouse está pendiente** (I02): el objetivo es 90 o más en móvil.
+- **Lighthouse se pasa a mano**, no en el CI, y el rendimiento en móvil varía varios puntos
+  de una pasada a otra.

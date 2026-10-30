@@ -122,6 +122,8 @@
       cuantas + (cuantas === 1 ? " foto" : " fotos") + ", con su paleta real calculada por la API.";
   }
 
+  let tarjetasCreadas = 0;
+
   function tarjetaDe(foto) {
     const paleta = paletaDe(foto);
     const colores = paleta ? paleta.colores : [];
@@ -130,11 +132,6 @@
     const boton = document.createElement("button");
     boton.type = "button";
     boton.className = "tarjeta" + (foto.esTuya ? " es-nueva" : "");
-    boton.setAttribute(
-      "aria-label",
-      "Ver la paleta de " + foto.nombre + ": " + colores.length +
-        (colores.length === 1 ? " color" : " colores")
-    );
     boton.addEventListener("click", () => abrirDetalle(foto, boton));
 
     const foto_ = document.createElement("img");
@@ -145,8 +142,9 @@
     foto_.decoding = "async";
     boton.append(foto_);
 
+    let etiqueta = null;
     if (foto.esTuya) {
-      const etiqueta = document.createElement("span");
+      etiqueta = document.createElement("span");
       etiqueta.className = "tarjeta__etiqueta";
       etiqueta.textContent = "Tu foto";
       boton.append(etiqueta);
@@ -162,8 +160,23 @@
     cuantos.textContent = colores.length
       ? colores.length + (colores.length === 1 ? " color" : " colores")
       : "calculando…";
-    pie.append(nombre, cuantos);
+    // El espacio no se pinta (el pie es flex), pero sin él el texto de la tarjeta se lee
+    // «Eclipse parcial6 colores» y no coincide con su nombre accesible.
+    pie.append(nombre, " ", cuantos);
     boton.append(pie);
+
+    // El nombre accesible es exactamente lo que se lee en la tarjeta: quien la maneja por voz
+    // dice «Eclipse parcial» y tiene que encontrarla. Con un aria-label aparte, el texto
+    // visible y el nombre acababan separándose (I02).
+    const id = "tarjeta-" + ++tarjetasCreadas;
+    nombre.id = id + "-nombre";
+    cuantos.id = id + "-cuantos";
+    const partes = [nombre.id, cuantos.id];
+    if (etiqueta) {
+      etiqueta.id = id + "-etiqueta";
+      partes.unshift(etiqueta.id);
+    }
+    boton.setAttribute("aria-labelledby", partes.join(" "));
 
     const muestras = document.createElement("span");
     muestras.className = "muestras";
