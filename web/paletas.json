@@ -1,5 +1,5 @@
 {
-  "generado" : "2026-10-30T13:07:01.293636100Z",
+  "generado" : "2026-10-30T13:48:30.126993600Z",
   "colores" : 6,
   "fotos" : [ {
     "archivo" : "fotos/eclipse-parcial.jpg",
@@ -10,67 +10,67 @@
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#080202",
-          "rgb" : [ 8, 2, 2 ],
-          "porcentaje" : 70.8,
+          "hex" : "#070202",
+          "rgb" : [ 7, 2, 2 ],
+          "porcentaje" : 70.2,
           "variable" : "--color-1"
         }, {
-          "hex" : "#fb990e",
-          "rgb" : [ 251, 153, 14 ],
-          "porcentaje" : 8.3,
+          "hex" : "#fc8603",
+          "rgb" : [ 252, 134, 3 ],
+          "porcentaje" : 12.6,
           "variable" : "--color-2"
         }, {
-          "hex" : "#422913",
-          "rgb" : [ 66, 41, 19 ],
-          "porcentaje" : 7.4,
+          "hex" : "#3d2511",
+          "rgb" : [ 61, 37, 17 ],
+          "porcentaje" : 7.3,
           "variable" : "--color-3"
         }, {
-          "hex" : "#f97104",
-          "rgb" : [ 249, 113, 4 ],
-          "porcentaje" : 5.5,
+          "hex" : "#e8e8e3",
+          "rgb" : [ 232, 232, 227 ],
+          "porcentaje" : 3.9,
           "variable" : "--color-4"
         }, {
-          "hex" : "#e9e5da",
-          "rgb" : [ 233, 229, 218 ],
-          "porcentaje" : 4.3,
+          "hex" : "#8a5a30",
+          "rgb" : [ 138, 90, 48 ],
+          "porcentaje" : 3.6,
           "variable" : "--color-5"
         }, {
-          "hex" : "#99693b",
-          "rgb" : [ 153, 105, 59 ],
-          "porcentaje" : 3.7,
+          "hex" : "#daaa65",
+          "rgb" : [ 218, 170, 101 ],
+          "porcentaje" : 2.3,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #080202;\n  --color-2: #fb990e;\n  --color-3: #422913;\n  --color-4: #f97104;\n  --color-5: #e9e5da;\n  --color-6: #99693b;\n}"
+        "css" : ":root {\n  --color-1: #070202;\n  --color-2: #fc8603;\n  --color-3: #3d2511;\n  --color-4: #e8e8e3;\n  --color-5: #8a5a30;\n  --color-6: #daaa65;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#fd7b02",
-          "rgb" : [ 253, 123, 2 ],
-          "porcentaje" : 9.8,
+          "hex" : "#fe8402",
+          "rgb" : [ 254, 132, 2 ],
+          "porcentaje" : 15.9,
           "variable" : "--color-1"
         }, {
-          "hex" : "#3f0601",
-          "rgb" : [ 63, 6, 1 ],
-          "porcentaje" : 2.0,
+          "hex" : "#7f260a",
+          "rgb" : [ 127, 38, 10 ],
+          "porcentaje" : 1.0,
           "variable" : "--color-2"
         }, {
-          "hex" : "#94330f",
-          "rgb" : [ 148, 51, 15 ],
-          "porcentaje" : 1.1,
+          "hex" : "#311b0d",
+          "rgb" : [ 49, 27, 13 ],
+          "porcentaje" : 10.7,
           "variable" : "--color-3"
         }, {
-          "hex" : "#646262",
-          "rgb" : [ 100, 98, 98 ],
-          "porcentaje" : 0.7,
+          "hex" : "#656363",
+          "rgb" : [ 101, 99, 99 ],
+          "porcentaje" : 0.8,
           "variable" : "--color-4"
         }, {
-          "hex" : "#cccdcd",
-          "rgb" : [ 204, 205, 205 ],
-          "porcentaje" : 1.1,
+          "hex" : "#cacac8",
+          "rgb" : [ 202, 202, 200 ],
+          "porcentaje" : 1.2,
           "variable" : "--color-5"
         } ],
-        "css" : ":root {\n  --color-1: #fd7b02;\n  --color-2: #3f0601;\n  --color-3: #94330f;\n  --color-4: #646262;\n  --color-5: #cccdcd;\n}"
+        "css" : ":root {\n  --color-1: #fe8402;\n  --color-2: #7f260a;\n  --color-3: #311b0d;\n  --color-4: #656363;\n  --color-5: #cacac8;\n}"
       }
     }
   }, {
@@ -82,72 +82,72 @@
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#13130f",
-          "rgb" : [ 19, 19, 15 ],
-          "porcentaje" : 34.8,
+          "hex" : "#191713",
+          "rgb" : [ 25, 23, 19 ],
+          "porcentaje" : 48.5,
           "variable" : "--color-1"
         }, {
-          "hex" : "#2c2521",
-          "rgb" : [ 44, 37, 33 ],
-          "porcentaje" : 20.1,
+          "hex" : "#453a35",
+          "rgb" : [ 69, 58, 53 ],
+          "porcentaje" : 17.1,
           "variable" : "--color-2"
         }, {
-          "hex" : "#90908d",
-          "rgb" : [ 144, 144, 141 ],
-          "porcentaje" : 19.1,
+          "hex" : "#939695",
+          "rgb" : [ 147, 150, 149 ],
+          "porcentaje" : 16.7,
           "variable" : "--color-3"
         }, {
-          "hex" : "#534841",
-          "rgb" : [ 83, 72, 65 ],
-          "porcentaje" : 13.7,
+          "hex" : "#78acd9",
+          "rgb" : [ 120, 172, 217 ],
+          "porcentaje" : 7.0,
           "variable" : "--color-4"
         }, {
-          "hex" : "#7aabd6",
-          "rgb" : [ 122, 171, 214 ],
-          "porcentaje" : 7.6,
+          "hex" : "#776d62",
+          "rgb" : [ 119, 109, 98 ],
+          "porcentaje" : 6.3,
           "variable" : "--color-5"
         }, {
-          "hex" : "#cdcabb",
-          "rgb" : [ 205, 202, 187 ],
-          "porcentaje" : 4.7,
+          "hex" : "#ceccbd",
+          "rgb" : [ 206, 204, 189 ],
+          "porcentaje" : 4.5,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #13130f;\n  --color-2: #2c2521;\n  --color-3: #90908d;\n  --color-4: #534841;\n  --color-5: #7aabd6;\n  --color-6: #cdcabb;\n}"
+        "css" : ":root {\n  --color-1: #191713;\n  --color-2: #453a35;\n  --color-3: #939695;\n  --color-4: #78acd9;\n  --color-5: #776d62;\n  --color-6: #ceccbd;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#65a3da",
-          "rgb" : [ 101, 163, 218 ],
-          "porcentaje" : 3.9,
+          "hex" : "#6da9dd",
+          "rgb" : [ 109, 169, 221 ],
+          "porcentaje" : 7.0,
           "variable" : "--color-1"
         }, {
-          "hex" : "#2c2520",
-          "rgb" : [ 44, 37, 32 ],
-          "porcentaje" : 11.7,
+          "hex" : "#283140",
+          "rgb" : [ 40, 49, 64 ],
+          "porcentaje" : 0.7,
           "variable" : "--color-2"
         }, {
-          "hex" : "#998c75",
-          "rgb" : [ 153, 140, 117 ],
-          "porcentaje" : 4.6,
+          "hex" : "#392f28",
+          "rgb" : [ 57, 47, 40 ],
+          "porcentaje" : 8.3,
           "variable" : "--color-3"
         }, {
-          "hex" : "#e1d2b3",
-          "rgb" : [ 225, 210, 179 ],
-          "porcentaje" : 3.0,
+          "hex" : "#cfbfa1",
+          "rgb" : [ 207, 191, 161 ],
+          "porcentaje" : 3.9,
           "variable" : "--color-4"
         }, {
-          "hex" : "#cbdde4",
-          "rgb" : [ 203, 221, 228 ],
-          "porcentaje" : 1.6,
+          "hex" : "#7c756b",
+          "rgb" : [ 124, 117, 107 ],
+          "porcentaje" : 5.3,
           "variable" : "--color-5"
         }, {
-          "hex" : "#989a9b",
-          "rgb" : [ 152, 154, 155 ],
-          "porcentaje" : 12.2,
+          "hex" : "#8f9498",
+          "rgb" : [ 143, 148, 152 ],
+          "porcentaje" : 8.9,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #65a3da;\n  --color-2: #2c2520;\n  --color-3: #998c75;\n  --color-4: #e1d2b3;\n  --color-5: #cbdde4;\n  --color-6: #989a9b;\n}"
+        "css" : ":root {\n  --color-1: #6da9dd;\n  --color-2: #283140;\n  --color-3: #392f28;\n  --color-4: #cfbfa1;\n  --color-5: #7c756b;\n  --color-6: #8f9498;\n}"
       }
     }
   }, {
@@ -159,67 +159,67 @@
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#74797a",
-          "rgb" : [ 116, 121, 122 ],
-          "porcentaje" : 31.1,
+          "hex" : "#6a7070",
+          "rgb" : [ 106, 112, 112 ],
+          "porcentaje" : 28.3,
           "variable" : "--color-1"
         }, {
-          "hex" : "#a79e95",
-          "rgb" : [ 167, 158, 149 ],
-          "porcentaje" : 21.5,
+          "hex" : "#8d8984",
+          "rgb" : [ 141, 137, 132 ],
+          "porcentaje" : 21.8,
           "variable" : "--color-2"
         }, {
-          "hex" : "#565c5b",
-          "rgb" : [ 86, 92, 91 ],
-          "porcentaje" : 21.1,
+          "hex" : "#b5a693",
+          "rgb" : [ 181, 166, 147 ],
+          "porcentaje" : 18.4,
           "variable" : "--color-3"
         }, {
-          "hex" : "#2f3638",
-          "rgb" : [ 47, 54, 56 ],
-          "porcentaje" : 10.6,
+          "hex" : "#4d5354",
+          "rgb" : [ 77, 83, 84 ],
+          "porcentaje" : 16.3,
           "variable" : "--color-4"
         }, {
-          "hex" : "#e6cdad",
-          "rgb" : [ 230, 205, 173 ],
-          "porcentaje" : 9.1,
+          "hex" : "#293133",
+          "rgb" : [ 41, 49, 51 ],
+          "porcentaje" : 7.9,
           "variable" : "--color-5"
         }, {
-          "hex" : "#ac906a",
-          "rgb" : [ 172, 144, 106 ],
-          "porcentaje" : 6.7,
+          "hex" : "#ecd2b1",
+          "rgb" : [ 236, 210, 177 ],
+          "porcentaje" : 7.3,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #74797a;\n  --color-2: #a79e95;\n  --color-3: #565c5b;\n  --color-4: #2f3638;\n  --color-5: #e6cdad;\n  --color-6: #ac906a;\n}"
+        "css" : ":root {\n  --color-1: #6a7070;\n  --color-2: #8d8984;\n  --color-3: #b5a693;\n  --color-4: #4d5354;\n  --color-5: #293133;\n  --color-6: #ecd2b1;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#9f825d",
-          "rgb" : [ 159, 130, 93 ],
-          "porcentaje" : 2.7,
+          "hex" : "#9e825f",
+          "rgb" : [ 158, 130, 95 ],
+          "porcentaje" : 2.8,
           "variable" : "--color-1"
         }, {
-          "hex" : "#e3c7a9",
-          "rgb" : [ 227, 199, 169 ],
-          "porcentaje" : 3.5,
+          "hex" : "#344147",
+          "rgb" : [ 52, 65, 71 ],
+          "porcentaje" : 4.9,
           "variable" : "--color-2"
         }, {
-          "hex" : "#45555b",
-          "rgb" : [ 69, 85, 91 ],
-          "porcentaje" : 5.2,
+          "hex" : "#e6c9ab",
+          "rgb" : [ 230, 201, 171 ],
+          "porcentaje" : 3.3,
           "variable" : "--color-3"
         }, {
-          "hex" : "#504746",
-          "rgb" : [ 80, 71, 70 ],
-          "porcentaje" : 4.7,
+          "hex" : "#4c4446",
+          "rgb" : [ 76, 68, 70 ],
+          "porcentaje" : 4.4,
           "variable" : "--color-4"
         }, {
-          "hex" : "#726b68",
-          "rgb" : [ 114, 107, 104 ],
-          "porcentaje" : 6.5,
+          "hex" : "#9f9993",
+          "rgb" : [ 159, 153, 147 ],
+          "porcentaje" : 8.3,
           "variable" : "--color-5"
         } ],
-        "css" : ":root {\n  --color-1: #9f825d;\n  --color-2: #e3c7a9;\n  --color-3: #45555b;\n  --color-4: #504746;\n  --color-5: #726b68;\n}"
+        "css" : ":root {\n  --color-1: #9e825f;\n  --color-2: #344147;\n  --color-3: #e6c9ab;\n  --color-4: #4c4446;\n  --color-5: #9f9993;\n}"
       }
     }
   }, {
@@ -233,55 +233,60 @@
         "colores" : [ {
           "hex" : "#010101",
           "rgb" : [ 1, 1, 1 ],
-          "porcentaje" : 89.5,
+          "porcentaje" : 89.4,
           "variable" : "--color-1"
         }, {
-          "hex" : "#43362a",
-          "rgb" : [ 67, 54, 42 ],
-          "porcentaje" : 3.1,
+          "hex" : "#43372a",
+          "rgb" : [ 67, 55, 42 ],
+          "porcentaje" : 3.2,
           "variable" : "--color-2"
         }, {
-          "hex" : "#a58d76",
-          "rgb" : [ 165, 141, 118 ],
+          "hex" : "#a79078",
+          "rgb" : [ 167, 144, 120 ],
           "porcentaje" : 2.3,
           "variable" : "--color-3"
         }, {
-          "hex" : "#89735e",
-          "rgb" : [ 137, 115, 94 ],
-          "porcentaje" : 2.1,
+          "hex" : "#8b755f",
+          "rgb" : [ 139, 117, 95 ],
+          "porcentaje" : 2.2,
           "variable" : "--color-4"
         }, {
-          "hex" : "#665543",
-          "rgb" : [ 102, 85, 67 ],
-          "porcentaje" : 1.8,
+          "hex" : "#675644",
+          "rgb" : [ 103, 86, 68 ],
+          "porcentaje" : 1.9,
           "variable" : "--color-5"
         }, {
-          "hex" : "#c2aa93",
-          "rgb" : [ 194, 170, 147 ],
-          "porcentaje" : 1.2,
+          "hex" : "#c5ae98",
+          "rgb" : [ 197, 174, 152 ],
+          "porcentaje" : 1.1,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #010101;\n  --color-2: #43362a;\n  --color-3: #a58d76;\n  --color-4: #89735e;\n  --color-5: #665543;\n  --color-6: #c2aa93;\n}"
+        "css" : ":root {\n  --color-1: #010101;\n  --color-2: #43372a;\n  --color-3: #a79078;\n  --color-4: #8b755f;\n  --color-5: #675644;\n  --color-6: #c5ae98;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#30261c",
-          "rgb" : [ 48, 38, 28 ],
-          "porcentaje" : 2.8,
+          "hex" : "#33291f",
+          "rgb" : [ 51, 41, 31 ],
+          "porcentaje" : 4.8,
           "variable" : "--color-1"
         }, {
-          "hex" : "#73604d",
-          "rgb" : [ 115, 96, 77 ],
-          "porcentaje" : 5.0,
+          "hex" : "#776450",
+          "rgb" : [ 119, 100, 80 ],
+          "porcentaje" : 5.5,
           "variable" : "--color-2"
         }, {
-          "hex" : "#bca48d",
-          "rgb" : [ 188, 164, 141 ],
+          "hex" : "#bba28b",
+          "rgb" : [ 187, 162, 139 ],
           "porcentaje" : 5.4,
           "variable" : "--color-3"
+        }, {
+          "hex" : "#cac5be",
+          "rgb" : [ 202, 197, 190 ],
+          "porcentaje" : 0.8,
+          "variable" : "--color-4"
         } ],
-        "css" : ":root {\n  --color-1: #30261c;\n  --color-2: #73604d;\n  --color-3: #bca48d;\n}"
+        "css" : ":root {\n  --color-1: #33291f;\n  --color-2: #776450;\n  --color-3: #bba28b;\n  --color-4: #cac5be;\n}"
       }
     }
   }, {
@@ -295,50 +300,50 @@
         "colores" : [ {
           "hex" : "#3e4a52",
           "rgb" : [ 62, 74, 82 ],
-          "porcentaje" : 25.3,
+          "porcentaje" : 26.0,
           "variable" : "--color-1"
         }, {
-          "hex" : "#354048",
-          "rgb" : [ 53, 64, 72 ],
-          "porcentaje" : 22.8,
+          "hex" : "#364047",
+          "rgb" : [ 54, 64, 71 ],
+          "porcentaje" : 22.9,
           "variable" : "--color-2"
         }, {
-          "hex" : "#2d353c",
-          "rgb" : [ 45, 53, 60 ],
-          "porcentaje" : 20.5,
+          "hex" : "#2d343b",
+          "rgb" : [ 45, 52, 59 ],
+          "porcentaje" : 21.2,
           "variable" : "--color-3"
         }, {
-          "hex" : "#242a30",
-          "rgb" : [ 36, 42, 48 ],
-          "porcentaje" : 16.6,
+          "hex" : "#25292f",
+          "rgb" : [ 37, 41, 47 ],
+          "porcentaje" : 15.7,
           "variable" : "--color-4"
         }, {
-          "hex" : "#47535b",
-          "rgb" : [ 71, 83, 91 ],
-          "porcentaje" : 13.8,
+          "hex" : "#47535a",
+          "rgb" : [ 71, 83, 90 ],
+          "porcentaje" : 14.2,
           "variable" : "--color-5"
         }, {
-          "hex" : "#542c1e",
-          "rgb" : [ 84, 44, 30 ],
-          "porcentaje" : 1.1,
+          "hex" : "#ccc8c2",
+          "rgb" : [ 204, 200, 194 ],
+          "porcentaje" : 0.1,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #3e4a52;\n  --color-2: #354048;\n  --color-3: #2d353c;\n  --color-4: #242a30;\n  --color-5: #47535b;\n  --color-6: #542c1e;\n}"
+        "css" : ":root {\n  --color-1: #3e4a52;\n  --color-2: #364047;\n  --color-3: #2d343b;\n  --color-4: #25292f;\n  --color-5: #47535a;\n  --color-6: #ccc8c2;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#351d17",
-          "rgb" : [ 53, 29, 23 ],
-          "porcentaje" : 0.6,
+          "hex" : "#623321",
+          "rgb" : [ 98, 51, 33 ],
+          "porcentaje" : 0.5,
           "variable" : "--color-1"
         }, {
-          "hex" : "#1f252c",
-          "rgb" : [ 31, 37, 44 ],
-          "porcentaje" : 2.9,
+          "hex" : "#1e252b",
+          "rgb" : [ 30, 37, 43 ],
+          "porcentaje" : 2.4,
           "variable" : "--color-2"
         } ],
-        "css" : ":root {\n  --color-1: #351d17;\n  --color-2: #1f252c;\n}"
+        "css" : ":root {\n  --color-1: #623321;\n  --color-2: #1e252b;\n}"
       }
     }
   }, {
@@ -350,57 +355,72 @@
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#080f06",
-          "rgb" : [ 8, 15, 6 ],
-          "porcentaje" : 19.3,
+          "hex" : "#181b15",
+          "rgb" : [ 24, 27, 21 ],
+          "porcentaje" : 22.6,
           "variable" : "--color-1"
         }, {
-          "hex" : "#151912",
-          "rgb" : [ 21, 25, 18 ],
-          "porcentaje" : 18.9,
+          "hex" : "#21221d",
+          "rgb" : [ 33, 34, 29 ],
+          "porcentaje" : 22.1,
           "variable" : "--color-2"
         }, {
-          "hex" : "#1c1e18",
-          "rgb" : [ 28, 30, 24 ],
-          "porcentaje" : 17.7,
+          "hex" : "#10150d",
+          "rgb" : [ 16, 21, 13 ],
+          "porcentaje" : 20.8,
           "variable" : "--color-3"
         }, {
-          "hex" : "#0e140b",
-          "rgb" : [ 14, 20, 11 ],
-          "porcentaje" : 16.9,
+          "hex" : "#090f07",
+          "rgb" : [ 9, 15, 7 ],
+          "porcentaje" : 18.9,
           "variable" : "--color-4"
         }, {
-          "hex" : "#23231e",
-          "rgb" : [ 35, 35, 30 ],
-          "porcentaje" : 14.2,
+          "hex" : "#030902",
+          "rgb" : [ 3, 9, 2 ],
+          "porcentaje" : 15.5,
           "variable" : "--color-5"
         }, {
-          "hex" : "#020802",
-          "rgb" : [ 2, 8, 2 ],
-          "porcentaje" : 13.0,
+          "hex" : "#c8c3bd",
+          "rgb" : [ 200, 195, 189 ],
+          "porcentaje" : 0.1,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #080f06;\n  --color-2: #151912;\n  --color-3: #1c1e18;\n  --color-4: #0e140b;\n  --color-5: #23231e;\n  --color-6: #020802;\n}"
+        "css" : ":root {\n  --color-1: #181b15;\n  --color-2: #21221d;\n  --color-3: #10150d;\n  --color-4: #090f07;\n  --color-5: #030902;\n  --color-6: #c8c3bd;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#242820",
-          "rgb" : [ 36, 40, 32 ],
-          "porcentaje" : 1.7,
+          "hex" : "#242720",
+          "rgb" : [ 36, 39, 32 ],
+          "porcentaje" : 1.5,
           "variable" : "--color-1"
         }, {
           "hex" : "#282421",
           "rgb" : [ 40, 36, 33 ],
-          "porcentaje" : 2.2,
+          "porcentaje" : 2.3,
           "variable" : "--color-2"
         }, {
-          "hex" : "#272626",
-          "rgb" : [ 39, 38, 38 ],
-          "porcentaje" : 1.3,
+          "hex" : "#272722",
+          "rgb" : [ 39, 39, 34 ],
+          "porcentaje" : 65.1,
           "variable" : "--color-3"
+        }, {
+          "hex" : "#282824",
+          "rgb" : [ 40, 40, 36 ],
+          "porcentaje" : 14.2,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#ccc6bd",
+          "rgb" : [ 204, 198, 189 ],
+          "porcentaje" : 1.5,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#6f6f6a",
+          "rgb" : [ 111, 111, 106 ],
+          "porcentaje" : 0.8,
+          "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #242820;\n  --color-2: #282421;\n  --color-3: #272626;\n}"
+        "css" : ":root {\n  --color-1: #242720;\n  --color-2: #282421;\n  --color-3: #272722;\n  --color-4: #282824;\n  --color-5: #ccc6bd;\n  --color-6: #6f6f6a;\n}"
       }
     }
   } ]
