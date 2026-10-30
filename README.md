@@ -44,7 +44,7 @@ Después pulsa cualquier tarjeta y copia un color.
 > dejar la zona de subida muda. El feed no espera a nadie, porque sus paletas viven en un
 > JSON estático.
 
-![El feed en modo Vivos: dos tarjetas con su foto y sus muestras de color debajo. La del atardecer da seis colores encabezados por el naranja del sol; la del cielo estrellado da uno solo, porque sus cuatro azules son el mismo tono](docs/capturas/02-feed-vivos.jpg)
+![El feed en modo Vivos: dos tarjetas con su foto y sus muestras de color debajo. La del eclipse da cinco colores encabezados por el naranja del sol; la del ala vista desde la ventanilla da seis, empezando por el azul del cielo](docs/capturas/02-feed-vivos.jpg)
 
 ---
 
@@ -313,8 +313,8 @@ loopback del servidor. Sea cual sea el host, la URL va a
 
 ## Lo que falta
 
-- [ ] **D03**: Las seis fotos del feed son relleno generado. Cambiarlas por las reales
-      ([`web/fotos/LEEME.md`](web/fotos/LEEME.md)) y volver a ejecutar el generador.
+- [x] **D03**: Las seis fotos del feed son reales, con mi marca de agua. Sus paletas se
+      calculan con copias sin marca ([`web/fotos/LEEME.md`](web/fotos/LEEME.md)).
 - [ ] **I02**: Pasar Lighthouse en móvil y dejarlo en 90 o más.
 - [ ] **I03**, Prueba de carga: 20 subidas de 10 MB a la vez contra los mismos 512 MB.
       **La subida se publicó antes de hacerla**, así que por ahora lo único que sujeta la

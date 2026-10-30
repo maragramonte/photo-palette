@@ -1,386 +1,406 @@
 {
-  "generado" : "2026-10-27T13:04:31.861851400Z",
+  "generado" : "2026-10-30T13:07:01.293636100Z",
   "colores" : 6,
   "fotos" : [ {
-    "archivo" : "fotos/marcador-01.jpg",
-    "nombre" : "Marcador 1",
-    "alt" : "Foto de relleno: degradado naranja sobre un horizonte oscuro.",
-    "peso" : 60410,
+    "archivo" : "fotos/eclipse-parcial.jpg",
+    "nombre" : "Eclipse parcial",
+    "alt" : "El sol naranja mordido por la luna sobre un cielo negro, con un sello del mismo eclipse en pequeño.",
+    "peso" : 61755,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#1a121b",
-          "rgb" : [ 26, 18, 27 ],
-          "porcentaje" : 41.3,
+          "hex" : "#080202",
+          "rgb" : [ 8, 2, 2 ],
+          "porcentaje" : 70.8,
           "variable" : "--color-1"
         }, {
-          "hex" : "#df7a2b",
-          "rgb" : [ 223, 122, 43 ],
-          "porcentaje" : 16.2,
+          "hex" : "#fb990e",
+          "rgb" : [ 251, 153, 14 ],
+          "porcentaje" : 8.3,
           "variable" : "--color-2"
         }, {
-          "hex" : "#a45a2c",
-          "rgb" : [ 164, 90, 44 ],
-          "porcentaje" : 14.4,
+          "hex" : "#422913",
+          "rgb" : [ 66, 41, 19 ],
+          "porcentaje" : 7.4,
           "variable" : "--color-3"
         }, {
-          "hex" : "#6d3c2e",
-          "rgb" : [ 109, 60, 46 ],
-          "porcentaje" : 14.4,
+          "hex" : "#f97104",
+          "rgb" : [ 249, 113, 4 ],
+          "porcentaje" : 5.5,
           "variable" : "--color-4"
         }, {
-          "hex" : "#3d222f",
-          "rgb" : [ 61, 34, 47 ],
-          "porcentaje" : 11.9,
+          "hex" : "#e9e5da",
+          "rgb" : [ 233, 229, 218 ],
+          "porcentaje" : 4.3,
           "variable" : "--color-5"
         }, {
-          "hex" : "#f3bc6f",
-          "rgb" : [ 243, 188, 111 ],
-          "porcentaje" : 1.9,
+          "hex" : "#99693b",
+          "rgb" : [ 153, 105, 59 ],
+          "porcentaje" : 3.7,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #1a121b;\n  --color-2: #df7a2b;\n  --color-3: #a45a2c;\n  --color-4: #6d3c2e;\n  --color-5: #3d222f;\n  --color-6: #f3bc6f;\n}"
+        "css" : ":root {\n  --color-1: #080202;\n  --color-2: #fb990e;\n  --color-3: #422913;\n  --color-4: #f97104;\n  --color-5: #e9e5da;\n  --color-6: #99693b;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#f7882b",
-          "rgb" : [ 247, 136, 43 ],
+          "hex" : "#fd7b02",
+          "rgb" : [ 253, 123, 2 ],
+          "porcentaje" : 9.8,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#3f0601",
+          "rgb" : [ 63, 6, 1 ],
+          "porcentaje" : 2.0,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#94330f",
+          "rgb" : [ 148, 51, 15 ],
+          "porcentaje" : 1.1,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#646262",
+          "rgb" : [ 100, 98, 98 ],
+          "porcentaje" : 0.7,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#cccdcd",
+          "rgb" : [ 204, 205, 205 ],
+          "porcentaje" : 1.1,
+          "variable" : "--color-5"
+        } ],
+        "css" : ":root {\n  --color-1: #fd7b02;\n  --color-2: #3f0601;\n  --color-3: #94330f;\n  --color-4: #646262;\n  --color-5: #cccdcd;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/ala-desde-la-ventanilla.jpg",
+    "nombre" : "Ala desde la ventanilla",
+    "alt" : "El ala blanca de un avión vista por la ventanilla, con cielo azul y campos ocres debajo.",
+    "peso" : 170138,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#13130f",
+          "rgb" : [ 19, 19, 15 ],
+          "porcentaje" : 34.8,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#2c2521",
+          "rgb" : [ 44, 37, 33 ],
+          "porcentaje" : 20.1,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#90908d",
+          "rgb" : [ 144, 144, 141 ],
+          "porcentaje" : 19.1,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#534841",
+          "rgb" : [ 83, 72, 65 ],
+          "porcentaje" : 13.7,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#7aabd6",
+          "rgb" : [ 122, 171, 214 ],
+          "porcentaje" : 7.6,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#cdcabb",
+          "rgb" : [ 205, 202, 187 ],
           "porcentaje" : 4.7,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#a65b2d",
-          "rgb" : [ 166, 91, 45 ],
-          "porcentaje" : 5.8,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#20132f",
-          "rgb" : [ 32, 19, 47 ],
-          "porcentaje" : 5.6,
-          "variable" : "--color-3"
-        }, {
-          "hex" : "#62362e",
-          "rgb" : [ 98, 54, 46 ],
-          "porcentaje" : 5.6,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#3f232f",
-          "rgb" : [ 63, 35, 47 ],
-          "porcentaje" : 4.7,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#301b2f",
-          "rgb" : [ 48, 27, 47 ],
-          "porcentaje" : 7.5,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #f7882b;\n  --color-2: #a65b2d;\n  --color-3: #20132f;\n  --color-4: #62362e;\n  --color-5: #3f232f;\n  --color-6: #301b2f;\n}"
-      }
-    }
-  }, {
-    "archivo" : "fotos/marcador-02.jpg",
-    "nombre" : "Marcador 2",
-    "alt" : "Foto de relleno: cielo nocturno azul con puntos de luz.",
-    "peso" : 54620,
-    "paletas" : {
-      "presentes" : {
-        "modo" : "presentes",
-        "colores" : [ {
-          "hex" : "#080d20",
-          "rgb" : [ 8, 13, 32 ],
-          "porcentaje" : 30.0,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#060815",
-          "rgb" : [ 6, 8, 21 ],
-          "porcentaje" : 19.4,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#19234f",
-          "rgb" : [ 25, 35, 79 ],
-          "porcentaje" : 18.0,
-          "variable" : "--color-3"
-        }, {
-          "hex" : "#131b3f",
-          "rgb" : [ 19, 27, 63 ],
-          "porcentaje" : 16.3,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#0d132f",
-          "rgb" : [ 13, 19, 47 ],
-          "porcentaje" : 16.2,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#b5bcdb",
-          "rgb" : [ 181, 188, 219 ],
-          "porcentaje" : 0.1,
-          "variable" : "--color-6"
-        } ],
-        "css" : ":root {\n  --color-1: #080d20;\n  --color-2: #060815;\n  --color-3: #19234f;\n  --color-4: #131b3f;\n  --color-5: #0d132f;\n  --color-6: #b5bcdb;\n}"
+        "css" : ":root {\n  --color-1: #13130f;\n  --color-2: #2c2521;\n  --color-3: #90908d;\n  --color-4: #534841;\n  --color-5: #7aabd6;\n  --color-6: #cdcabb;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#0b112b",
-          "rgb" : [ 11, 17, 43 ],
-          "porcentaje" : 8.4,
-          "variable" : "--color-1"
-        } ],
-        "css" : ":root {\n  --color-1: #0b112b;\n}"
-      }
-    }
-  }, {
-    "archivo" : "fotos/marcador-03.jpg",
-    "nombre" : "Marcador 3",
-    "alt" : "Foto de relleno: verdes de un bosque con luz lateral.",
-    "peso" : 54357,
-    "paletas" : {
-      "presentes" : {
-        "modo" : "presentes",
-        "colores" : [ {
-          "hex" : "#34633e",
-          "rgb" : [ 52, 99, 62 ],
-          "porcentaje" : 25.6,
+          "hex" : "#65a3da",
+          "rgb" : [ 101, 163, 218 ],
+          "porcentaje" : 3.9,
           "variable" : "--color-1"
         }, {
-          "hex" : "#204229",
-          "rgb" : [ 32, 66, 41 ],
-          "porcentaje" : 18.8,
+          "hex" : "#2c2520",
+          "rgb" : [ 44, 37, 32 ],
+          "porcentaje" : 11.7,
           "variable" : "--color-2"
         }, {
-          "hex" : "#86a978",
-          "rgb" : [ 134, 169, 120 ],
-          "porcentaje" : 16.9,
-          "variable" : "--color-3"
-        }, {
-          "hex" : "#4a764e",
-          "rgb" : [ 74, 118, 78 ],
-          "porcentaje" : 16.7,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#698f64",
-          "rgb" : [ 105, 143, 100 ],
-          "porcentaje" : 15.1,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#a9c38c",
-          "rgb" : [ 169, 195, 140 ],
-          "porcentaje" : 6.9,
-          "variable" : "--color-6"
-        } ],
-        "css" : ":root {\n  --color-1: #34633e;\n  --color-2: #204229;\n  --color-3: #86a978;\n  --color-4: #4a764e;\n  --color-5: #698f64;\n  --color-6: #a9c38c;\n}"
-      },
-      "vivos" : {
-        "modo" : "vivos",
-        "colores" : [ {
-          "hex" : "#1a3723",
-          "rgb" : [ 26, 55, 35 ],
-          "porcentaje" : 7.5,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#f0e2a1",
-          "rgb" : [ 240, 226, 161 ],
-          "porcentaje" : 1.2,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#557d55",
-          "rgb" : [ 85, 125, 85 ],
-          "porcentaje" : 5.6,
-          "variable" : "--color-3"
-        } ],
-        "css" : ":root {\n  --color-1: #1a3723;\n  --color-2: #f0e2a1;\n  --color-3: #557d55;\n}"
-      }
-    }
-  }, {
-    "archivo" : "fotos/marcador-04.jpg",
-    "nombre" : "Marcador 4",
-    "alt" : "Foto de relleno: interior cálido en tonos tierra.",
-    "peso" : 54886,
-    "paletas" : {
-      "presentes" : {
-        "modo" : "presentes",
-        "colores" : [ {
-          "hex" : "#5f3f25",
-          "rgb" : [ 95, 63, 37 ],
-          "porcentaje" : 26.3,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#442d1a",
-          "rgb" : [ 68, 45, 26 ],
-          "porcentaje" : 25.6,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#9e6d3f",
-          "rgb" : [ 158, 109, 63 ],
-          "porcentaje" : 18.0,
-          "variable" : "--color-3"
-        }, {
-          "hex" : "#7d5431",
-          "rgb" : [ 125, 84, 49 ],
-          "porcentaje" : 15.7,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#281a0d",
-          "rgb" : [ 40, 26, 13 ],
-          "porcentaje" : 13.1,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#ffe0a9",
-          "rgb" : [ 255, 224, 169 ],
-          "porcentaje" : 1.2,
-          "variable" : "--color-6"
-        } ],
-        "css" : ":root {\n  --color-1: #5f3f25;\n  --color-2: #442d1a;\n  --color-3: #9e6d3f;\n  --color-4: #7d5431;\n  --color-5: #281a0d;\n  --color-6: #ffe0a9;\n}"
-      },
-      "vivos" : {
-        "modo" : "vivos",
-        "colores" : [ {
-          "hex" : "#301f10",
-          "rgb" : [ 48, 31, 16 ],
+          "hex" : "#998c75",
+          "rgb" : [ 153, 140, 117 ],
           "porcentaje" : 4.6,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#8b5f36",
-          "rgb" : [ 139, 95, 54 ],
-          "porcentaje" : 4.2,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#ffe0a9",
-          "rgb" : [ 255, 224, 169 ],
-          "porcentaje" : 1.3,
           "variable" : "--color-3"
+        }, {
+          "hex" : "#e1d2b3",
+          "rgb" : [ 225, 210, 179 ],
+          "porcentaje" : 3.0,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#cbdde4",
+          "rgb" : [ 203, 221, 228 ],
+          "porcentaje" : 1.6,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#989a9b",
+          "rgb" : [ 152, 154, 155 ],
+          "porcentaje" : 12.2,
+          "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #301f10;\n  --color-2: #8b5f36;\n  --color-3: #ffe0a9;\n}"
+        "css" : ":root {\n  --color-1: #65a3da;\n  --color-2: #2c2520;\n  --color-3: #998c75;\n  --color-4: #e1d2b3;\n  --color-5: #cbdde4;\n  --color-6: #989a9b;\n}"
       }
     }
   }, {
-    "archivo" : "fotos/marcador-05.jpg",
-    "nombre" : "Marcador 5",
-    "alt" : "Foto de relleno: mar turquesa bajo un cielo claro.",
-    "peso" : 51272,
+    "archivo" : "fotos/piscina-de-bolas.jpg",
+    "nombre" : "Piscina de bolas",
+    "alt" : "Primer plano de cientos de bolas de plástico verde menta que se pierden hacia el fondo.",
+    "peso" : 185349,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#60b2c8",
-          "rgb" : [ 96, 178, 200 ],
-          "porcentaje" : 20.8,
+          "hex" : "#74797a",
+          "rgb" : [ 116, 121, 122 ],
+          "porcentaje" : 31.1,
           "variable" : "--color-1"
         }, {
-          "hex" : "#136779",
-          "rgb" : [ 19, 103, 121 ],
-          "porcentaje" : 19.4,
+          "hex" : "#a79e95",
+          "rgb" : [ 167, 158, 149 ],
+          "porcentaje" : 21.5,
           "variable" : "--color-2"
         }, {
-          "hex" : "#197f93",
-          "rgb" : [ 25, 127, 147 ],
-          "porcentaje" : 18.1,
+          "hex" : "#565c5b",
+          "rgb" : [ 86, 92, 91 ],
+          "porcentaje" : 21.1,
           "variable" : "--color-3"
         }, {
-          "hex" : "#8ac5d6",
-          "rgb" : [ 138, 197, 214 ],
-          "porcentaje" : 16.7,
+          "hex" : "#2f3638",
+          "rgb" : [ 47, 54, 56 ],
+          "porcentaje" : 10.6,
           "variable" : "--color-4"
         }, {
-          "hex" : "#aed6e3",
-          "rgb" : [ 174, 214, 227 ],
-          "porcentaje" : 16.3,
+          "hex" : "#e6cdad",
+          "rgb" : [ 230, 205, 173 ],
+          "porcentaje" : 9.1,
           "variable" : "--color-5"
         }, {
-          "hex" : "#cfe6ef",
-          "rgb" : [ 207, 230, 239 ],
-          "porcentaje" : 8.7,
+          "hex" : "#ac906a",
+          "rgb" : [ 172, 144, 106 ],
+          "porcentaje" : 6.7,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #60b2c8;\n  --color-2: #136779;\n  --color-3: #197f93;\n  --color-4: #8ac5d6;\n  --color-5: #aed6e3;\n  --color-6: #cfe6ef;\n}"
+        "css" : ":root {\n  --color-1: #74797a;\n  --color-2: #a79e95;\n  --color-3: #565c5b;\n  --color-4: #2f3638;\n  --color-5: #e6cdad;\n  --color-6: #ac906a;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#105d6e",
-          "rgb" : [ 16, 93, 110 ],
-          "porcentaje" : 5.0,
+          "hex" : "#9f825d",
+          "rgb" : [ 159, 130, 93 ],
+          "porcentaje" : 2.7,
           "variable" : "--color-1"
         }, {
-          "hex" : "#53abc3",
-          "rgb" : [ 83, 171, 195 ],
-          "porcentaje" : 8.8,
+          "hex" : "#e3c7a9",
+          "rgb" : [ 227, 199, 169 ],
+          "porcentaje" : 3.5,
           "variable" : "--color-2"
         }, {
-          "hex" : "#feffff",
-          "rgb" : [ 254, 255, 255 ],
-          "porcentaje" : 1.2,
+          "hex" : "#45555b",
+          "rgb" : [ 69, 85, 91 ],
+          "porcentaje" : 5.2,
           "variable" : "--color-3"
+        }, {
+          "hex" : "#504746",
+          "rgb" : [ 80, 71, 70 ],
+          "porcentaje" : 4.7,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#726b68",
+          "rgb" : [ 114, 107, 104 ],
+          "porcentaje" : 6.5,
+          "variable" : "--color-5"
         } ],
-        "css" : ":root {\n  --color-1: #105d6e;\n  --color-2: #53abc3;\n  --color-3: #feffff;\n}"
+        "css" : ":root {\n  --color-1: #9f825d;\n  --color-2: #e3c7a9;\n  --color-3: #45555b;\n  --color-4: #504746;\n  --color-5: #726b68;\n}"
       }
     }
   }, {
-    "archivo" : "fotos/marcador-06.jpg",
-    "nombre" : "Marcador 6",
-    "alt" : "Foto de relleno: estudio en grises de una pared.",
-    "peso" : 58945,
+    "archivo" : "fotos/luna-llena.jpg",
+    "nombre" : "Luna llena",
+    "alt" : "La luna llena con sus cráteres y mares grises sobre un cielo completamente negro.",
+    "peso" : 46423,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#858585",
-          "rgb" : [ 133, 133, 133 ],
-          "porcentaje" : 23.7,
+          "hex" : "#010101",
+          "rgb" : [ 1, 1, 1 ],
+          "porcentaje" : 89.5,
           "variable" : "--color-1"
         }, {
-          "hex" : "#6f6768",
-          "rgb" : [ 111, 103, 104 ],
-          "porcentaje" : 21.2,
+          "hex" : "#43362a",
+          "rgb" : [ 67, 54, 42 ],
+          "porcentaje" : 3.1,
           "variable" : "--color-2"
         }, {
-          "hex" : "#9e9d9e",
-          "rgb" : [ 158, 157, 158 ],
-          "porcentaje" : 15.0,
+          "hex" : "#a58d76",
+          "rgb" : [ 165, 141, 118 ],
+          "porcentaje" : 2.3,
           "variable" : "--color-3"
         }, {
-          "hex" : "#444444",
-          "rgb" : [ 68, 68, 68 ],
-          "porcentaje" : 14.4,
+          "hex" : "#89735e",
+          "rgb" : [ 137, 115, 94 ],
+          "porcentaje" : 2.1,
           "variable" : "--color-4"
         }, {
-          "hex" : "#b7b7b7",
-          "rgb" : [ 183, 183, 183 ],
+          "hex" : "#665543",
+          "rgb" : [ 102, 85, 67 ],
+          "porcentaje" : 1.8,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#c2aa93",
+          "rgb" : [ 194, 170, 147 ],
+          "porcentaje" : 1.2,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #010101;\n  --color-2: #43362a;\n  --color-3: #a58d76;\n  --color-4: #89735e;\n  --color-5: #665543;\n  --color-6: #c2aa93;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#30261c",
+          "rgb" : [ 48, 38, 28 ],
+          "porcentaje" : 2.8,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#73604d",
+          "rgb" : [ 115, 96, 77 ],
+          "porcentaje" : 5.0,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#bca48d",
+          "rgb" : [ 188, 164, 141 ],
+          "porcentaje" : 5.4,
+          "variable" : "--color-3"
+        } ],
+        "css" : ":root {\n  --color-1: #30261c;\n  --color-2: #73604d;\n  --color-3: #bca48d;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/estrellas-y-tejado.jpg",
+    "nombre" : "Estrellas y tejado",
+    "alt" : "Cielo nocturno azul pizarra con estrellas tenues y el borde de un tejado de teja naranja a la derecha.",
+    "peso" : 292738,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#3e4a52",
+          "rgb" : [ 62, 74, 82 ],
+          "porcentaje" : 25.3,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#354048",
+          "rgb" : [ 53, 64, 72 ],
+          "porcentaje" : 22.8,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#2d353c",
+          "rgb" : [ 45, 53, 60 ],
+          "porcentaje" : 20.5,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#242a30",
+          "rgb" : [ 36, 42, 48 ],
+          "porcentaje" : 16.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#47535b",
+          "rgb" : [ 71, 83, 91 ],
           "porcentaje" : 13.8,
           "variable" : "--color-5"
         }, {
-          "hex" : "#cecece",
-          "rgb" : [ 206, 206, 206 ],
-          "porcentaje" : 11.9,
+          "hex" : "#542c1e",
+          "rgb" : [ 84, 44, 30 ],
+          "porcentaje" : 1.1,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #858585;\n  --color-2: #6f6768;\n  --color-3: #9e9d9e;\n  --color-4: #444444;\n  --color-5: #b7b7b7;\n  --color-6: #cecece;\n}"
+        "css" : ":root {\n  --color-1: #3e4a52;\n  --color-2: #354048;\n  --color-3: #2d353c;\n  --color-4: #242a30;\n  --color-5: #47535b;\n  --color-6: #542c1e;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#b12a39",
-          "rgb" : [ 177, 42, 57 ],
-          "porcentaje" : 1.2,
+          "hex" : "#351d17",
+          "rgb" : [ 53, 29, 23 ],
+          "porcentaje" : 0.6,
           "variable" : "--color-1"
         }, {
-          "hex" : "#818181",
-          "rgb" : [ 129, 129, 129 ],
-          "porcentaje" : 11.3,
+          "hex" : "#1f252c",
+          "rgb" : [ 31, 37, 44 ],
+          "porcentaje" : 2.9,
+          "variable" : "--color-2"
+        } ],
+        "css" : ":root {\n  --color-1: #351d17;\n  --color-2: #1f252c;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/cielo-estrellado.jpg",
+    "nombre" : "Cielo estrellado",
+    "alt" : "Cielo de noche casi negro salpicado de estrellas, con la silueta de unas ramas en la esquina.",
+    "peso" : 54441,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#080f06",
+          "rgb" : [ 8, 15, 6 ],
+          "porcentaje" : 19.3,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#151912",
+          "rgb" : [ 21, 25, 18 ],
+          "porcentaje" : 18.9,
           "variable" : "--color-2"
         }, {
-          "hex" : "#c9c9c9",
-          "rgb" : [ 201, 201, 201 ],
-          "porcentaje" : 6.3,
+          "hex" : "#1c1e18",
+          "rgb" : [ 28, 30, 24 ],
+          "porcentaje" : 17.7,
           "variable" : "--color-3"
         }, {
-          "hex" : "#404040",
-          "rgb" : [ 64, 64, 64 ],
-          "porcentaje" : 5.0,
+          "hex" : "#0e140b",
+          "rgb" : [ 14, 20, 11 ],
+          "porcentaje" : 16.9,
           "variable" : "--color-4"
+        }, {
+          "hex" : "#23231e",
+          "rgb" : [ 35, 35, 30 ],
+          "porcentaje" : 14.2,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#020802",
+          "rgb" : [ 2, 8, 2 ],
+          "porcentaje" : 13.0,
+          "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #b12a39;\n  --color-2: #818181;\n  --color-3: #c9c9c9;\n  --color-4: #404040;\n}"
+        "css" : ":root {\n  --color-1: #080f06;\n  --color-2: #151912;\n  --color-3: #1c1e18;\n  --color-4: #0e140b;\n  --color-5: #23231e;\n  --color-6: #020802;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#242820",
+          "rgb" : [ 36, 40, 32 ],
+          "porcentaje" : 1.7,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#282421",
+          "rgb" : [ 40, 36, 33 ],
+          "porcentaje" : 2.2,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#272626",
+          "rgb" : [ 39, 38, 38 ],
+          "porcentaje" : 1.3,
+          "variable" : "--color-3"
+        } ],
+        "css" : ":root {\n  --color-1: #242820;\n  --color-2: #282421;\n  --color-3: #272626;\n}"
       }
     }
   } ]
