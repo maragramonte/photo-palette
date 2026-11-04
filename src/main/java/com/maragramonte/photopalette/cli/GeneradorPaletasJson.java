@@ -87,6 +87,10 @@ public final class GeneradorPaletasJson {
             entrada.put("archivo", carpetaFotos.getFileName() + "/" + foto.archivo());
             entrada.put("nombre", foto.nombre());
             entrada.put("alt", foto.alt());
+            // Solo cuando la foto la lleva: casi ninguna necesita explicar su paleta.
+            if (foto.nota() != null && !foto.nota().isBlank()) {
+                entrada.put("nota", foto.nota());
+            }
             entrada.put("peso", Files.size(archivo));
             entrada.put("paletas", paletas);
             entradas.add(entrada);
@@ -126,7 +130,7 @@ public final class GeneradorPaletasJson {
                     .sorted(Comparator.comparing(Path::getFileName))
                     .map(archivo -> {
                         String nombre = archivo.getFileName().toString();
-                        return new Foto(nombre, nombre.replaceFirst("\\.[^.]+$", ""), "");
+                        return new Foto(nombre, nombre.replaceFirst("\\.[^.]+$", ""), "", null);
                     })
                     .toList();
         }
@@ -137,6 +141,11 @@ public final class GeneradorPaletasJson {
         return EXTENSIONES.stream().anyMatch(nombre::endsWith);
     }
 
-    /** Una entrada de {@code web/fotos/fotos.json}. */
-    record Foto(String archivo, String nombre, String alt) {}
+    /**
+     * Una entrada de {@code web/fotos/fotos.json}.
+     *
+     * <p>{@code nota} es opcional: una línea para la foto cuya paleta parece un error sin
+     * serlo. Si falta en el JSON, Jackson la deja en {@code null}.
+     */
+    record Foto(String archivo, String nombre, String alt, String nota) {}
 }

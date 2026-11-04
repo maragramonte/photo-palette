@@ -189,6 +189,17 @@
     });
     boton.append(muestras);
 
+    // Para la foto cuya paleta parece un fallo sin serlo. Va como descripción y no dentro
+    // del nombre accesible, que sigue siendo lo que se lee en el pie.
+    if (foto.nota) {
+      const nota = document.createElement("span");
+      nota.className = "tarjeta__nota";
+      nota.id = id + "-nota";
+      nota.textContent = foto.nota;
+      boton.append(nota);
+      boton.setAttribute("aria-describedby", nota.id);
+    }
+
     item.append(boton);
     return item;
   }

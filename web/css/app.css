@@ -427,6 +427,15 @@ a {
   font-weight: var(--peso-nombre);
 }
 
+.tarjeta__nota {
+  display: block;
+  padding: 0 var(--e-2) var(--e-2);
+  color: var(--text-3);
+  font-size: var(--txt-xs);
+  line-height: 1.5;
+  text-align: left;
+}
+
 .muestras {
   display: flex;
   width: 100%;

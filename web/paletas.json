@@ -154,6 +154,7 @@
     "archivo" : "fotos/piscina-de-bolas.jpg",
     "nombre" : "Piscina de bolas",
     "alt" : "Primer plano de cientos de bolas de plástico verde menta que se pierden hacia el fondo.",
+    "nota" : "Se ven verde menta, pero sus píxeles son un gris apenas azulado: la luz cálida de la sala engaña al ojo. La paleta es fiel a la foto.",
     "peso" : 185349,
     "paletas" : {
       "presentes" : {
