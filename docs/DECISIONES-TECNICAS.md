@@ -167,5 +167,8 @@ Sea cual sea el host, su URL va a [`web/js/config.js`](../web/js/config.js) y co
 `git push` Pages se republica solo.
 
 **Lo que cuesta.** La instancia gratuita de Render se duerme a los quince minutos sin
-tráfico y la primera llamada tarda unos treinta segundos. El servidor propio sigue siendo el
-destino cuando haya dominio que decidir.
+tráfico y la primera llamada tarda unos treinta segundos. Mientras arranca, su proxy puede
+contestar con un error que el navegador ve como fallo de red, así que la web no da la API por
+caída al primer intento: vuelve a preguntar a `/api/salud` durante 90 segundos, dice que la
+API se está despertando y cuánto lleva, y mantiene apagadas las dos formas de subir hasta que
+contesta. El servidor propio sigue siendo el destino cuando haya dominio que decidir.
