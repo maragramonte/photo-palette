@@ -682,7 +682,8 @@
     const avisar = setTimeout(() => {
       decirEstado(
         "La API se está despertando: el plan gratuito la duerme tras 15 minutos sin " +
-          "visitas. Suele tardar menos de un minuto.",
+          "visitas y suele tardar menos de un minuto. Mientras, toca cualquier foto del " +
+          "feed para ver su paleta completa.",
         "trabajando"
       );
       nodos.estadoSubida.after(contador);

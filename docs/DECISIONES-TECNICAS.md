@@ -119,7 +119,7 @@ JSON estático:
 mvn compile exec:java@paletas     # web/fotos/*.jpg → web/paletas.json
 ```
 
-**Lo que se gana.** Ningún color de la web está escrito a mano, y el feed funciona igual con
+**Lo que se gana.** Ninguna paleta de la web está escrita a mano, y el feed funciona igual con
 la API dormida o caída. El workflow de Pages se niega a publicar si falta `paletas.json`.
 
 **Lo que cuesta.** Cambiar una foto obliga a regenerar el JSON antes del push. Está explicado

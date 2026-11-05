@@ -132,8 +132,8 @@ recorte, porque si se recortara no fallaría nada visible.
 [→](docs/DECISIONES-TECNICAS.md#3-límites-pensados-para-compartir-servidor)
 
 **El feed no necesita servidor.** GitHub Pages no ejecuta Java, así que un comando analiza
-las fotos con el mismo código que la API y deja el resultado en `paletas.json`. Ningún color
-de la web está escrito a mano, y el feed funciona igual con la API dormida.
+las fotos con el mismo código que la API y deja el resultado en `paletas.json`. Ninguna paleta
+de la web está escrita a mano, y el feed funciona igual con la API dormida.
 [→](docs/DECISIONES-TECNICAS.md#4-el-feed-no-necesita-servidor)
 
 ---
