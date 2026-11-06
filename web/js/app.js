@@ -189,6 +189,17 @@
     });
     boton.append(muestras);
 
+    // Para la foto cuya paleta parece un fallo sin serlo. Va como descripción y no dentro
+    // del nombre accesible, que sigue siendo lo que se lee en el pie.
+    if (foto.nota) {
+      const nota = document.createElement("span");
+      nota.className = "tarjeta__nota";
+      nota.id = id + "-nota";
+      nota.textContent = foto.nota;
+      boton.append(nota);
+      boton.setAttribute("aria-describedby", nota.id);
+    }
+
     item.append(boton);
     return item;
   }
@@ -607,17 +618,54 @@
 
   // --- Salud ---------------------------------------------------------------
 
+  // La instancia gratuita de Render se duerme a los 15 minutos sin visitas y tarda entre 30
+  // y 60 segundos en volver. Mientras arranca, su proxy puede contestar con un error que
+  // el navegador ve como fallo de red, así que un solo intento daba la API por caída
+  // cuando solo estaba despertando. Se insiste hasta ESPERA_MAXIMA antes de rendirse.
+  const ESPERA_MAXIMA_MS = 90 * 1000;
+  const TIEMPO_POR_INTENTO_MS = 20 * 1000;
+  const PAUSA_ENTRE_INTENTOS_MS = 4 * 1000;
+  // Si la API contesta antes de esto, el visitante ni se entera de que hubo comprobación.
+  const AVISAR_DESPUES_DE_MS = 2500;
+
+  /** Las dos formas de subir se encienden y se apagan juntas: o se puede, o no se puede. */
+  function permitirSubida(si) {
+    estado.apiViva = si;
+    nodos.archivo.disabled = !si;
+    nodos.probarEjemplo.disabled = !si;
+    nodos.caja.classList.toggle("esta-apagada", !si);
+  }
+
+  async function saludResponde() {
+    const control = new AbortController();
+    const corte = setTimeout(() => control.abort(), TIEMPO_POR_INTENTO_MS);
+    try {
+      const respuesta = await fetch(API + "/api/salud", {
+        method: "GET",
+        cache: "no-store",
+        signal: control.signal,
+      });
+      return respuesta.ok;
+    } catch (error) {
+      return false;
+    } finally {
+      clearTimeout(corte);
+    }
+  }
+
   /**
    * Pregunta a la API si está viva antes de ofrecer la subida.
    *
    * Esta llamada hace dos cosas. La evidente: decidir si se puede subir una foto. La otra:
-   * si el servidor tarda en contestar —acaba de arrancar, o va justo—, esto se come la
-   * espera mientras el visitante lee el titular, no cuando arrastra su foto.
+   * despertar el servidor mientras el visitante lee el titular, no cuando arrastra su foto.
+   * Si tarda, se dice por qué y cuánto lleva, con el contador fuera de la región viva para
+   * que un lector de pantalla no lo cante cada segundo.
    */
   async function comprobarSalud() {
+    document.getElementById("volverAComprobar")?.remove();
+    permitirSubida(false);
+
     if (!API) {
-      estado.apiViva = false;
-      nodos.probarEjemplo.disabled = true;
       decirEstado(
         "La subida está apagada porque no hay ninguna API configurada (web/js/config.js). " +
           "El feed funciona igual: sus paletas son estáticas.",
@@ -625,31 +673,56 @@
       );
       return;
     }
-    decirEstado("Comprobando que la API responde…", "trabajando");
-    try {
-      const respuesta = await fetch(API + "/api/salud", { method: "GET" });
-      estado.apiViva = respuesta.ok;
-    } catch (error) {
-      estado.apiViva = false;
+
+    const inicio = Date.now();
+    const contador = document.createElement("span");
+    contador.className = "subida__contador";
+    contador.setAttribute("aria-hidden", "true");
+
+    const avisar = setTimeout(() => {
+      decirEstado(
+        "La API se está despertando: el plan gratuito la duerme tras 15 minutos sin " +
+          "visitas y suele tardar menos de un minuto. Mientras, toca cualquier foto del " +
+          "feed para ver su paleta completa.",
+        "trabajando"
+      );
+      nodos.estadoSubida.after(contador);
+    }, AVISAR_DESPUES_DE_MS);
+    const reloj = setInterval(() => {
+      contador.textContent = Math.round((Date.now() - inicio) / 1000) + " s";
+    }, 1000);
+
+    let viva = false;
+    while (!viva && Date.now() - inicio < ESPERA_MAXIMA_MS) {
+      viva = await saludResponde();
+      if (!viva && Date.now() - inicio < ESPERA_MAXIMA_MS) {
+        await new Promise((sigue) => setTimeout(sigue, PAUSA_ENTRE_INTENTOS_MS));
+      }
     }
 
-    nodos.probarEjemplo.disabled = !estado.apiViva;
+    clearTimeout(avisar);
+    clearInterval(reloj);
+    contador.remove();
+    permitirSubida(viva);
 
-    if (estado.apiViva) {
-      decirEstado("");
-    } else {
-      decirEstado("La API no responde ahora mismo. El feed sigue funcionando.", "error");
-      const boton = document.createElement("button");
-      boton.type = "button";
-      boton.className = "boton";
-      boton.style.marginTop = "var(--e-1)";
-      boton.textContent = "Volver a comprobar";
-      boton.addEventListener("click", () => {
-        boton.remove();
-        comprobarSalud();
-      });
-      nodos.estadoSubida.after(boton);
+    if (viva) {
+      // Solo se dice algo si hubo espera: si contestó al momento, no hay nada que contar.
+      decirEstado(Date.now() - inicio > AVISAR_DESPUES_DE_MS ? "La API ya está despierta." : "");
+      return;
     }
+
+    decirEstado(
+      "La API no ha respondido en " + ESPERA_MAXIMA_MS / 1000 + " segundos. " +
+        "El feed sigue funcionando.",
+      "error"
+    );
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.id = "volverAComprobar";
+    boton.className = "boton";
+    boton.textContent = "Volver a comprobar";
+    boton.addEventListener("click", comprobarSalud);
+    nodos.estadoSubida.after(boton);
   }
 
   // --- Arranque ------------------------------------------------------------

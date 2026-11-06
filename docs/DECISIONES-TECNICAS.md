@@ -119,7 +119,7 @@ JSON estático:
 mvn compile exec:java@paletas     # web/fotos/*.jpg → web/paletas.json
 ```
 
-**Lo que se gana.** Ningún color de la web está escrito a mano, y el feed funciona igual con
+**Lo que se gana.** Ninguna paleta de la web está escrita a mano, y el feed funciona igual con
 la API dormida o caída. El workflow de Pages se niega a publicar si falta `paletas.json`.
 
 **Lo que cuesta.** Cambiar una foto obliga a regenerar el JSON antes del push. Está explicado
@@ -167,5 +167,8 @@ Sea cual sea el host, su URL va a [`web/js/config.js`](../web/js/config.js) y co
 `git push` Pages se republica solo.
 
 **Lo que cuesta.** La instancia gratuita de Render se duerme a los quince minutos sin
-tráfico y la primera llamada tarda unos treinta segundos. El servidor propio sigue siendo el
-destino cuando haya dominio que decidir.
+tráfico y la primera llamada tarda unos treinta segundos. Mientras arranca, su proxy puede
+contestar con un error que el navegador ve como fallo de red, así que la web no da la API por
+caída al primer intento: vuelve a preguntar a `/api/salud` durante 90 segundos, dice que la
+API se está despertando y cuánto lleva, y mantiene apagadas las dos formas de subir hasta que
+contesta. El servidor propio sigue siendo el destino cuando haya dominio que decidir.

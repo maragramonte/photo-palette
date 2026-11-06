@@ -36,6 +36,12 @@ foto que ves.
    El `alt` no es opcional: es lo que oye quien no ve la foto, y cuenta para el
    Lighthouse de accesibilidad (I02).
 
+   La `nota` sí es opcional: una línea que sale bajo la paleta en el feed. Es para la foto
+   cuya paleta parece un error sin serlo. En «Piscina de bolas», las bolas se ven verde
+   menta y la paleta sale gris, pero los píxeles de las bolas son un gris apenas azulado (de
+   media, `#727b7d`; las zonas iluminadas, gris neutro): es la luz cálida de la sala la
+   que hace que el ojo las vea verdes.
+
 4. Regenera las paletas desde la raíz del repo:
 
    ```bash

@@ -171,6 +171,25 @@ a {
   pointer-events: none;
 }
 
+/*
+ * Sin API no se puede subir nada, y «Elegir una foto» es un <label>, no un <button>: no
+ * tiene :disabled propio. Se apaga el input al que apunta y se le da aquí el mismo aspecto
+ * que .boton:disabled, para que los dos botones digan lo mismo.
+ */
+.subida__caja.esta-apagada .boton--principal,
+.subida__caja.esta-apagada .boton--principal:hover {
+  opacity: 0.45;
+  cursor: not-allowed;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.subida__contador {
+  color: var(--text-3);
+  font-size: var(--txt-xs);
+  font-variant-numeric: tabular-nums;
+}
+
 .subida__input {
   position: absolute;
   width: 1px;
@@ -406,6 +425,15 @@ a {
   color: var(--accent-soft);
   font-size: var(--txt-xs);
   font-weight: var(--peso-nombre);
+}
+
+.tarjeta__nota {
+  display: block;
+  padding: 0 var(--e-2) var(--e-2);
+  color: var(--text-3);
+  font-size: var(--txt-xs);
+  line-height: 1.5;
+  text-align: left;
 }
 
 .muestras {

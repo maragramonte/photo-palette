@@ -48,8 +48,8 @@
       <div class="hero__texto">
         <h1 class="hero__frase">Cada foto esconde una paleta.<br><em>Esta API la encuentra.</em></h1>
         <p class="hero__apoyo">
-          Seis fotos, seis paletas calculadas con k-means en Java. Ningún color de esta página
-          está escrito a mano: todos salen de la API.
+          Seis fotos, seis paletas calculadas con k-means en Java. Ninguna paleta está escrita
+          a mano: todas salen de la API.
         </p>
       </div>
 
@@ -71,8 +71,10 @@
               Probar con una de ejemplo
             </button>
           </span>
+          <!-- Dentro de la caja: en el móvil, fuera de ella quedaba por debajo del primer
+               pantallazo y se veía el botón activo antes que el aviso de que no funcionaba. -->
+          <p class="subida__estado" id="subidaEstado" role="status" aria-live="polite"></p>
         </form>
-        <p class="subida__estado" id="subidaEstado" role="status" aria-live="polite"></p>
       </div>
     </section>
 
