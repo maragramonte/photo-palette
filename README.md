@@ -1,5 +1,7 @@
 # Photo Palette
 
+**Español** · [English](README.en.md)
+
 Convierte una foto en una paleta de color lista para pegar en una web. Subes la imagen y
 te devuelve los colores en HEX y RGB, cuánto ocupa cada uno y un bloque `:root` que se copia
 de un clic. Los calcula k-means escrito a mano, sin librerías de color de terceros, y la
