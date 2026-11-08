@@ -1,10 +1,14 @@
 # Las fotos del feed
 
-Son seis fotos reales, hechas con el móvil: un eclipse, un ala de avión, una piscina de
-bolas, la luna y dos cielos de noche. Están reducidas a 1600 px y sin metadatos EXIF.
+Son nueve fotos reales, hechas con el móvil: un eclipse, un ala de avión, una piscina de
+bolas, la luna, dos cielos de noche y tres de flores (margaritas naranjas, margaritas
+moradas y unas rosas teñidas). Están a 1600 px como mucho y sin metadatos EXIF. La de las
+margaritas moradas era apaisada y está recortada a 4:5, el formato de las tarjetas.
 
 Cada una lleva mi símbolo (el de `favicon.svg`, solo la M en crema) como marca de agua en la
 esquina inferior derecha, dentro del recorte 4:5 de las tarjetas para que no se corte.
+En las fotos con esa esquina clara (las margaritas) lleva además una sombra suave
+debajo, porque la crema sobre grava blanca o piedra desaparecía.
 
 ## La marca de agua entra en la paleta, y es a propósito
 

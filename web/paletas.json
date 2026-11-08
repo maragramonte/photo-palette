@@ -1,5 +1,5 @@
 {
-  "generado" : "2026-10-30T13:48:30.126993600Z",
+  "generado" : "2026-11-08T20:59:26.392941448Z",
   "colores" : 6,
   "fotos" : [ {
     "archivo" : "fotos/eclipse-parcial.jpg",
@@ -151,6 +151,83 @@
       }
     }
   }, {
+    "archivo" : "fotos/margaritas-naranjas.jpg",
+    "nombre" : "Margaritas naranjas",
+    "alt" : "Margaritas naranjas y amarillas en una jardinera de piedra, con la luz del atardecer y una barandilla de metal detrás.",
+    "peso" : 150815,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#383517",
+          "rgb" : [ 56, 53, 23 ],
+          "porcentaje" : 28.2,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#a5a7ad",
+          "rgb" : [ 165, 167, 173 ],
+          "porcentaje" : 18.3,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#a76413",
+          "rgb" : [ 167, 100, 19 ],
+          "porcentaje" : 16.8,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#e7b01b",
+          "rgb" : [ 231, 176, 27 ],
+          "porcentaje" : 14.8,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#7b7a7b",
+          "rgb" : [ 123, 122, 123 ],
+          "porcentaje" : 14.6,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#dfe9f1",
+          "rgb" : [ 223, 233, 241 ],
+          "porcentaje" : 7.4,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #383517;\n  --color-2: #a5a7ad;\n  --color-3: #a76413;\n  --color-4: #e7b01b;\n  --color-5: #7b7a7b;\n  --color-6: #dfe9f1;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#b24b09",
+          "rgb" : [ 178, 75, 9 ],
+          "porcentaje" : 4.6,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#f6d10d",
+          "rgb" : [ 246, 209, 13 ],
+          "porcentaje" : 4.6,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#705410",
+          "rgb" : [ 112, 84, 16 ],
+          "porcentaje" : 5.4,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#2c2e17",
+          "rgb" : [ 44, 46, 23 ],
+          "porcentaje" : 9.8,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#6f7680",
+          "rgb" : [ 111, 118, 128 ],
+          "porcentaje" : 5.8,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#a2a7b4",
+          "rgb" : [ 162, 167, 180 ],
+          "porcentaje" : 10.6,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #b24b09;\n  --color-2: #f6d10d;\n  --color-3: #705410;\n  --color-4: #2c2e17;\n  --color-5: #6f7680;\n  --color-6: #a2a7b4;\n}"
+      }
+    }
+  }, {
     "archivo" : "fotos/piscina-de-bolas.jpg",
     "nombre" : "Piscina de bolas",
     "alt" : "Primer plano de cientos de bolas de plástico verde menta que se pierden hacia el fondo.",
@@ -291,6 +368,83 @@
       }
     }
   }, {
+    "archivo" : "fotos/margaritas-moradas.jpg",
+    "nombre" : "Margaritas moradas",
+    "alt" : "Margaritas moradas abiertas al sol sobre un lecho de grava blanca, con hojas verdes detrás.",
+    "peso" : 115119,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#172312",
+          "rgb" : [ 23, 35, 18 ],
+          "porcentaje" : 33.6,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#6e3c79",
+          "rgb" : [ 110, 60, 121 ],
+          "porcentaje" : 19.8,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#485339",
+          "rgb" : [ 72, 83, 57 ],
+          "porcentaje" : 15.2,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#8f6d97",
+          "rgb" : [ 143, 109, 151 ],
+          "porcentaje" : 13.5,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#f4f0f1",
+          "rgb" : [ 244, 240, 241 ],
+          "porcentaje" : 9.7,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#c69acf",
+          "rgb" : [ 198, 154, 207 ],
+          "porcentaje" : 8.3,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #172312;\n  --color-2: #6e3c79;\n  --color-3: #485339;\n  --color-4: #8f6d97;\n  --color-5: #f4f0f1;\n  --color-6: #c69acf;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#4a6f19",
+          "rgb" : [ 74, 111, 25 ],
+          "porcentaje" : 3.1,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#53265f",
+          "rgb" : [ 83, 38, 95 ],
+          "porcentaje" : 5.4,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#9758a9",
+          "rgb" : [ 151, 88, 169 ],
+          "porcentaje" : 5.6,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#efb2fa",
+          "rgb" : [ 239, 178, 250 ],
+          "porcentaje" : 2.2,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#acb09f",
+          "rgb" : [ 172, 176, 159 ],
+          "porcentaje" : 3.1,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#4b4d4a",
+          "rgb" : [ 75, 77, 74 ],
+          "porcentaje" : 6.6,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #4a6f19;\n  --color-2: #53265f;\n  --color-3: #9758a9;\n  --color-4: #efb2fa;\n  --color-5: #acb09f;\n  --color-6: #4b4d4a;\n}"
+      }
+    }
+  }, {
     "archivo" : "fotos/estrellas-y-tejado.jpg",
     "nombre" : "Estrellas y tejado",
     "alt" : "Cielo nocturno azul pizarra con estrellas tenues y el borde de un tejado de teja naranja a la derecha.",
@@ -345,6 +499,83 @@
           "variable" : "--color-2"
         } ],
         "css" : ":root {\n  --color-1: #623321;\n  --color-2: #1e252b;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/rosas-arcoiris.jpg",
+    "nombre" : "Rosas arcoíris",
+    "alt" : "Dos rosas teñidas de rosa, amarillo, verde y azul en un ramo con flores blancas y hojas oscuras.",
+    "peso" : 153836,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#262e14",
+          "rgb" : [ 38, 46, 20 ],
+          "porcentaje" : 45.2,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#5d673b",
+          "rgb" : [ 93, 103, 59 ],
+          "porcentaje" : 21.6,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#deceaf",
+          "rgb" : [ 222, 206, 175 ],
+          "porcentaje" : 13.2,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#b47688",
+          "rgb" : [ 180, 118, 136 ],
+          "porcentaje" : 10.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#c0be39",
+          "rgb" : [ 192, 190, 57 ],
+          "porcentaje" : 7.7,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#17487f",
+          "rgb" : [ 23, 72, 127 ],
+          "porcentaje" : 1.7,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #262e14;\n  --color-2: #5d673b;\n  --color-3: #deceaf;\n  --color-4: #b47688;\n  --color-5: #c0be39;\n  --color-6: #17487f;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#b4c11b",
+          "rgb" : [ 180, 193, 27 ],
+          "porcentaje" : 2.9,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#12437e",
+          "rgb" : [ 18, 67, 126 ],
+          "porcentaje" : 1.8,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#747f1d",
+          "rgb" : [ 116, 127, 29 ],
+          "porcentaje" : 3.5,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#a73269",
+          "rgb" : [ 167, 50, 105 ],
+          "porcentaje" : 1.4,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#273013",
+          "rgb" : [ 39, 48, 19 ],
+          "porcentaje" : 17.2,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#dc6e67",
+          "rgb" : [ 220, 110, 103 ],
+          "porcentaje" : 1.6,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #b4c11b;\n  --color-2: #12437e;\n  --color-3: #747f1d;\n  --color-4: #a73269;\n  --color-5: #273013;\n  --color-6: #dc6e67;\n}"
       }
     }
   }, {

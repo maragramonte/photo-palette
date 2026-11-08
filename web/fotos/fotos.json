@@ -1,9 +1,12 @@
 [
   { "archivo": "eclipse-parcial.jpg", "nombre": "Eclipse parcial", "alt": "El sol naranja mordido por la luna sobre un cielo negro, con un sello del mismo eclipse en pequeño." },
   { "archivo": "ala-desde-la-ventanilla.jpg", "nombre": "Ala desde la ventanilla", "alt": "El ala blanca de un avión vista por la ventanilla, con cielo azul y campos ocres debajo." },
+  { "archivo": "margaritas-naranjas.jpg", "nombre": "Margaritas naranjas", "alt": "Margaritas naranjas y amarillas en una jardinera de piedra, con la luz del atardecer y una barandilla de metal detrás." },
   { "archivo": "piscina-de-bolas.jpg", "nombre": "Piscina de bolas", "alt": "Primer plano de cientos de bolas de plástico verde menta que se pierden hacia el fondo.",
     "nota": "Se ven verde menta, pero sus píxeles son un gris apenas azulado: la luz cálida de la sala engaña al ojo. La paleta es fiel a la foto." },
   { "archivo": "luna-llena.jpg", "nombre": "Luna llena", "alt": "La luna llena con sus cráteres y mares grises sobre un cielo completamente negro." },
+  { "archivo": "margaritas-moradas.jpg", "nombre": "Margaritas moradas", "alt": "Margaritas moradas abiertas al sol sobre un lecho de grava blanca, con hojas verdes detrás." },
   { "archivo": "estrellas-y-tejado.jpg", "nombre": "Estrellas y tejado", "alt": "Cielo nocturno azul pizarra con estrellas tenues y el borde de un tejado de teja naranja a la derecha." },
+  { "archivo": "rosas-arcoiris.jpg", "nombre": "Rosas arcoíris", "alt": "Dos rosas teñidas de rosa, amarillo, verde y azul en un ramo con flores blancas y hojas oscuras." },
   { "archivo": "cielo-estrellado.jpg", "nombre": "Cielo estrellado", "alt": "Cielo de noche casi negro salpicado de estrellas, con la silueta de unas ramas en la esquina." }
 ]
