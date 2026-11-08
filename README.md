@@ -212,7 +212,7 @@ llamadas desde `localhost`; sin él, la API solo responde al navegador desde
 ├── carga/i03.py      La prueba de carga contra el docker-compose
 ├── web/              La web que publica GitHub Pages
 │   ├── index.html · css/ · js/
-│   ├── fotos/        Las seis fotos del feed, su fotos.json y su LEEME
+│   ├── fotos/        Las nueve fotos del feed, su fotos.json y su LEEME
 │   └── paletas.json  Generado. No se edita a mano
 ├── docs/             Documentación y capturas
 ├── .github/workflows/   tests.yml (tests e imagen Docker) y web.yml (Pages)
@@ -247,7 +247,8 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
       quitar los bloqueos del primer pintado y subir dos tokens de contraste.
 - [x] **I03**: Prueba de carga, 20 subidas de 10 MB a la vez contra los mismos 512 MB. Pasa
       con 171 MB de margen, después de cortar las subidas sobrantes antes de leerlas.
-- [x] **D03**: Las seis fotos del feed son reales y llevan mi marca de agua.
+- [x] **D03**: Las fotos del feed son reales y llevan mi marca de agua (eran seis; en
+      noviembre entraron tres de flores).
 - [x] **P02**: La API está desplegada en Render y su URL vive en `web/js/config.js`.
 
 ---

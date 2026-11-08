@@ -1,7 +1,7 @@
 # Capturas
 
 La web pantalla a pantalla, para quien prefiera no pulsar nada. Todas son de la aplicación
-real, con las paletas que calcula la API sobre las seis fotos del feed.
+real, con las paletas que calcula la API sobre las fotos del feed.
 
 ← [Volver al README](../README.md)
 
