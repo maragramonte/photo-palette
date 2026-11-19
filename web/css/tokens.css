@@ -16,11 +16,13 @@
   --border: #1e2240;
 
   /* Marca */
-  /* Un punto más oscuro que el violeta original (#7c5cff): con él, el texto blanco de los
-     botones se quedaba en 4,34 de contraste y WCAG AA pide 4,5 (I02). */
-  --accent: #7654ff;
-  --accent-soft: #a78bfa;
-  --accent-tenue: rgba(124, 92, 255, 0.14);
+  /* Luz de luna, no un color de marca. La web es el escenario y el color lo ponen las
+     fotos: un violeta propio competía con cada paleta del feed. El texto que va encima es
+     el propio fondo, con un contraste de más de 15:1. */
+  --accent: #ebe6da;
+  --accent-soft: #f7f4ee;
+  --accent-tenue: rgba(235, 230, 218, 0.1);
+  --texto-sobre-accent: #0b0d1a;
 
   /* Texto */
   --text: #e8ebff;
@@ -35,7 +37,7 @@
   --ok: #6ee7a8;
 
   /* Tipografía */
-  --fuente: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --fuente: "Schibsted Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --fuente-mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, monospace;
   --peso-titular: 800;
   --peso-nombre: 600;
@@ -47,7 +49,7 @@
   --txt-m: 0.9375rem;
   --txt-l: 1.0625rem;
   --txt-xl: 1.5rem;
-  --txt-hero: clamp(2rem, 6vw, 3.25rem);
+  --txt-hero: clamp(2.5rem, 7vw, 4.25rem);
 
   /* Espaciado de 8 en 8 */
   --e-1: 8px;
@@ -67,12 +69,19 @@
 
   /* Otros */
   --ancho-maximo: 1120px;
+  --ancho-regla: 56px;
   --sombra-flotante: 0 24px 60px rgba(0, 0, 0, 0.55);
   --transicion: 160ms ease;
+  /* La portada se pinta una vez al cargar y al pedir otra foto: es el único movimiento
+     que no responde a un clic en un control. */
+  --entrada-muestra: 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  --paso-muestra: 90ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --transicion: 0ms;
+    --entrada-muestra: 0ms;
+    --paso-muestra: 0ms;
   }
 }

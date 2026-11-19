@@ -58,10 +58,10 @@ Todo cabe en una sola página, sin rutas. El mockup usa tus tres fotos y las pal
 | `--bg` | #0b0d1a | Fondo de página |
 | `--surface` | #12152b | Tarjetas y paneles |
 | `--border` | #1e2240 | Bordes de 1 px |
-| `--accent` | #7c5cff | Botones e interruptor activo |
-| `--accent-soft` | #a78bfa | Etiquetas, seleccionado y logo |
+| `--accent` | #ebe6da | Luz de luna: botones, interruptor activo y logo. El color lo ponen las fotos |
+| `--accent-soft` | #f7f4ee | Enlaces, foco y botón principal al pasar por encima |
 | `--text` / `--text-2` | #e8ebff / #aab0d6 | Texto principal y secundario |
-| Tipografía | Inter 800 / 600 / 400 | Titulares, nombres y cuerpo; código en monoespaciada |
+| Tipografía | Schibsted Grotesk 800 / 600 / 400 | Titulares, nombres y cuerpo; código en monoespaciada |
 | Radio | 20 px tarjetas, 12 px botones | — |
 
 ## Contrato de la API

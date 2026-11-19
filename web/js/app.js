@@ -53,6 +53,12 @@
     detalleCuerpo: $("detalleCuerpo"),
     cerrarDetalle: $("cerrarDetalle"),
     aviso: $("avisoCopiado"),
+    muestra: $("muestra"),
+    muestraFoto: $("muestraFoto"),
+    muestraBarra: $("muestraBarra"),
+    muestraChips: $("muestraChips"),
+    muestraNombre: $("muestraNombre"),
+    otraFoto: $("otraFoto"),
   };
 
   // --- Color ---------------------------------------------------------------
@@ -96,6 +102,98 @@
     const maximo = Math.max(r, g, b);
     return maximo === 0 ? 0 : (maximo - Math.min(r, g, b)) / maximo;
   };
+
+  // --- Portada -------------------------------------------------------------
+
+  // Solo se turnan en la portada las fotos con al menos tres colores vivos. Con menos (el
+  // cielo estrellado, las estrellas sobre el tejado) no se aprecia en qué se diferencian
+  // los dos modos.
+  const MINIMO_VIVOS_EN_PORTADA = 3;
+  // Por debajo de esto el tramo de la regla es demasiado bajo para escribir dentro.
+  const PORCENTAJE_CON_ETIQUETA = 8;
+
+  const portada = { fotos: [], actual: 0 };
+
+  const sirveParaLaPortada = (foto) => {
+    const paletas = foto.paletas || {};
+    return Boolean(paletas.presentes && paletas.vivos) &&
+      paletas.vivos.colores.length >= MINIMO_VIVOS_EN_PORTADA;
+  };
+
+  /** Texto que solo lee un lector de pantalla: lo que se ve ya lo cuenta el color. */
+  function textoOculto(texto) {
+    const span = document.createElement("span");
+    span.className = "solo-lector";
+    span.textContent = texto;
+    return span;
+  }
+
+  function tramoDe(color, orden) {
+    const tramo = document.createElement("li");
+    tramo.className = "muestra__tramo";
+    tramo.style.flexGrow = color.porcentaje;
+    tramo.style.background = color.hex;
+    tramo.style.color = textoLegible(color.rgb).hex;
+    tramo.style.setProperty("--orden", orden);
+
+    const porcentaje = Math.round(color.porcentaje) + " %";
+    if (color.porcentaje >= PORCENTAJE_CON_ETIQUETA) {
+      const etiqueta = document.createElement("span");
+      etiqueta.setAttribute("aria-hidden", "true");
+      etiqueta.textContent = porcentaje;
+      tramo.append(etiqueta);
+    }
+    tramo.append(textoOculto(color.hex + ", " + porcentaje));
+    return tramo;
+  }
+
+  function chipDe(color, orden) {
+    const chip = document.createElement("li");
+    chip.className = "muestra__chip";
+    chip.style.setProperty("--orden", orden);
+
+    const pastilla = document.createElement("span");
+    pastilla.className = "muestra__color";
+    pastilla.style.background = color.hex;
+
+    chip.append(pastilla, color.hex);
+    return chip;
+  }
+
+  /** Quitar y volver a poner la clase no basta: sin un reflujo entre medias, el navegador
+   *  no reinicia la animación. */
+  function reiniciarEntrada() {
+    nodos.muestra.classList.remove("esta-entrando");
+    void nodos.muestra.offsetWidth;
+    nodos.muestra.classList.add("esta-entrando");
+  }
+
+  function pintarMuestra() {
+    const foto = portada.fotos[portada.actual];
+    nodos.muestra.hidden = !foto;
+    if (!foto) {
+      return;
+    }
+
+    nodos.muestraFoto.src = foto.archivo;
+    nodos.muestraFoto.alt = foto.alt || foto.nombre;
+    nodos.muestraNombre.textContent = foto.nombre;
+    nodos.muestraBarra.replaceChildren(...foto.paletas.presentes.colores.map(tramoDe));
+    nodos.muestraChips.replaceChildren(...foto.paletas.vivos.colores.map(chipDe));
+    nodos.otraFoto.hidden = portada.fotos.length < 2;
+    reiniciarEntrada();
+  }
+
+  function prepararPortada() {
+    portada.fotos = estado.fotos.filter(sirveParaLaPortada);
+    portada.actual = 0;
+    pintarMuestra();
+  }
+
+  function otraFotoEnPortada() {
+    portada.actual = (portada.actual + 1) % portada.fotos.length;
+    pintarMuestra();
+  }
 
   // --- Feed ----------------------------------------------------------------
 
@@ -740,6 +838,7 @@
       nodos.resumen.textContent =
         "No se ha podido leer paletas.json. Sírvela por HTTP, no abriendo el archivo.";
     }
+    prepararPortada();
     pintarFeed();
   }
 
@@ -750,6 +849,7 @@
 
     nodos.archivo.addEventListener("change", (evento) => subir(evento.target.files[0]));
     nodos.probarEjemplo.addEventListener("click", analizarEjemplo);
+    nodos.otraFoto.addEventListener("click", otraFotoEnPortada);
     nodos.formulario.addEventListener("submit", (evento) => evento.preventDefault());
 
     ["dragenter", "dragover"].forEach((nombre) =>
