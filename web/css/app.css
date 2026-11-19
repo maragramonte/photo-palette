@@ -45,13 +45,23 @@ a {
   z-index: 40;
   padding: var(--e-1) var(--e-2);
   background: var(--accent);
-  color: #fff;
+  color: var(--texto-sobre-accent);
   border-radius: var(--radio-boton);
   transition: top var(--transicion);
 }
 
 .salto-al-contenido:focus {
   top: var(--e-1);
+}
+
+/* Para lectores de pantalla: no se ve, pero se lee. */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* --- Cabecera ----------------------------------------------------------- */
@@ -131,21 +141,142 @@ a {
 
 .hero__frase {
   margin: 0;
+  max-width: 9ch;
   font-size: var(--txt-hero);
   font-weight: var(--peso-titular);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-}
-
-.hero__frase em {
-  font-style: normal;
-  color: var(--accent-soft);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .hero__apoyo {
-  margin: var(--e-2) 0 0;
-  max-width: 46ch;
+  margin: var(--e-3) 0 0;
+  max-width: 44ch;
   color: var(--text-2);
+  font-size: var(--txt-l);
+}
+
+/* --- Muestra de la portada ---------------------------------------------- */
+
+/*
+ * La foto y, pegada a su borde, una regla con los colores «más presentes»: cada tramo mide
+ * lo que ese color ocupa en la foto. Debajo, los «vivos». Ver las dos a la vez es la idea
+ * del proyecto: la paleta fiel no es la paleta útil.
+ */
+.muestra {
+  margin: 0;
+}
+
+.muestra__marco {
+  display: grid;
+  grid-template-columns: 1fr var(--ancho-regla);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radio-tarjeta);
+  background: var(--surface);
+}
+
+.muestra__foto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.muestra__barra,
+.muestra__chips {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.muestra__barra {
+  display: flex;
+  flex-direction: column;
+}
+
+.muestra__tramo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2px;
+  font-size: var(--txt-xs);
+  font-weight: var(--peso-nombre);
+  font-variant-numeric: tabular-nums;
+  transform-origin: top;
+}
+
+.muestra__vivos {
+  margin-top: var(--e-3);
+}
+
+.muestra__leyenda {
+  margin: 0 0 var(--e-1);
+  color: var(--text-3);
+  font-size: var(--txt-s);
+}
+
+.muestra__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+}
+
+.muestra__chip {
+  display: grid;
+  gap: var(--e-1);
+  justify-items: start;
+  font-family: var(--fuente-mono);
+  font-size: var(--txt-xs);
+  color: var(--text-2);
+}
+
+.muestra__color {
+  width: var(--e-8);
+  height: var(--e-6);
+  border-radius: var(--radio-muestra);
+}
+
+.muestra__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-2);
+  margin-top: var(--e-3);
+  padding-top: var(--e-2);
+  border-top: 1px solid var(--border);
+}
+
+.muestra__nombre {
+  font-weight: var(--peso-nombre);
+}
+
+/* La entrada: la regla crece de arriba abajo, tramo a tramo, y los vivos aparecen detrás.
+   Con movimiento reducido la duración y el paso valen 0 y se ve directamente el final. */
+.muestra.esta-entrando .muestra__foto {
+  animation: aparecer var(--entrada-muestra) both;
+}
+
+.muestra.esta-entrando .muestra__tramo {
+  animation: crecer var(--entrada-muestra) both;
+  animation-delay: calc(var(--orden) * var(--paso-muestra));
+}
+
+.muestra.esta-entrando .muestra__chip {
+  animation: aparecer var(--entrada-muestra) both;
+  animation-delay: calc((var(--orden) + 4) * var(--paso-muestra));
+}
+
+@keyframes crecer {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
 }
 
 .subida__caja {
@@ -264,6 +395,11 @@ a {
   border-color: var(--accent-soft);
 }
 
+/* .boton fija su display, y eso pisaría el atributo hidden. */
+.boton[hidden] {
+  display: none;
+}
+
 /* Un botón desactivado que parece pulsable es una promesa falsa. */
 .boton:disabled {
   opacity: 0.45;
@@ -273,7 +409,7 @@ a {
 .boton--principal {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--texto-sobre-accent);
 }
 
 .boton--principal:hover {
@@ -345,7 +481,7 @@ a {
 
 .interruptor__opcion[aria-checked="true"] {
   background: var(--accent);
-  color: #fff;
+  color: var(--texto-sobre-accent);
 }
 
 .interruptor__explicacion {
@@ -522,8 +658,6 @@ a {
   color: var(--text-3);
   font-size: var(--txt-xs);
   font-weight: var(--peso-nombre);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .paleta-grande {
@@ -747,9 +881,31 @@ a {
 
 @media (min-width: 720px) {
   .hero {
-    grid-template-columns: 1.15fr 1fr;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "texto  muestra"
+      "subida muestra";
+    grid-template-rows: auto 1fr;
+    column-gap: var(--e-8);
+    align-items: start;
     padding-block: var(--e-10) var(--e-8);
+  }
+
+  .hero__texto {
+    grid-area: texto;
+  }
+
+  .muestra {
+    grid-area: muestra;
+  }
+
+  /* Las fotos son verticales: en escritorio hay alto de sobra para no recortarlas tanto. */
+  .muestra__foto {
+    aspect-ratio: 5 / 6;
+  }
+
+  .subida {
+    grid-area: subida;
   }
 
   .tarjetas {

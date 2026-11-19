@@ -14,9 +14,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- La hoja de Google Fonts no bloquea el primer pintado: el titular sale con la fuente del
-       sistema y Inter entra cuando llega. Bloqueando, Lighthouse en móvil perdía ~1,6 s (I02). -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"></noscript>
+       sistema y la de la web entra cuando llega. Bloqueando, Lighthouse en móvil perdía ~1,6 s (I02). -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&display=swap"></noscript>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -46,12 +46,29 @@
   <main id="top">
     <section class="hero">
       <div class="hero__texto">
-        <h1 class="hero__frase">Cada foto esconde una paleta.<br><em>Esta API la encuentra.</em></h1>
+        <h1 class="hero__frase">Cada foto esconde una paleta.</h1>
         <p class="hero__apoyo">
-          Nueve fotos, nueve paletas calculadas con k-means en Java. Ninguna paleta está escrita
-          a mano: todas salen de la API.
+          Una API en Java la saca con k-means: los colores que más ocupan y los que de verdad
+          se recuerdan. Ninguna paleta de esta página está escrita a mano.
         </p>
       </div>
+
+      <!-- La muestra de la portada: una foto del feed con sus dos paletas. La pinta
+           app.js con los datos de paletas.json, así que funciona aunque la API duerma. -->
+      <figure class="muestra" id="muestra" hidden>
+        <div class="muestra__marco">
+          <img class="muestra__foto" id="muestraFoto" alt="">
+          <ol class="muestra__barra" id="muestraBarra" aria-label="Más presentes: cuánto ocupa cada color"></ol>
+        </div>
+        <div class="muestra__vivos">
+          <p class="muestra__leyenda" id="muestraVivosTitulo">Vivos</p>
+          <ol class="muestra__chips" id="muestraChips" aria-labelledby="muestraVivosTitulo"></ol>
+        </div>
+        <figcaption class="muestra__pie">
+          <span class="muestra__nombre" id="muestraNombre" aria-live="polite"></span>
+          <button class="boton" type="button" id="otraFoto">Otra foto</button>
+        </figcaption>
+      </figure>
 
       <div class="subida" id="subida">
         <form class="subida__caja" id="formularioSubida" aria-describedby="subidaEstado">
@@ -108,7 +125,7 @@
         Un solo endpoint. La foto se analiza en memoria y no se guarda. El código está en GitHub,
         con los tests y el Dockerfile.
       </p>
-      <pre class="api__codigo"><code>curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&amp;modo=vivos" \
+      <pre class="api__codigo" tabindex="0"><code>curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&amp;modo=vivos" \
   -F imagen=@atardecer.jpg</code></pre>
       <dl class="api__tabla">
         <div><dt><code>n</code></dt><dd>Cuántos colores devolver, de 2 a 12. Por defecto, 6.</dd></div>
@@ -117,14 +134,14 @@
       </dl>
       <p class="api__pie">
         <a href="https://github.com/maragramonte/photo-palette#readme" rel="noopener">
-          Leer el contrato completo y cómo funciona el k-means →
+          Leer el contrato completo y cómo funciona el k-means
         </a>
       </p>
     </section>
   </main>
 
   <footer class="pie">
-    <p>Photo Palette · fotos y código de Mar Agramonte · <a href="https://github.com/maragramonte/photo-palette" rel="noopener">código fuente</a></p>
+    <p>Fotos y código de Mar Agramonte. El <a href="https://github.com/maragramonte/photo-palette" rel="noopener">código fuente</a> está en GitHub.</p>
   </footer>
 
   <!-- Panel de detalle: hoja desde abajo en móvil, panel lateral en escritorio. -->

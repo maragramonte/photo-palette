@@ -9,7 +9,7 @@ foto se analiza en memoria sin guardarse en ningún sitio.
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
-![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta. Esta API la encuentra» junto a una zona para soltar una foto con los botones «Elegir una foto» y «Probar con una de ejemplo», y debajo el feed con el interruptor entre «Más presentes» y «Vivos»](docs/capturas/01-portada.jpg)
+![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto. A la derecha, la foto del eclipse con una regla de color pegada a su borde, donde el negro ocupa el 70 % y el naranja el 13 %, y debajo sus cinco colores vivos con su HEX](docs/capturas/01-portada.jpg)
 
 ---
 

@@ -9,10 +9,12 @@ real, con las paletas que calcula la API sobre las fotos del feed.
 
 ## La portada
 
-El titular, la zona para soltar una foto con sus dos botones y, debajo, el arranque del feed
-con el interruptor entre los dos modos.
+El titular, la zona para soltar una foto y una foto del feed con sus dos paletas a la vez. La
+regla pegada a la foto mide lo que ocupa cada color «más presente»; debajo van los «vivos».
+Verlas juntas es la idea del proyecto: la paleta fiel no es la paleta útil. «Otra foto» pasa
+a la siguiente.
 
-![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta. Esta API la encuentra» junto a una zona para soltar una foto con los botones «Elegir una foto» y «Probar con una de ejemplo», y debajo el feed con el interruptor entre «Más presentes» y «Vivos»](capturas/01-portada.jpg)
+![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto. A la derecha, la foto del eclipse con una regla de color pegada a su borde, donde el negro ocupa el 70 % y el naranja el 13 %, y debajo sus cinco colores vivos con su HEX](capturas/01-portada.jpg)
 
 ---
 
