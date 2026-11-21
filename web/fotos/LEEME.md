@@ -1,14 +1,20 @@
 # Las fotos del feed
 
-Son siete fotos reales, hechas con el móvil: un ala de avión, una piscina de bolas, la luna,
-un cielo de noche sobre un tejado y tres de flores (margaritas naranjas, margaritas moradas y
-unas rosas teñidas). Están a 1600 px como mucho y sin metadatos EXIF. La de las
-margaritas moradas era apaisada y está recortada a 4:5, el formato de las tarjetas.
+Son dieciséis fotos reales, hechas con el móvil: flores, el mar, Londres, un mirlo, la luna,
+un ala de avión y una piscina de bolas. Están a 1600 px como mucho y sin metadatos EXIF. Las
+nuevas están recortadas a 4:5, el formato de las tarjetas, y sin la firma de la cámara.
 
-Cada una lleva mi símbolo (el de `favicon.svg`, solo la M en crema) como marca de agua en la
-esquina inferior derecha, dentro del recorte 4:5 de las tarjetas para que no se corte.
-En las fotos con esa esquina clara (las margaritas) lleva además una sombra suave
-debajo, porque la crema sobre grava blanca o piedra desaparecía.
+Cada una lleva dos marcas:
+
+- **Mi símbolo** (el de `favicon.svg`, solo la M en crema) en la esquina inferior derecha,
+  dentro del recorte 4:5 de las tarjetas para que no se corte. Si esa esquina es clara, lleva
+  una sombra suave debajo, porque la crema sobre grava blanca o cielo desaparecía.
+- **La firma «m.agramonte»** en el centro, translúcida. No impide descargar la foto, nada lo
+  hace en una web: lo que consigue es que no se pueda usar sin que se vea de quién es, porque
+  para quitarla habría que retocar el centro de la imagen.
+
+Las dos las pone [`herramientas/marcar_fotos.py`](../../herramientas/marcar_fotos.py), que
+también recorta, reduce y guarda la foto por debajo de 300 KB.
 
 ## La marca de agua entra en la paleta, y es a propósito
 
@@ -23,8 +29,14 @@ foto que ves.
 ## Cambiarlas por otras
 
 1. Borra las que sobren.
-2. Copia aquí las nuevas en **JPG o PNG** (la API no lee WebP), a 1600 px de lado
-   mayor y por debajo de 300 KB cada una.
+2. Prepara cada foto nueva con su recorte (en píxeles de la original) y déjala aquí:
+
+   ```bash
+   python herramientas/marcar_fotos.py original.jpg web/fotos/nombre.jpg --recorte X,Y,ANCHO,ALTO
+   ```
+
+   Sale en JPG, a 1600 px de lado mayor como mucho, por debajo de 300 KB y con las dos
+   marcas. Para una foto que ya tenga el símbolo, `--sin-simbolo`.
 3. Edita `fotos.json` con un objeto por foto:
 
    ```json
