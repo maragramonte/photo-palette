@@ -184,9 +184,10 @@
     reiniciarEntrada();
   }
 
+  /** Cada visita empieza por una foto al azar; «Otra foto» sigue el orden a partir de ahí. */
   function prepararPortada() {
     portada.fotos = estado.fotos.filter(sirveParaLaPortada);
-    portada.actual = 0;
+    portada.actual = Math.floor(Math.random() * portada.fotos.length);
     pintarMuestra();
   }
 
