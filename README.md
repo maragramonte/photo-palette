@@ -213,7 +213,7 @@ sigan llegando visitas por los enlaces viejos).
 ├── carga/i03.py      La prueba de carga contra el docker-compose
 ├── web/              La web que publica GitHub Pages
 │   ├── index.html · css/ · js/
-│   ├── fotos/        Las nueve fotos del feed, su fotos.json y su LEEME
+│   ├── fotos/        Las fotos del feed, su fotos.json y su LEEME
 │   └── paletas.json  Generado. No se edita a mano
 ├── docs/             Documentación y capturas
 ├── .github/workflows/   tests.yml (tests e imagen Docker) y web.yml (Pages)

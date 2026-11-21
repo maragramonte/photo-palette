@@ -142,7 +142,7 @@ visible de que el algoritmo es determinista y de que el feed no miente, y vale m
 paleta un poco más limpia.
 
 **Lo que cuesta.** En las fotos oscuras la crema de la marca aparece como un color claro más,
-por ejemplo un `#ccc6bd` en «Cielo estrellado». Es un color que de verdad está en la foto que
+por ejemplo un `#ccc8c2` en «Estrellas y tejado». Es un color que de verdad está en la foto que
 se ve.
 
 ---

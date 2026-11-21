@@ -1,8 +1,8 @@
 # Las fotos del feed
 
-Son nueve fotos reales, hechas con el móvil: un eclipse, un ala de avión, una piscina de
-bolas, la luna, dos cielos de noche y tres de flores (margaritas naranjas, margaritas
-moradas y unas rosas teñidas). Están a 1600 px como mucho y sin metadatos EXIF. La de las
+Son siete fotos reales, hechas con el móvil: un ala de avión, una piscina de bolas, la luna,
+un cielo de noche sobre un tejado y tres de flores (margaritas naranjas, margaritas moradas y
+unas rosas teñidas). Están a 1600 px como mucho y sin metadatos EXIF. La de las
 margaritas moradas era apaisada y está recortada a 4:5, el formato de las tarjetas.
 
 Cada una lleva mi símbolo (el de `favicon.svg`, solo la M en crema) como marca de agua en la
@@ -17,7 +17,7 @@ una de ejemplo», que manda a la API la foto publicada, devuelve exactamente la 
 feed: es la prueba de que el k-means es determinista y de que el feed no miente.
 
 El precio es que en las fotos oscuras la crema de la marca sale como un color claro más
-(en «Cielo estrellado», un `#ccc6bd` en modo vivos). Es un color que de verdad está en la
+(en «Estrellas y tejado», un `#ccc8c2` en modo presentes). Es un color que de verdad está en la
 foto que ves.
 
 ## Cambiarlas por otras
