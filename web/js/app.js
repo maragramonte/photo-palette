@@ -716,10 +716,10 @@
 
   // --- Salud ---------------------------------------------------------------
 
-  // La instancia gratuita de Render se duerme a los 15 minutos sin visitas y tarda entre 30
-  // y 60 segundos en volver. Mientras arranca, su proxy puede contestar con un error que
-  // el navegador ve como fallo de red, así que un solo intento daba la API por caída
-  // cuando solo estaba despertando. Se insiste hasta ESPERA_MAXIMA antes de rendirse.
+  // Un servidor que arranca, o que su host ha dormido por falta de visitas, puede tardar
+  // en contestar, y mientras tanto el navegador ve un fallo de red. Con un solo intento la
+  // API se daba por caída cuando solo estaba arrancando, así que se insiste hasta
+  // ESPERA_MAXIMA antes de rendirse.
   const ESPERA_MAXIMA_MS = 90 * 1000;
   const TIEMPO_POR_INTENTO_MS = 20 * 1000;
   const PAUSA_ENTRE_INTENTOS_MS = 4 * 1000;
@@ -765,9 +765,9 @@
 
     if (!API) {
       decirEstado(
-        "La subida está apagada porque no hay ninguna API configurada (web/js/config.js). " +
-          "El feed funciona igual: sus paletas son estáticas.",
-        "error"
+        "La subida está en pausa mientras la API se muda a un servidor propio. El feed " +
+          "funciona igual: toca cualquier foto para ver la paleta que le calculó la API.",
+        null
       );
       return;
     }
@@ -779,9 +779,8 @@
 
     const avisar = setTimeout(() => {
       decirEstado(
-        "La API se está despertando: el plan gratuito la duerme tras 15 minutos sin " +
-          "visitas y suele tardar menos de un minuto. Mientras, toca cualquier foto del " +
-          "feed para ver su paleta completa.",
+        "La API está tardando en contestar; puede que esté arrancando. Mientras, toca " +
+          "cualquier foto del feed para ver su paleta completa.",
         "trabajando"
       );
       nodos.estadoSubida.after(contador);

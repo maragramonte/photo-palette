@@ -25,7 +25,7 @@ import org.springframework.core.env.Environment;
  * el resto de los tests sigue en verde, porque llaman desde {@code 127.0.0.1}, que sí está
  * en la lista de serie. Por eso hace falta un test que mire justo a esto.
  *
- * <p>La lista no depende del host. Vale para Caddy en el VPS, para el proxy de Render y para
+ * <p>La lista no depende del host. Vale para Caddy en el VPS, para el proxy de un host gestionado y para
  * el {@code fdaa::/16} de Fly, porque lo que dice es «fíate de las redes privadas, de las dos
  * familias, y de nadie más».
  */
