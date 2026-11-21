@@ -24,7 +24,7 @@ services:
 
     environment:
       # La web publicada. Para probar desde otro sitio, añade orígenes separados por comas.
-      PHOTOPALETTE_ORIGENES_PERMITIDOS: "https://maragramonte.github.io"
+      PHOTOPALETTE_ORIGENES_PERMITIDOS: "https://paleta.maragramonte.com,https://maragramonte.github.io"
       PHOTOPALETTE_PETICIONES_POR_MINUTO: "10"
       PHOTOPALETTE_ANALISIS_SIMULTANEOS: "2"
       PHOTOPALETTE_SUBIDAS_SIMULTANEAS: "4"

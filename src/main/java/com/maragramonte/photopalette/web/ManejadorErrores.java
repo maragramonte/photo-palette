@@ -30,7 +30,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class ManejadorErrores {
 
-    private static final String BASE_TIPO = "https://maragramonte.github.io/photo-palette/errores/";
+    private static final String BASE_TIPO = "https://paleta.maragramonte.com/errores/";
 
     // --- 400 ---------------------------------------------------------------
 

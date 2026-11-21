@@ -128,7 +128,7 @@ El objetivo: 90 o más en accesibilidad y en rendimiento, con la simulación de 
 Lighthouse.
 
 ```bash
-npx lighthouse https://maragramonte.github.io/photo-palette/ --form-factor=mobile
+npx lighthouse https://paleta.maragramonte.com/ --form-factor=mobile
 ```
 
 | | Antes | Después |

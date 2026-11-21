@@ -64,7 +64,7 @@ sube la foto lo escribió el backend para ella.
 
 ```json
 {
-  "type": "https://maragramonte.github.io/photo-palette/errores/imagen-ilegible",
+  "type": "https://paleta.maragramonte.com/errores/imagen-ilegible",
   "title": "No se puede leer la imagen",
   "status": 422,
   "detail": "El archivo no es un JPG ni un PNG. Comprueba que la extensión coincide con el contenido.",

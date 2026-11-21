@@ -28,7 +28,7 @@ public class ConfiguracionCors {
     private final List<String> origenes;
 
     public ConfiguracionCors(
-            @Value("${photopalette.origenes-permitidos:https://maragramonte.github.io}")
+            @Value("${photopalette.origenes-permitidos:https://paleta.maragramonte.com}")
                     List<String> origenes) {
         this.origenes = origenes;
     }
