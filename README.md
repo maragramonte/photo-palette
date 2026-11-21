@@ -5,7 +5,7 @@ te devuelve los colores en HEX y RGB, cuánto ocupa cada uno y un bloque `:root`
 de un clic. Los calcula k-means escrito a mano, sin librerías de color de terceros, y la
 foto se analiza en memoria sin guardarse en ningún sitio.
 
-`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `Render` · `GitHub Pages`
+`Java 21` · `Spring Boot 3.5` · `JavaScript` · `Docker` · `GitHub Pages`
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
@@ -46,12 +46,11 @@ paleta en directo.
 Si prefieres no pulsar nada, en [docs/CAPTURAS.md](docs/CAPTURAS.md) está la web pantalla a
 pantalla.
 
-> **Estado del despliegue.** Las dos piezas están en marcha: la web en GitHub Pages y la API
-> en Render, en un contenedor construido con el `Dockerfile` de este repositorio. La
-> instancia es gratuita y **se duerme a los quince minutos sin tráfico**, así que si eres el
-> primero en llegar en un rato, la primera llamada tarda unos treinta segundos. La web lo
-> avisa mientras despierta, y el feed no espera a nadie: sus paletas viven en un JSON
-> estático.
+> **Estado del despliegue.** La web está en GitHub Pages. La API **no está publicada ahora
+> mismo**: estaba en el plan gratuito de Render y se está mudando a un servidor propio. Mientras
+> tanto, la subida de fotos aparece en pausa con un aviso, y el feed funciona igual porque sus
+> paletas viven en un JSON estático. Para probar la API, arranca la imagen de Docker en local
+> (más abajo).
 
 ---
 
@@ -158,7 +157,8 @@ En cada push, el CI ejecuta `mvn verify` y construye la imagen Docker. Lo que ll
 se publica además en GitHub Container Registry, como `:latest` y como `:sha-xxxxxxx`:
 
 ```
-docker pull ghcr.io/maragramonte/photo-palette:latest
+docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette:latest
+curl -fsS http://localhost:8080/api/salud   # 200 sin cuerpo
 ```
 
 Lo que **no** está cubierto, dicho sin adornos: el frontend no tiene pruebas automatizadas y
@@ -194,7 +194,7 @@ sigan llegando visitas por los enlaces viejos).
 |------|-----------|
 | Cómo se trabaja en el repositorio y sus reglas | [docs/DESARROLLO.md](docs/DESARROLLO.md) |
 | Cambiar las fotos del feed y regenerar las paletas | [web/fotos/LEEME.md](web/fotos/LEEME.md) |
-| Desplegar la API en Render o en un servidor propio | [docs/DECISIONES-TECNICAS.md](docs/DECISIONES-TECNICAS.md#6-un-despliegue-que-no-se-ata-al-proveedor) |
+| Desplegar la API en un servidor propio | [docs/DECISIONES-TECNICAS.md](docs/DECISIONES-TECNICAS.md#6-un-despliegue-que-no-se-ata-al-proveedor) |
 
 ---
 
@@ -250,7 +250,9 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
       con 171 MB de margen, después de cortar las subidas sobrantes antes de leerlas.
 - [x] **D03**: Las fotos del feed son reales y llevan mi marca de agua (eran seis; en
       noviembre entraron tres de flores).
-- [x] **P02**: La API está desplegada en Render y su URL vive en `web/js/config.js`.
+- [x] **P02**: La API se desplegó en Render y su URL vive en `web/js/config.js`. En
+      noviembre de 2026 salió de Render; vuelve a estar en línea cuando el servidor propio esté
+      levantado.
 
 ---
 

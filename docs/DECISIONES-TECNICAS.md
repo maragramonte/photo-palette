@@ -92,7 +92,7 @@ un pico de uso no se lleve por delante al vecino:
 navegador; un script sin navegador lo ignora. Está para que nadie monte una copia de esta web
 sobre mi servidor, no para protegerlo del abuso.
 
-**La IP real, solo de un proxy de confianza.** Detrás de Caddy o de Render, la IP del
+**La IP real, solo de un proxy de confianza.** Detrás de Caddy o de un host gestionado, la IP del
 visitante llega en `X-Forwarded-For`. La aplicación arranca con
 `server.forward-headers-strategy=native`, así que Tomcat la lee, pero **solo** cuando la
 conexión viene de un proxy de la red interna. La lista de proxies de confianza añade la IPv6
@@ -152,10 +152,11 @@ se ve.
 **La web** va a GitHub Pages: el workflow [`web.yml`](../.github/workflows/web.yml) publica
 la carpeta `web/` en cada push que la toque.
 
-**La API** está hoy en Render, en un contenedor construido con el `Dockerfile` de este
-repositorio. No hay un `render.yaml` ni nada específico del proveedor: el puerto se lee de
-`PORT`, que es lo único que pide un host gestionado, y por eso el mismo árbol vale para un
-servidor propio sin tocar una línea. Allí es un `docker compose` con Caddy delante, y el
+**La API** estuvo en Render, en un contenedor construido con el `Dockerfile` de este
+repositorio, y ahora no está publicada mientras se muda a un servidor propio. Nunca hubo un
+`render.yaml` ni nada específico del proveedor: el puerto se lee de `PORT`, que es lo único
+que pide un host gestionado, y por eso el mismo árbol vale para un servidor propio sin tocar
+una línea. Allí es un `docker compose` con Caddy delante, y el
 contenedor solo escucha en el loopback del servidor.
 
 ```bash
@@ -164,11 +165,12 @@ curl -fsS http://localhost:8080/api/salud   # 200 sin cuerpo
 ```
 
 Sea cual sea el host, su URL va a [`web/js/config.js`](../web/js/config.js) y con un
-`git push` Pages se republica solo.
+`git push` Pages se republica solo. Si se deja vacía, la web apaga la subida con un aviso y el
+feed sigue funcionando: es como está ahora.
 
-**Lo que cuesta.** La instancia gratuita de Render se duerme a los quince minutos sin
-tráfico y la primera llamada tarda unos treinta segundos. Mientras arranca, su proxy puede
-contestar con un error que el navegador ve como fallo de red, así que la web no da la API por
-caída al primer intento: vuelve a preguntar a `/api/salud` durante 90 segundos, dice que la
+**Lo que costó Render.** Su instancia gratuita se dormía a los quince minutos sin tráfico, y
+la primera llamada tardaba unos treinta segundos. Mientras arrancaba, su proxy podía contestar
+con un error que el navegador ve como fallo de red. Por eso la web no da la API por caída al
+primer intento, y eso se queda aunque cambie el host: vuelve a preguntar a `/api/salud` durante 90 segundos, dice que la
 API se está despertando y cuánto lleva, y mantiene apagadas las dos formas de subir hasta que
-contesta. El servidor propio sigue siendo el destino cuando haya dominio que decidir.
+contesta. El servidor propio es el destino: el dominio ya existe (`maragramonte.com`).

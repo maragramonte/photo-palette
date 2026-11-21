@@ -9,10 +9,12 @@ memoria y no se guarda en ningún sitio.
 
 ## `POST /api/paletas`
 
-`multipart/form-data`, con la foto en el campo `imagen`.
+`multipart/form-data`, con la foto en el campo `imagen`. Los ejemplos van contra la API en
+local (`docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette`), porque ahora mismo no
+está publicada.
 
 ```bash
-curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F imagen=@foto.jpg
+curl -X POST "http://localhost:8080/api/paletas?n=6&modo=vivos" -F imagen=@foto.jpg
 ```
 
 > **En PowerShell, `curl` no es curl**: es un alias de `Invoke-WebRequest`, que no entiende
@@ -20,7 +22,7 @@ curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F 
 > completo, y entrecomilla el `-F` para que PowerShell no parta el argumento por el `@`:
 >
 > ```powershell
-> curl.exe -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F "imagen=@foto.jpg"
+> curl.exe -X POST "http://localhost:8080/api/paletas?n=6&modo=vivos" -F "imagen=@foto.jpg"
 > ```
 
 La respuesta trae cada color con su HEX, su RGB, el porcentaje de la foto que ocupa y el
@@ -83,9 +85,9 @@ Responde `200` sin cuerpo y queda fuera del límite por IP. La web lo consulta a
 falla, apaga la subida con un aviso y el feed sigue funcionando, porque sus paletas están en
 un JSON estático.
 
-En Render la instancia gratuita se duerme a los quince minutos sin tráfico. Mientras
-despierta, la web enseña «Comprobando que la API responde…» en lugar de dejar la zona de
-subida muda, y si no llega a responder ofrece un botón para volver a comprobarlo.
+Si el servidor tarda en contestar, porque está arrancando o porque su host lo había dormido,
+la web enseña «Comprobando que la API responde…» en lugar de dejar la zona de subida muda, y
+si no llega a responder ofrece un botón para volver a comprobarlo.
 
 ---
 
