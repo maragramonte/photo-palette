@@ -105,9 +105,8 @@
 
   // --- Portada -------------------------------------------------------------
 
-  // Solo se turnan en la portada las fotos con al menos tres colores vivos. Con menos (el
-  // cielo estrellado, las estrellas sobre el tejado) no se aprecia en qué se diferencian
-  // los dos modos.
+  // Solo se turnan en la portada las fotos con al menos tres colores vivos. Con menos (las
+  // estrellas sobre el tejado) no se aprecia en qué se diferencian los dos modos.
   const MINIMO_VIVOS_EN_PORTADA = 3;
   // Por debajo de esto el tramo de la regla es demasiado bajo para escribir dentro.
   const PORCENTAJE_CON_ETIQUETA = 8;
@@ -260,12 +259,12 @@
       ? colores.length + (colores.length === 1 ? " color" : " colores")
       : "calculando…";
     // El espacio no se pinta (el pie es flex), pero sin él el texto de la tarjeta se lee
-    // «Eclipse parcial6 colores» y no coincide con su nombre accesible.
+    // «Luna llena4 colores» y no coincide con su nombre accesible.
     pie.append(nombre, " ", cuantos);
     boton.append(pie);
 
     // El nombre accesible es exactamente lo que se lee en la tarjeta: quien la maneja por voz
-    // dice «Eclipse parcial» y tiene que encontrarla. Con un aria-label aparte, el texto
+    // dice «Luna llena» y tiene que encontrarla. Con un aria-label aparte, el texto
     // visible y el nombre acababan separándose (I02).
     const id = "tarjeta-" + ++tarjetasCreadas;
     nombre.id = id + "-nombre";
