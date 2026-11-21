@@ -1,10 +1,19 @@
 [
-  { "archivo": "ala-desde-la-ventanilla.jpg", "nombre": "Ala desde la ventanilla", "alt": "El ala blanca de un avión vista por la ventanilla, con cielo azul y campos ocres debajo." },
+  { "archivo": "tulipanes-y-banderas.jpg", "nombre": "Tulipanes y banderas", "alt": "Un parterre de tulipanes rojos entre flores amarillas, con banderas del Reino Unido, una estatua y árboles detrás." },
+  { "archivo": "rosas-arcoiris.jpg", "nombre": "Rosas arcoíris", "alt": "Dos rosas teñidas de rosa, amarillo, verde y azul en un ramo con flores blancas y hojas oscuras." },
   { "archivo": "margaritas-naranjas.jpg", "nombre": "Margaritas naranjas", "alt": "Margaritas naranjas y amarillas en una jardinera de piedra, con la luz del atardecer y una barandilla de metal detrás." },
+  { "archivo": "veleros-al-atardecer.jpg", "nombre": "Veleros al atardecer", "alt": "Una gaviota con las alas abiertas sobre el mar al atardecer, con veleros fondeados y el cielo pasando del azul al naranja." },
+  { "archivo": "mirlo-y-bayas.jpg", "nombre": "Mirlo y bayas", "alt": "Un mirlo negro con una baya azul en el pico, posado entre hojas verdes y racimos de bayas azules y verdes." },
+  { "archivo": "flores-blancas.jpg", "nombre": "Flores blancas", "alt": "Ramas cargadas de flores blancas y hojas nuevas contra un cielo azul intenso." },
+  { "archivo": "margaritas-moradas.jpg", "nombre": "Margaritas moradas", "alt": "Margaritas moradas abiertas al sol sobre un lecho de grava blanca, con hojas verdes detrás." },
+  { "archivo": "ala-desde-la-ventanilla.jpg", "nombre": "Ala desde la ventanilla", "alt": "El ala blanca de un avión vista por la ventanilla, con cielo azul y campos ocres debajo." },
+  { "archivo": "londres-desde-lo-alto.jpg", "nombre": "Londres desde lo alto", "alt": "Edificios de Londres vistos desde arriba: una torre redonda con franjas blancas, bloques de ladrillo y árboles entre las calles." },
+  { "archivo": "cupula-en-la-city.jpg", "nombre": "Cúpula en la City", "alt": "Un edificio de piedra con una torre redonda rematada por una cúpula de tejas, en una esquina de Londres bajo un cielo gris." },
+  { "archivo": "aguja-de-cobre.jpg", "nombre": "Aguja de cobre", "alt": "La aguja de cobre verde de un campanario, con una veleta dorada, sobre un cielo gris claro." },
+  { "archivo": "parque-en-primavera.jpg", "nombre": "Parque en primavera", "alt": "Una pradera verde bajo el cielo azul, con árboles al fondo y, delante, una mesa de madera con un cartel rojo." },
+  { "archivo": "velero-en-el-horizonte.jpg", "nombre": "Velero en el horizonte", "alt": "Un velero diminuto en el horizonte, con el mar en calma, nubes suaves y la orilla de arena con algas." },
   { "archivo": "piscina-de-bolas.jpg", "nombre": "Piscina de bolas", "alt": "Primer plano de cientos de bolas de plástico verde menta que se pierden hacia el fondo.",
     "nota": "Se ven verde menta, pero sus píxeles son un gris apenas azulado: la luz cálida de la sala engaña al ojo. La paleta es fiel a la foto." },
   { "archivo": "luna-llena.jpg", "nombre": "Luna llena", "alt": "La luna llena con sus cráteres y mares grises sobre un cielo completamente negro." },
-  { "archivo": "margaritas-moradas.jpg", "nombre": "Margaritas moradas", "alt": "Margaritas moradas abiertas al sol sobre un lecho de grava blanca, con hojas verdes detrás." },
-  { "archivo": "estrellas-y-tejado.jpg", "nombre": "Estrellas y tejado", "alt": "Cielo nocturno azul pizarra con estrellas tenues y el borde de un tejado de teja naranja a la derecha." },
-  { "archivo": "rosas-arcoiris.jpg", "nombre": "Rosas arcoíris", "alt": "Dos rosas teñidas de rosa, amarillo, verde y azul en un ramo con flores blancas y hojas oscuras." }
+  { "archivo": "estrellas-y-tejado.jpg", "nombre": "Estrellas y tejado", "alt": "Cielo nocturno azul pizarra con estrellas tenues y el borde de un tejado de teja naranja a la derecha." }
 ]
