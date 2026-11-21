@@ -5,8 +5,9 @@
 #
 # Las paletas se recalculan aquí antes de publicar, con el mismo código que la API. Así,
 # para añadir una foto basta con subirla a web/fotos y apuntarla en fotos.json, también
-# desde la web de GitHub: no hace falta tener Java ni Maven. Si el resultado cambia, se
-# guarda en el repositorio para que paletas.json no se quede atrás.
+# desde la web de GitHub: no hace falta tener Java ni Maven. Si el resultado cambia, la web
+# se publica ya con las paletas nuevas y el workflow abre un PR con el paletas.json, porque
+# main solo admite cambios por PR.
 name: web
 
 on:
@@ -19,7 +20,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write # para guardar paletas.json si cambia
+  contents: write # para subir la rama con el paletas.json nuevo
+  pull-requests: write # para abrir su PR
   pages: write
   id-token: write
 
@@ -47,19 +49,30 @@ jobs:
       - name: Calcular las paletas de las fotos
         run: mvn -B -q compile exec:java@paletas
 
-      # La línea "generado" cambia en cada ejecución: solo se guarda si cambió algo más,
-      # es decir, si hay fotos nuevas o el k-means da otro resultado.
-      - name: Guardar paletas.json si ha cambiado
+      # La línea "generado" cambia en cada ejecución: solo cuenta como cambio si cambió algo
+      # más, es decir, si hay fotos nuevas o el k-means da otro resultado. Este paso no puede
+      # tumbar el despliegue: si falla, la web sale igual y queda un aviso.
+      - name: Proponer paletas.json por PR si ha cambiado
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          if git diff --unified=0 -- web/paletas.json | grep '^[-+] ' | grep -vq '"generado"'; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add web/paletas.json
-            git commit -m "Recalcula las paletas del feed"
-            git push || echo "::warning::No se pudo guardar paletas.json en main; la web se publica igual con las paletas nuevas."
-          else
-            git checkout -- web/paletas.json
+          if ! git diff --unified=0 -- web/paletas.json | grep '^[-+] ' | grep -v '"generado"' | grep -q .; then
+            exit 0
           fi
+          rama=paletas-recalculadas
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$rama"
+          git commit -qm "Recalcula las paletas del feed" -- web/paletas.json
+          if ! git push -qf origin "$rama"; then
+            echo "::warning::No se pudo subir la rama $rama. La web se ha publicado con las paletas nuevas."
+            exit 0
+          fi
+          gh pr view "$rama" --json state -q .state 2>/dev/null | grep -q OPEN \
+            || gh pr create --base "${{ github.ref_name }}" --head "$rama" \
+                 --title "Recalcula las paletas del feed" \
+                 --body "El despliegue ha recalculado paletas.json con el código de la API. La web ya está publicada con estas paletas; este PR las guarda en el repositorio." \
+            || echo "::warning::La rama $rama está subida, pero no se pudo abrir el PR. Ábrelo a mano."
 
       # Si esto falla con "Get Pages site failed ... Not Found", Pages esta apagado en el
       # repositorio. La causa habitual no es el workflow: en el plan gratuito, Pages solo
