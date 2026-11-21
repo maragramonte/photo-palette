@@ -1,158 +1,965 @@
 {
-  "generado" : "2026-11-08T20:59:26.392941448Z",
+  "generado" : "2026-11-21T22:45:44.850766780Z",
   "colores" : 6,
   "fotos" : [ {
-    "archivo" : "fotos/ala-desde-la-ventanilla.jpg",
-    "nombre" : "Ala desde la ventanilla",
-    "alt" : "El ala blanca de un avión vista por la ventanilla, con cielo azul y campos ocres debajo.",
-    "peso" : 170138,
+    "archivo" : "fotos/tulipanes-y-banderas.jpg",
+    "nombre" : "Tulipanes y banderas",
+    "alt" : "Un parterre de tulipanes rojos entre flores amarillas, con banderas del Reino Unido, una estatua y árboles detrás.",
+    "peso" : 291603,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#191713",
-          "rgb" : [ 25, 23, 19 ],
-          "porcentaje" : 48.5,
+          "hex" : "#262710",
+          "rgb" : [ 38, 39, 16 ],
+          "porcentaje" : 23.8,
           "variable" : "--color-1"
         }, {
-          "hex" : "#453a35",
-          "rgb" : [ 69, 58, 53 ],
-          "porcentaje" : 17.1,
+          "hex" : "#4d4f32",
+          "rgb" : [ 77, 79, 50 ],
+          "porcentaje" : 23.0,
           "variable" : "--color-2"
         }, {
-          "hex" : "#939695",
-          "rgb" : [ 147, 150, 149 ],
-          "porcentaje" : 16.7,
+          "hex" : "#be8a1a",
+          "rgb" : [ 190, 138, 26 ],
+          "porcentaje" : 19.7,
           "variable" : "--color-3"
         }, {
-          "hex" : "#78acd9",
-          "rgb" : [ 120, 172, 217 ],
-          "porcentaje" : 7.0,
+          "hex" : "#934716",
+          "rgb" : [ 147, 71, 22 ],
+          "porcentaje" : 16.7,
           "variable" : "--color-4"
         }, {
-          "hex" : "#776d62",
-          "rgb" : [ 119, 109, 98 ],
-          "porcentaje" : 6.3,
+          "hex" : "#aebad1",
+          "rgb" : [ 174, 186, 209 ],
+          "porcentaje" : 8.6,
           "variable" : "--color-5"
         }, {
-          "hex" : "#ceccbd",
-          "rgb" : [ 206, 204, 189 ],
-          "porcentaje" : 4.5,
+          "hex" : "#8b8177",
+          "rgb" : [ 139, 129, 119 ],
+          "porcentaje" : 8.2,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #191713;\n  --color-2: #453a35;\n  --color-3: #939695;\n  --color-4: #78acd9;\n  --color-5: #776d62;\n  --color-6: #ceccbd;\n}"
+        "css" : ":root {\n  --color-1: #262710;\n  --color-2: #4d4f32;\n  --color-3: #be8a1a;\n  --color-4: #934716;\n  --color-5: #aebad1;\n  --color-6: #8b8177;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#6da9dd",
-          "rgb" : [ 109, 169, 221 ],
-          "porcentaje" : 7.0,
+          "hex" : "#ae7c09",
+          "rgb" : [ 174, 124, 9 ],
+          "porcentaje" : 8.7,
           "variable" : "--color-1"
         }, {
-          "hex" : "#283140",
-          "rgb" : [ 40, 49, 64 ],
-          "porcentaje" : 0.7,
+          "hex" : "#5b3e08",
+          "rgb" : [ 91, 62, 8 ],
+          "porcentaje" : 6.3,
           "variable" : "--color-2"
         }, {
-          "hex" : "#392f28",
-          "rgb" : [ 57, 47, 40 ],
-          "porcentaje" : 8.3,
+          "hex" : "#8d1e19",
+          "rgb" : [ 141, 30, 25 ],
+          "porcentaje" : 3.5,
           "variable" : "--color-3"
         }, {
-          "hex" : "#cfbfa1",
-          "rgb" : [ 207, 191, 161 ],
-          "porcentaje" : 3.9,
+          "hex" : "#282a11",
+          "rgb" : [ 40, 42, 17 ],
+          "porcentaje" : 9.9,
           "variable" : "--color-4"
         }, {
-          "hex" : "#7c756b",
-          "rgb" : [ 124, 117, 107 ],
-          "porcentaje" : 5.3,
+          "hex" : "#9bbce8",
+          "rgb" : [ 155, 188, 232 ],
+          "porcentaje" : 2.4,
           "variable" : "--color-5"
         }, {
-          "hex" : "#8f9498",
-          "rgb" : [ 143, 148, 152 ],
-          "porcentaje" : 8.9,
+          "hex" : "#9ca1ac",
+          "rgb" : [ 156, 161, 172 ],
+          "porcentaje" : 3.3,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #6da9dd;\n  --color-2: #283140;\n  --color-3: #392f28;\n  --color-4: #cfbfa1;\n  --color-5: #7c756b;\n  --color-6: #8f9498;\n}"
+        "css" : ":root {\n  --color-1: #ae7c09;\n  --color-2: #5b3e08;\n  --color-3: #8d1e19;\n  --color-4: #282a11;\n  --color-5: #9bbce8;\n  --color-6: #9ca1ac;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/rosas-arcoiris.jpg",
+    "nombre" : "Rosas arcoíris",
+    "alt" : "Dos rosas teñidas de rosa, amarillo, verde y azul en un ramo con flores blancas y hojas oscuras.",
+    "peso" : 155321,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#1e2511",
+          "rgb" : [ 30, 37, 17 ],
+          "porcentaje" : 32.0,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#444e29",
+          "rgb" : [ 68, 78, 41 ],
+          "porcentaje" : 26.8,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#78845e",
+          "rgb" : [ 120, 132, 94 ],
+          "porcentaje" : 14.9,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#daccad",
+          "rgb" : [ 218, 204, 173 ],
+          "porcentaje" : 14.1,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#c9c137",
+          "rgb" : [ 201, 193, 55 ],
+          "porcentaje" : 6.5,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#d45992",
+          "rgb" : [ 212, 89, 146 ],
+          "porcentaje" : 5.6,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #1e2511;\n  --color-2: #444e29;\n  --color-3: #78845e;\n  --color-4: #daccad;\n  --color-5: #c9c137;\n  --color-6: #d45992;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#12417e",
+          "rgb" : [ 18, 65, 126 ],
+          "porcentaje" : 1.8,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#ceca1f",
+          "rgb" : [ 206, 202, 31 ],
+          "porcentaje" : 3.9,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#747f1f",
+          "rgb" : [ 116, 127, 31 ],
+          "porcentaje" : 3.8,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#d7499c",
+          "rgb" : [ 215, 73, 156 ],
+          "porcentaje" : 2.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#252f11",
+          "rgb" : [ 37, 47, 17 ],
+          "porcentaje" : 14.8,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#5bc376",
+          "rgb" : [ 91, 195, 118 ],
+          "porcentaje" : 0.7,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #12417e;\n  --color-2: #ceca1f;\n  --color-3: #747f1f;\n  --color-4: #d7499c;\n  --color-5: #252f11;\n  --color-6: #5bc376;\n}"
       }
     }
   }, {
     "archivo" : "fotos/margaritas-naranjas.jpg",
     "nombre" : "Margaritas naranjas",
     "alt" : "Margaritas naranjas y amarillas en una jardinera de piedra, con la luz del atardecer y una barandilla de metal detrás.",
-    "peso" : 150815,
+    "peso" : 151268,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#383517",
-          "rgb" : [ 56, 53, 23 ],
-          "porcentaje" : 28.2,
+          "hex" : "#373517",
+          "rgb" : [ 55, 53, 23 ],
+          "porcentaje" : 27.9,
           "variable" : "--color-1"
         }, {
-          "hex" : "#a5a7ad",
-          "rgb" : [ 165, 167, 173 ],
+          "hex" : "#a7a8ad",
+          "rgb" : [ 167, 168, 173 ],
           "porcentaje" : 18.3,
           "variable" : "--color-2"
         }, {
-          "hex" : "#a76413",
-          "rgb" : [ 167, 100, 19 ],
-          "porcentaje" : 16.8,
+          "hex" : "#a56415",
+          "rgb" : [ 165, 100, 21 ],
+          "porcentaje" : 16.9,
           "variable" : "--color-3"
         }, {
-          "hex" : "#e7b01b",
-          "rgb" : [ 231, 176, 27 ],
+          "hex" : "#e6af1c",
+          "rgb" : [ 230, 175, 28 ],
           "porcentaje" : 14.8,
           "variable" : "--color-4"
         }, {
-          "hex" : "#7b7a7b",
-          "rgb" : [ 123, 122, 123 ],
-          "porcentaje" : 14.6,
+          "hex" : "#7b7b7c",
+          "rgb" : [ 123, 123, 124 ],
+          "porcentaje" : 14.8,
           "variable" : "--color-5"
         }, {
-          "hex" : "#dfe9f1",
-          "rgb" : [ 223, 233, 241 ],
-          "porcentaje" : 7.4,
+          "hex" : "#dfeaf1",
+          "rgb" : [ 223, 234, 241 ],
+          "porcentaje" : 7.3,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #383517;\n  --color-2: #a5a7ad;\n  --color-3: #a76413;\n  --color-4: #e7b01b;\n  --color-5: #7b7a7b;\n  --color-6: #dfe9f1;\n}"
+        "css" : ":root {\n  --color-1: #373517;\n  --color-2: #a7a8ad;\n  --color-3: #a56415;\n  --color-4: #e6af1c;\n  --color-5: #7b7b7c;\n  --color-6: #dfeaf1;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#b24b09",
-          "rgb" : [ 178, 75, 9 ],
-          "porcentaje" : 4.6,
+          "hex" : "#bb570a",
+          "rgb" : [ 187, 87, 10 ],
+          "porcentaje" : 5.3,
           "variable" : "--color-1"
         }, {
-          "hex" : "#f6d10d",
-          "rgb" : [ 246, 209, 13 ],
-          "porcentaje" : 4.6,
+          "hex" : "#51490d",
+          "rgb" : [ 81, 73, 13 ],
+          "porcentaje" : 6.4,
           "variable" : "--color-2"
         }, {
-          "hex" : "#705410",
-          "rgb" : [ 112, 84, 16 ],
-          "porcentaje" : 5.4,
+          "hex" : "#728096",
+          "rgb" : [ 114, 128, 150 ],
+          "porcentaje" : 5.2,
           "variable" : "--color-3"
         }, {
-          "hex" : "#2c2e17",
-          "rgb" : [ 44, 46, 23 ],
-          "porcentaje" : 9.8,
+          "hex" : "#9499a6",
+          "rgb" : [ 148, 153, 166 ],
+          "porcentaje" : 8.4,
           "variable" : "--color-4"
         }, {
-          "hex" : "#6f7680",
-          "rgb" : [ 111, 118, 128 ],
-          "porcentaje" : 5.8,
+          "hex" : "#e5f2fb",
+          "rgb" : [ 229, 242, 251 ],
+          "porcentaje" : 5.5,
+          "variable" : "--color-5"
+        } ],
+        "css" : ":root {\n  --color-1: #bb570a;\n  --color-2: #51490d;\n  --color-3: #728096;\n  --color-4: #9499a6;\n  --color-5: #e5f2fb;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/veleros-al-atardecer.jpg",
+    "nombre" : "Veleros al atardecer",
+    "alt" : "Una gaviota con las alas abiertas sobre el mar al atardecer, con veleros fondeados y el cielo pasando del azul al naranja.",
+    "peso" : 170588,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#929ba6",
+          "rgb" : [ 146, 155, 166 ],
+          "porcentaje" : 37.2,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#b8ae9f",
+          "rgb" : [ 184, 174, 159 ],
+          "porcentaje" : 29.8,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#b6937d",
+          "rgb" : [ 182, 147, 125 ],
+          "porcentaje" : 15.2,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#373c45",
+          "rgb" : [ 55, 60, 69 ],
+          "porcentaje" : 7.3,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#60676f",
+          "rgb" : [ 96, 103, 111 ],
+          "porcentaje" : 5.5,
           "variable" : "--color-5"
         }, {
-          "hex" : "#a2a7b4",
-          "rgb" : [ 162, 167, 180 ],
+          "hex" : "#16171c",
+          "rgb" : [ 22, 23, 28 ],
+          "porcentaje" : 5.1,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #929ba6;\n  --color-2: #b8ae9f;\n  --color-3: #b6937d;\n  --color-4: #373c45;\n  --color-5: #60676f;\n  --color-6: #16171c;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#ba927a",
+          "rgb" : [ 186, 146, 122 ],
+          "porcentaje" : 6.7,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#2f343d",
+          "rgb" : [ 47, 52, 61 ],
+          "porcentaje" : 3.3,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#8190a4",
+          "rgb" : [ 129, 144, 164 ],
+          "porcentaje" : 8.5,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#aca79a",
+          "rgb" : [ 172, 167, 154 ],
+          "porcentaje" : 7.1,
+          "variable" : "--color-4"
+        } ],
+        "css" : ":root {\n  --color-1: #ba927a;\n  --color-2: #2f343d;\n  --color-3: #8190a4;\n  --color-4: #aca79a;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/mirlo-y-bayas.jpg",
+    "nombre" : "Mirlo y bayas",
+    "alt" : "Un mirlo negro con una baya azul en el pico, posado entre hojas verdes y racimos de bayas azules y verdes.",
+    "peso" : 286982,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#384425",
+          "rgb" : [ 56, 68, 37 ],
+          "porcentaje" : 21.9,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#a7c08c",
+          "rgb" : [ 167, 192, 140 ],
+          "porcentaje" : 21.5,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#19220e",
+          "rgb" : [ 25, 34, 14 ],
+          "porcentaje" : 19.4,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#5a6a3b",
+          "rgb" : [ 90, 106, 59 ],
+          "porcentaje" : 13.5,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#879f5e",
+          "rgb" : [ 135, 159, 94 ],
+          "porcentaje" : 13.0,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#cdd9ba",
+          "rgb" : [ 205, 217, 186 ],
           "porcentaje" : 10.6,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #b24b09;\n  --color-2: #f6d10d;\n  --color-3: #705410;\n  --color-4: #2c2e17;\n  --color-5: #6f7680;\n  --color-6: #a2a7b4;\n}"
+        "css" : ":root {\n  --color-1: #384425;\n  --color-2: #a7c08c;\n  --color-3: #19220e;\n  --color-4: #5a6a3b;\n  --color-5: #879f5e;\n  --color-6: #cdd9ba;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#7fa51d",
+          "rgb" : [ 127, 165, 29 ],
+          "porcentaje" : 1.6,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#364d17",
+          "rgb" : [ 54, 77, 23 ],
+          "porcentaje" : 5.7,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#a0b59b",
+          "rgb" : [ 160, 181, 155 ],
+          "porcentaje" : 8.9,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#bbcab6",
+          "rgb" : [ 187, 202, 182 ],
+          "porcentaje" : 7.0,
+          "variable" : "--color-4"
+        } ],
+        "css" : ":root {\n  --color-1: #7fa51d;\n  --color-2: #364d17;\n  --color-3: #a0b59b;\n  --color-4: #bbcab6;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/flores-blancas.jpg",
+    "nombre" : "Flores blancas",
+    "alt" : "Ramas cargadas de flores blancas y hojas nuevas contra un cielo azul intenso.",
+    "peso" : 298353,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#51533c",
+          "rgb" : [ 81, 83, 60 ],
+          "porcentaje" : 32.5,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#222911",
+          "rgb" : [ 34, 41, 17 ],
+          "porcentaje" : 22.0,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#797a6d",
+          "rgb" : [ 121, 122, 109 ],
+          "porcentaje" : 18.6,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#5480cd",
+          "rgb" : [ 84, 128, 205 ],
+          "porcentaje" : 14.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#b6b4aa",
+          "rgb" : [ 182, 180, 170 ],
+          "porcentaje" : 8.5,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#878e25",
+          "rgb" : [ 135, 142, 37 ],
+          "porcentaje" : 3.8,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #51533c;\n  --color-2: #222911;\n  --color-3: #797a6d;\n  --color-4: #5480cd;\n  --color-5: #b6b4aa;\n  --color-6: #878e25;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#9fa722",
+          "rgb" : [ 159, 167, 34 ],
+          "porcentaje" : 1.4,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#475113",
+          "rgb" : [ 71, 81, 19 ],
+          "porcentaje" : 3.0,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#5081d6",
+          "rgb" : [ 80, 129, 214 ],
+          "porcentaje" : 11.8,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#374d66",
+          "rgb" : [ 55, 77, 102 ],
+          "porcentaje" : 1.5,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#959385",
+          "rgb" : [ 149, 147, 133 ],
+          "porcentaje" : 5.1,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#dedad5",
+          "rgb" : [ 222, 218, 213 ],
+          "porcentaje" : 1.4,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #9fa722;\n  --color-2: #475113;\n  --color-3: #5081d6;\n  --color-4: #374d66;\n  --color-5: #959385;\n  --color-6: #dedad5;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/margaritas-moradas.jpg",
+    "nombre" : "Margaritas moradas",
+    "alt" : "Margaritas moradas abiertas al sol sobre un lecho de grava blanca, con hojas verdes detrás.",
+    "peso" : 116026,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#172312",
+          "rgb" : [ 23, 35, 18 ],
+          "porcentaje" : 33.3,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#6e3d79",
+          "rgb" : [ 110, 61, 121 ],
+          "porcentaje" : 19.6,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#475238",
+          "rgb" : [ 71, 82, 56 ],
+          "porcentaje" : 15.2,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#8e6e95",
+          "rgb" : [ 142, 110, 149 ],
+          "porcentaje" : 13.5,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#f4eff1",
+          "rgb" : [ 244, 239, 241 ],
+          "porcentaje" : 9.8,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#c499cd",
+          "rgb" : [ 196, 153, 205 ],
+          "porcentaje" : 8.7,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #172312;\n  --color-2: #6e3d79;\n  --color-3: #475238;\n  --color-4: #8e6e95;\n  --color-5: #f4eff1;\n  --color-6: #c499cd;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#567a1f",
+          "rgb" : [ 86, 122, 31 ],
+          "porcentaje" : 3.0,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#1a330f",
+          "rgb" : [ 26, 51, 15 ],
+          "porcentaje" : 11.9,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#572863",
+          "rgb" : [ 87, 40, 99 ],
+          "porcentaje" : 6.3,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#a363b6",
+          "rgb" : [ 163, 99, 182 ],
+          "porcentaje" : 5.2,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#e9aaf6",
+          "rgb" : [ 233, 170, 246 ],
+          "porcentaje" : 2.9,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#c3c6b9",
+          "rgb" : [ 195, 198, 185 ],
+          "porcentaje" : 2.6,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #567a1f;\n  --color-2: #1a330f;\n  --color-3: #572863;\n  --color-4: #a363b6;\n  --color-5: #e9aaf6;\n  --color-6: #c3c6b9;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/ala-desde-la-ventanilla.jpg",
+    "nombre" : "Ala desde la ventanilla",
+    "alt" : "El ala blanca de un avión vista por la ventanilla, con cielo azul y campos ocres debajo.",
+    "peso" : 174006,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#13130f",
+          "rgb" : [ 19, 19, 15 ],
+          "porcentaje" : 34.8,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#2c2521",
+          "rgb" : [ 44, 37, 33 ],
+          "porcentaje" : 20.1,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#8f908d",
+          "rgb" : [ 143, 144, 141 ],
+          "porcentaje" : 19.4,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#534841",
+          "rgb" : [ 83, 72, 65 ],
+          "porcentaje" : 13.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#79add9",
+          "rgb" : [ 121, 173, 217 ],
+          "porcentaje" : 7.0,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#cbc9bb",
+          "rgb" : [ 203, 201, 187 ],
+          "porcentaje" : 5.1,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #13130f;\n  --color-2: #2c2521;\n  --color-3: #8f908d;\n  --color-4: #534841;\n  --color-5: #79add9;\n  --color-6: #cbc9bb;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#68a5dc",
+          "rgb" : [ 104, 165, 220 ],
+          "porcentaje" : 4.7,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#2d2521",
+          "rgb" : [ 45, 37, 33 ],
+          "porcentaje" : 13.4,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#baaa90",
+          "rgb" : [ 186, 170, 144 ],
+          "porcentaje" : 2.7,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#6d6356",
+          "rgb" : [ 109, 99, 86 ],
+          "porcentaje" : 4.3,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#7d776f",
+          "rgb" : [ 125, 119, 111 ],
+          "porcentaje" : 4.9,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#b3bfc8",
+          "rgb" : [ 179, 191, 200 ],
+          "porcentaje" : 2.0,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #68a5dc;\n  --color-2: #2d2521;\n  --color-3: #baaa90;\n  --color-4: #6d6356;\n  --color-5: #7d776f;\n  --color-6: #b3bfc8;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/londres-desde-lo-alto.jpg",
+    "nombre" : "Londres desde lo alto",
+    "alt" : "Edificios de Londres vistos desde arriba: una torre redonda con franjas blancas, bloques de ladrillo y árboles entre las calles.",
+    "peso" : 286338,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#62655f",
+          "rgb" : [ 98, 101, 95 ],
+          "porcentaje" : 21.9,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#838479",
+          "rgb" : [ 131, 132, 121 ],
+          "porcentaje" : 17.8,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#3e4442",
+          "rgb" : [ 62, 68, 66 ],
+          "porcentaje" : 17.1,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#9ea4a3",
+          "rgb" : [ 158, 164, 163 ],
+          "porcentaje" : 15.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#191e22",
+          "rgb" : [ 25, 30, 34 ],
+          "porcentaje" : 14.3,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#c7d1d6",
+          "rgb" : [ 199, 209, 214 ],
+          "porcentaje" : 13.3,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #62655f;\n  --color-2: #838479;\n  --color-3: #3e4442;\n  --color-4: #9ea4a3;\n  --color-5: #191e22;\n  --color-6: #c7d1d6;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#969165",
+          "rgb" : [ 150, 145, 101 ],
+          "porcentaje" : 3.8,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#484d36",
+          "rgb" : [ 72, 77, 54 ],
+          "porcentaje" : 3.4,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#242a2d",
+          "rgb" : [ 36, 42, 45 ],
+          "porcentaje" : 8.3,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#b8c7d2",
+          "rgb" : [ 184, 199, 210 ],
+          "porcentaje" : 4.7,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#4a5052",
+          "rgb" : [ 74, 80, 82 ],
+          "porcentaje" : 8.5,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#8d959a",
+          "rgb" : [ 141, 149, 154 ],
+          "porcentaje" : 8.2,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #969165;\n  --color-2: #484d36;\n  --color-3: #242a2d;\n  --color-4: #b8c7d2;\n  --color-5: #4a5052;\n  --color-6: #8d959a;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/cupula-en-la-city.jpg",
+    "nombre" : "Cúpula en la City",
+    "alt" : "Un edificio de piedra con una torre redonda rematada por una cúpula de tejas, en una esquina de Londres bajo un cielo gris.",
+    "peso" : 294330,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#c3cdd8",
+          "rgb" : [ 195, 205, 216 ],
+          "porcentaje" : 21.1,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#7b7976",
+          "rgb" : [ 123, 121, 118 ],
+          "porcentaje" : 18.2,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#504d4b",
+          "rgb" : [ 80, 77, 75 ],
+          "porcentaje" : 17.8,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#221f22",
+          "rgb" : [ 34, 31, 34 ],
+          "porcentaje" : 16.0,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#9f9e99",
+          "rgb" : [ 159, 158, 153 ],
+          "porcentaje" : 15.9,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#d9e1e9",
+          "rgb" : [ 217, 225, 233 ],
+          "porcentaje" : 10.9,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #c3cdd8;\n  --color-2: #7b7976;\n  --color-3: #504d4b;\n  --color-4: #221f22;\n  --color-5: #9f9e99;\n  --color-6: #d9e1e9;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#74879c",
+          "rgb" : [ 116, 135, 156 ],
+          "porcentaje" : 1.3,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#7d7666",
+          "rgb" : [ 125, 118, 102 ],
+          "porcentaje" : 1.5,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#c3cfdd",
+          "rgb" : [ 195, 207, 221 ],
+          "porcentaje" : 21.1,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#272428",
+          "rgb" : [ 39, 36, 40 ],
+          "porcentaje" : 4.2,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#8f8c87",
+          "rgb" : [ 143, 140, 135 ],
+          "porcentaje" : 7.1,
+          "variable" : "--color-5"
+        } ],
+        "css" : ":root {\n  --color-1: #74879c;\n  --color-2: #7d7666;\n  --color-3: #c3cfdd;\n  --color-4: #272428;\n  --color-5: #8f8c87;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/aguja-de-cobre.jpg",
+    "nombre" : "Aguja de cobre",
+    "alt" : "La aguja de cobre verde de un campanario, con una veleta dorada, sobre un cielo gris claro.",
+    "peso" : 157954,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#cfdceb",
+          "rgb" : [ 207, 220, 235 ],
+          "porcentaje" : 63.7,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#c9d7e5",
+          "rgb" : [ 201, 215, 229 ],
+          "porcentaje" : 21.4,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#78a09b",
+          "rgb" : [ 120, 160, 155 ],
+          "porcentaje" : 4.6,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#5a7874",
+          "rgb" : [ 90, 120, 116 ],
+          "porcentaje" : 3.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#0f1516",
+          "rgb" : [ 15, 21, 22 ],
+          "porcentaje" : 3.5,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#354744",
+          "rgb" : [ 53, 71, 68 ],
+          "porcentaje" : 3.2,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #cfdceb;\n  --color-2: #c9d7e5;\n  --color-3: #78a09b;\n  --color-4: #5a7874;\n  --color-5: #0f1516;\n  --color-6: #354744;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#65908b",
+          "rgb" : [ 101, 144, 139 ],
+          "porcentaje" : 1.5,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#1f2a29",
+          "rgb" : [ 31, 42, 41 ],
+          "porcentaje" : 0.8,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#c9d7e6",
+          "rgb" : [ 201, 215, 230 ],
+          "porcentaje" : 16.1,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#d1ddeb",
+          "rgb" : [ 209, 221, 235 ],
+          "porcentaje" : 30.5,
+          "variable" : "--color-4"
+        } ],
+        "css" : ":root {\n  --color-1: #65908b;\n  --color-2: #1f2a29;\n  --color-3: #c9d7e6;\n  --color-4: #d1ddeb;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/parque-en-primavera.jpg",
+    "nombre" : "Parque en primavera",
+    "alt" : "Una pradera verde bajo el cielo azul, con árboles al fondo y, delante, una mesa de madera con un cartel rojo.",
+    "peso" : 291112,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#81815b",
+          "rgb" : [ 129, 129, 91 ],
+          "porcentaje" : 28.2,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#595937",
+          "rgb" : [ 89, 89, 55 ],
+          "porcentaje" : 22.9,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#191f11",
+          "rgb" : [ 25, 31, 17 ],
+          "porcentaje" : 16.2,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#97bdeb",
+          "rgb" : [ 151, 189, 235 ],
+          "porcentaje" : 14.5,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#afab8e",
+          "rgb" : [ 175, 171, 142 ],
+          "porcentaje" : 13.1,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#b86d63",
+          "rgb" : [ 184, 109, 99 ],
+          "porcentaje" : 5.0,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #81815b;\n  --color-2: #595937;\n  --color-3: #191f11;\n  --color-4: #97bdeb;\n  --color-5: #afab8e;\n  --color-6: #b86d63;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#424a0d",
+          "rgb" : [ 66, 74, 13 ],
+          "porcentaje" : 3.0,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#858c46",
+          "rgb" : [ 133, 140, 70 ],
+          "porcentaje" : 7.1,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#bc6e64",
+          "rgb" : [ 188, 110, 100 ],
+          "porcentaje" : 5.2,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#91bbee",
+          "rgb" : [ 145, 187, 238 ],
+          "porcentaje" : 14.6,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#715c50",
+          "rgb" : [ 113, 92, 80 ],
+          "porcentaje" : 6.0,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#cccaac",
+          "rgb" : [ 204, 202, 172 ],
+          "porcentaje" : 2.6,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #424a0d;\n  --color-2: #858c46;\n  --color-3: #bc6e64;\n  --color-4: #91bbee;\n  --color-5: #715c50;\n  --color-6: #cccaac;\n}"
+      }
+    }
+  }, {
+    "archivo" : "fotos/velero-en-el-horizonte.jpg",
+    "nombre" : "Velero en el horizonte",
+    "alt" : "Un velero diminuto en el horizonte, con el mar en calma, nubes suaves y la orilla de arena con algas.",
+    "peso" : 304494,
+    "paletas" : {
+      "presentes" : {
+        "modo" : "presentes",
+        "colores" : [ {
+          "hex" : "#cfd4d3",
+          "rgb" : [ 207, 212, 211 ],
+          "porcentaje" : 26.0,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#b3babe",
+          "rgb" : [ 179, 186, 190 ],
+          "porcentaje" : 23.9,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#76848d",
+          "rgb" : [ 118, 132, 141 ],
+          "porcentaje" : 17.6,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#909ea6",
+          "rgb" : [ 144, 158, 166 ],
+          "porcentaje" : 17.4,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#5c6267",
+          "rgb" : [ 92, 98, 103 ],
+          "porcentaje" : 10.9,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#322a23",
+          "rgb" : [ 50, 42, 35 ],
+          "porcentaje" : 4.1,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #cfd4d3;\n  --color-2: #b3babe;\n  --color-3: #76848d;\n  --color-4: #909ea6;\n  --color-5: #5c6267;\n  --color-6: #322a23;\n}"
+      },
+      "vivos" : {
+        "modo" : "vivos",
+        "colores" : [ {
+          "hex" : "#33281e",
+          "rgb" : [ 51, 40, 30 ],
+          "porcentaje" : 1.4,
+          "variable" : "--color-1"
+        }, {
+          "hex" : "#4a5a68",
+          "rgb" : [ 74, 90, 104 ],
+          "porcentaje" : 2.5,
+          "variable" : "--color-2"
+        }, {
+          "hex" : "#c0af9d",
+          "rgb" : [ 192, 175, 157 ],
+          "porcentaje" : 1.3,
+          "variable" : "--color-3"
+        }, {
+          "hex" : "#736a61",
+          "rgb" : [ 115, 106, 97 ],
+          "porcentaje" : 2.1,
+          "variable" : "--color-4"
+        }, {
+          "hex" : "#98a8b1",
+          "rgb" : [ 152, 168, 177 ],
+          "porcentaje" : 7.1,
+          "variable" : "--color-5"
+        }, {
+          "hex" : "#c5d1d9",
+          "rgb" : [ 197, 209, 217 ],
+          "porcentaje" : 5.7,
+          "variable" : "--color-6"
+        } ],
+        "css" : ":root {\n  --color-1: #33281e;\n  --color-2: #4a5a68;\n  --color-3: #c0af9d;\n  --color-4: #736a61;\n  --color-5: #98a8b1;\n  --color-6: #c5d1d9;\n}"
       }
     }
   }, {
@@ -160,79 +967,79 @@
     "nombre" : "Piscina de bolas",
     "alt" : "Primer plano de cientos de bolas de plástico verde menta que se pierden hacia el fondo.",
     "nota" : "Se ven verde menta, pero sus píxeles son un gris apenas azulado: la luz cálida de la sala engaña al ojo. La paleta es fiel a la foto.",
-    "peso" : 185349,
+    "peso" : 189455,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#6a7070",
-          "rgb" : [ 106, 112, 112 ],
-          "porcentaje" : 28.3,
+          "hex" : "#6b7171",
+          "rgb" : [ 107, 113, 113 ],
+          "porcentaje" : 28.9,
           "variable" : "--color-1"
         }, {
-          "hex" : "#8d8984",
-          "rgb" : [ 141, 137, 132 ],
-          "porcentaje" : 21.8,
+          "hex" : "#908b84",
+          "rgb" : [ 144, 139, 132 ],
+          "porcentaje" : 21.7,
           "variable" : "--color-2"
         }, {
-          "hex" : "#b5a693",
-          "rgb" : [ 181, 166, 147 ],
-          "porcentaje" : 18.4,
+          "hex" : "#b7a896",
+          "rgb" : [ 183, 168, 150 ],
+          "porcentaje" : 17.5,
           "variable" : "--color-3"
         }, {
-          "hex" : "#4d5354",
-          "rgb" : [ 77, 83, 84 ],
-          "porcentaje" : 16.3,
+          "hex" : "#4e5455",
+          "rgb" : [ 78, 84, 85 ],
+          "porcentaje" : 16.6,
           "variable" : "--color-4"
         }, {
-          "hex" : "#293133",
-          "rgb" : [ 41, 49, 51 ],
-          "porcentaje" : 7.9,
+          "hex" : "#2a3234",
+          "rgb" : [ 42, 50, 52 ],
+          "porcentaje" : 8.3,
           "variable" : "--color-5"
         }, {
-          "hex" : "#ecd2b1",
-          "rgb" : [ 236, 210, 177 ],
-          "porcentaje" : 7.3,
+          "hex" : "#edd3b2",
+          "rgb" : [ 237, 211, 178 ],
+          "porcentaje" : 7.0,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #6a7070;\n  --color-2: #8d8984;\n  --color-3: #b5a693;\n  --color-4: #4d5354;\n  --color-5: #293133;\n  --color-6: #ecd2b1;\n}"
+        "css" : ":root {\n  --color-1: #6b7171;\n  --color-2: #908b84;\n  --color-3: #b7a896;\n  --color-4: #4e5455;\n  --color-5: #2a3234;\n  --color-6: #edd3b2;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#9e825f",
-          "rgb" : [ 158, 130, 95 ],
-          "porcentaje" : 2.8,
+          "hex" : "#9e825e",
+          "rgb" : [ 158, 130, 94 ],
+          "porcentaje" : 2.9,
           "variable" : "--color-1"
         }, {
-          "hex" : "#344147",
-          "rgb" : [ 52, 65, 71 ],
-          "porcentaje" : 4.9,
+          "hex" : "#f4d5b2",
+          "rgb" : [ 244, 213, 178 ],
+          "porcentaje" : 2.6,
           "variable" : "--color-2"
         }, {
-          "hex" : "#e6c9ab",
-          "rgb" : [ 230, 201, 171 ],
-          "porcentaje" : 3.3,
+          "hex" : "#3f4e54",
+          "rgb" : [ 63, 78, 84 ],
+          "porcentaje" : 4.4,
           "variable" : "--color-3"
         }, {
-          "hex" : "#4c4446",
-          "rgb" : [ 76, 68, 70 ],
-          "porcentaje" : 4.4,
+          "hex" : "#544946",
+          "rgb" : [ 84, 73, 70 ],
+          "porcentaje" : 4.2,
           "variable" : "--color-4"
         }, {
-          "hex" : "#9f9993",
-          "rgb" : [ 159, 153, 147 ],
-          "porcentaje" : 8.3,
+          "hex" : "#727c81",
+          "rgb" : [ 114, 124, 129 ],
+          "porcentaje" : 9.5,
           "variable" : "--color-5"
         } ],
-        "css" : ":root {\n  --color-1: #9e825f;\n  --color-2: #344147;\n  --color-3: #e6c9ab;\n  --color-4: #4c4446;\n  --color-5: #9f9993;\n}"
+        "css" : ":root {\n  --color-1: #9e825e;\n  --color-2: #f4d5b2;\n  --color-3: #3f4e54;\n  --color-4: #544946;\n  --color-5: #727c81;\n}"
       }
     }
   }, {
     "archivo" : "fotos/luna-llena.jpg",
     "nombre" : "Luna llena",
     "alt" : "La luna llena con sus cráteres y mares grises sobre un cielo completamente negro.",
-    "peso" : 46423,
+    "peso" : 49100,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
@@ -242,268 +1049,119 @@
           "porcentaje" : 89.4,
           "variable" : "--color-1"
         }, {
-          "hex" : "#43372a",
-          "rgb" : [ 67, 55, 42 ],
-          "porcentaje" : 3.2,
+          "hex" : "#44372a",
+          "rgb" : [ 68, 55, 42 ],
+          "porcentaje" : 3.1,
           "variable" : "--color-2"
         }, {
-          "hex" : "#a79078",
-          "rgb" : [ 167, 144, 120 ],
+          "hex" : "#a8927c",
+          "rgb" : [ 168, 146, 124 ],
           "porcentaje" : 2.3,
           "variable" : "--color-3"
         }, {
-          "hex" : "#8b755f",
-          "rgb" : [ 139, 117, 95 ],
+          "hex" : "#8c7661",
+          "rgb" : [ 140, 118, 97 ],
           "porcentaje" : 2.2,
           "variable" : "--color-4"
         }, {
-          "hex" : "#675644",
-          "rgb" : [ 103, 86, 68 ],
+          "hex" : "#685745",
+          "rgb" : [ 104, 87, 69 ],
           "porcentaje" : 1.9,
           "variable" : "--color-5"
         }, {
-          "hex" : "#c5ae98",
-          "rgb" : [ 197, 174, 152 ],
-          "porcentaje" : 1.1,
+          "hex" : "#c5b09c",
+          "rgb" : [ 197, 176, 156 ],
+          "porcentaje" : 1.2,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #010101;\n  --color-2: #43372a;\n  --color-3: #a79078;\n  --color-4: #8b755f;\n  --color-5: #675644;\n  --color-6: #c5ae98;\n}"
+        "css" : ":root {\n  --color-1: #010101;\n  --color-2: #44372a;\n  --color-3: #a8927c;\n  --color-4: #8c7661;\n  --color-5: #685745;\n  --color-6: #c5b09c;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#33291f",
-          "rgb" : [ 51, 41, 31 ],
-          "porcentaje" : 4.8,
+          "hex" : "#2f251b",
+          "rgb" : [ 47, 37, 27 ],
+          "porcentaje" : 1.9,
           "variable" : "--color-1"
         }, {
-          "hex" : "#776450",
-          "rgb" : [ 119, 100, 80 ],
-          "porcentaje" : 5.5,
+          "hex" : "#75624f",
+          "rgb" : [ 117, 98, 79 ],
+          "porcentaje" : 6.7,
           "variable" : "--color-2"
         }, {
-          "hex" : "#bba28b",
-          "rgb" : [ 187, 162, 139 ],
-          "porcentaje" : 5.4,
+          "hex" : "#b69f89",
+          "rgb" : [ 182, 159, 137 ],
+          "porcentaje" : 7.2,
           "variable" : "--color-3"
         }, {
-          "hex" : "#cac5be",
-          "rgb" : [ 202, 197, 190 ],
+          "hex" : "#cbc5bd",
+          "rgb" : [ 203, 197, 189 ],
           "porcentaje" : 0.8,
           "variable" : "--color-4"
         } ],
-        "css" : ":root {\n  --color-1: #33291f;\n  --color-2: #776450;\n  --color-3: #bba28b;\n  --color-4: #cac5be;\n}"
-      }
-    }
-  }, {
-    "archivo" : "fotos/margaritas-moradas.jpg",
-    "nombre" : "Margaritas moradas",
-    "alt" : "Margaritas moradas abiertas al sol sobre un lecho de grava blanca, con hojas verdes detrás.",
-    "peso" : 115119,
-    "paletas" : {
-      "presentes" : {
-        "modo" : "presentes",
-        "colores" : [ {
-          "hex" : "#172312",
-          "rgb" : [ 23, 35, 18 ],
-          "porcentaje" : 33.6,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#6e3c79",
-          "rgb" : [ 110, 60, 121 ],
-          "porcentaje" : 19.8,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#485339",
-          "rgb" : [ 72, 83, 57 ],
-          "porcentaje" : 15.2,
-          "variable" : "--color-3"
-        }, {
-          "hex" : "#8f6d97",
-          "rgb" : [ 143, 109, 151 ],
-          "porcentaje" : 13.5,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#f4f0f1",
-          "rgb" : [ 244, 240, 241 ],
-          "porcentaje" : 9.7,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#c69acf",
-          "rgb" : [ 198, 154, 207 ],
-          "porcentaje" : 8.3,
-          "variable" : "--color-6"
-        } ],
-        "css" : ":root {\n  --color-1: #172312;\n  --color-2: #6e3c79;\n  --color-3: #485339;\n  --color-4: #8f6d97;\n  --color-5: #f4f0f1;\n  --color-6: #c69acf;\n}"
-      },
-      "vivos" : {
-        "modo" : "vivos",
-        "colores" : [ {
-          "hex" : "#4a6f19",
-          "rgb" : [ 74, 111, 25 ],
-          "porcentaje" : 3.1,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#53265f",
-          "rgb" : [ 83, 38, 95 ],
-          "porcentaje" : 5.4,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#9758a9",
-          "rgb" : [ 151, 88, 169 ],
-          "porcentaje" : 5.6,
-          "variable" : "--color-3"
-        }, {
-          "hex" : "#efb2fa",
-          "rgb" : [ 239, 178, 250 ],
-          "porcentaje" : 2.2,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#acb09f",
-          "rgb" : [ 172, 176, 159 ],
-          "porcentaje" : 3.1,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#4b4d4a",
-          "rgb" : [ 75, 77, 74 ],
-          "porcentaje" : 6.6,
-          "variable" : "--color-6"
-        } ],
-        "css" : ":root {\n  --color-1: #4a6f19;\n  --color-2: #53265f;\n  --color-3: #9758a9;\n  --color-4: #efb2fa;\n  --color-5: #acb09f;\n  --color-6: #4b4d4a;\n}"
+        "css" : ":root {\n  --color-1: #2f251b;\n  --color-2: #75624f;\n  --color-3: #b69f89;\n  --color-4: #cbc5bd;\n}"
       }
     }
   }, {
     "archivo" : "fotos/estrellas-y-tejado.jpg",
     "nombre" : "Estrellas y tejado",
     "alt" : "Cielo nocturno azul pizarra con estrellas tenues y el borde de un tejado de teja naranja a la derecha.",
-    "peso" : 292738,
+    "peso" : 297277,
     "paletas" : {
       "presentes" : {
         "modo" : "presentes",
         "colores" : [ {
-          "hex" : "#3e4a52",
-          "rgb" : [ 62, 74, 82 ],
-          "porcentaje" : 26.0,
+          "hex" : "#3a464e",
+          "rgb" : [ 58, 70, 78 ],
+          "porcentaje" : 29.4,
           "variable" : "--color-1"
         }, {
-          "hex" : "#364047",
-          "rgb" : [ 54, 64, 71 ],
-          "porcentaje" : 22.9,
+          "hex" : "#303940",
+          "rgb" : [ 48, 57, 64 ],
+          "porcentaje" : 24.7,
           "variable" : "--color-2"
         }, {
-          "hex" : "#2d343b",
-          "rgb" : [ 45, 52, 59 ],
-          "porcentaje" : 21.2,
+          "hex" : "#455159",
+          "rgb" : [ 69, 81, 89 ],
+          "porcentaje" : 22.1,
           "variable" : "--color-3"
         }, {
-          "hex" : "#25292f",
-          "rgb" : [ 37, 41, 47 ],
-          "porcentaje" : 15.7,
+          "hex" : "#262c32",
+          "rgb" : [ 38, 44, 50 ],
+          "porcentaje" : 21.9,
           "variable" : "--color-4"
         }, {
-          "hex" : "#47535a",
-          "rgb" : [ 71, 83, 90 ],
-          "porcentaje" : 14.2,
+          "hex" : "#522b1d",
+          "rgb" : [ 82, 43, 29 ],
+          "porcentaje" : 1.2,
           "variable" : "--color-5"
         }, {
-          "hex" : "#ccc8c2",
-          "rgb" : [ 204, 200, 194 ],
-          "porcentaje" : 0.1,
+          "hex" : "#9a9a98",
+          "rgb" : [ 154, 154, 152 ],
+          "porcentaje" : 0.7,
           "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #3e4a52;\n  --color-2: #364047;\n  --color-3: #2d343b;\n  --color-4: #25292f;\n  --color-5: #47535a;\n  --color-6: #ccc8c2;\n}"
+        "css" : ":root {\n  --color-1: #3a464e;\n  --color-2: #303940;\n  --color-3: #455159;\n  --color-4: #262c32;\n  --color-5: #522b1d;\n  --color-6: #9a9a98;\n}"
       },
       "vivos" : {
         "modo" : "vivos",
         "colores" : [ {
-          "hex" : "#623321",
-          "rgb" : [ 98, 51, 33 ],
+          "hex" : "#653422",
+          "rgb" : [ 101, 52, 34 ],
           "porcentaje" : 0.5,
           "variable" : "--color-1"
         }, {
-          "hex" : "#1e252b",
-          "rgb" : [ 30, 37, 43 ],
-          "porcentaje" : 2.4,
-          "variable" : "--color-2"
-        } ],
-        "css" : ":root {\n  --color-1: #623321;\n  --color-2: #1e252b;\n}"
-      }
-    }
-  }, {
-    "archivo" : "fotos/rosas-arcoiris.jpg",
-    "nombre" : "Rosas arcoíris",
-    "alt" : "Dos rosas teñidas de rosa, amarillo, verde y azul en un ramo con flores blancas y hojas oscuras.",
-    "peso" : 153836,
-    "paletas" : {
-      "presentes" : {
-        "modo" : "presentes",
-        "colores" : [ {
-          "hex" : "#262e14",
-          "rgb" : [ 38, 46, 20 ],
-          "porcentaje" : 45.2,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#5d673b",
-          "rgb" : [ 93, 103, 59 ],
-          "porcentaje" : 21.6,
+          "hex" : "#20262d",
+          "rgb" : [ 32, 38, 45 ],
+          "porcentaje" : 4.5,
           "variable" : "--color-2"
         }, {
-          "hex" : "#deceaf",
-          "rgb" : [ 222, 206, 175 ],
-          "porcentaje" : 13.2,
+          "hex" : "#949797",
+          "rgb" : [ 148, 151, 151 ],
+          "porcentaje" : 0.6,
           "variable" : "--color-3"
-        }, {
-          "hex" : "#b47688",
-          "rgb" : [ 180, 118, 136 ],
-          "porcentaje" : 10.6,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#c0be39",
-          "rgb" : [ 192, 190, 57 ],
-          "porcentaje" : 7.7,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#17487f",
-          "rgb" : [ 23, 72, 127 ],
-          "porcentaje" : 1.7,
-          "variable" : "--color-6"
         } ],
-        "css" : ":root {\n  --color-1: #262e14;\n  --color-2: #5d673b;\n  --color-3: #deceaf;\n  --color-4: #b47688;\n  --color-5: #c0be39;\n  --color-6: #17487f;\n}"
-      },
-      "vivos" : {
-        "modo" : "vivos",
-        "colores" : [ {
-          "hex" : "#b4c11b",
-          "rgb" : [ 180, 193, 27 ],
-          "porcentaje" : 2.9,
-          "variable" : "--color-1"
-        }, {
-          "hex" : "#12437e",
-          "rgb" : [ 18, 67, 126 ],
-          "porcentaje" : 1.8,
-          "variable" : "--color-2"
-        }, {
-          "hex" : "#747f1d",
-          "rgb" : [ 116, 127, 29 ],
-          "porcentaje" : 3.5,
-          "variable" : "--color-3"
-        }, {
-          "hex" : "#a73269",
-          "rgb" : [ 167, 50, 105 ],
-          "porcentaje" : 1.4,
-          "variable" : "--color-4"
-        }, {
-          "hex" : "#273013",
-          "rgb" : [ 39, 48, 19 ],
-          "porcentaje" : 17.2,
-          "variable" : "--color-5"
-        }, {
-          "hex" : "#dc6e67",
-          "rgb" : [ 220, 110, 103 ],
-          "porcentaje" : 1.6,
-          "variable" : "--color-6"
-        } ],
-        "css" : ":root {\n  --color-1: #b4c11b;\n  --color-2: #12437e;\n  --color-3: #747f1d;\n  --color-4: #a73269;\n  --color-5: #273013;\n  --color-6: #dc6e67;\n}"
+        "css" : ":root {\n  --color-1: #653422;\n  --color-2: #20262d;\n  --color-3: #949797;\n}"
       }
     }
   } ]
