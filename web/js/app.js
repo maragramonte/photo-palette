@@ -103,6 +103,14 @@
     return maximo === 0 ? 0 : (maximo - Math.min(r, g, b)) / maximo;
   };
 
+  /**
+   * La dirección de la foto con su peso detrás. Las fotos conservan el nombre cuando se
+   * retocan (una marca nueva, otro recorte), y sin esto el navegador seguía enseñando la
+   * versión que tenía guardada aunque paletas.json ya fuera el nuevo. El peso cambia con
+   * la foto, así que cada versión tiene su propia dirección.
+   */
+  const urlDe = (foto) => (foto.peso ? foto.archivo + "?v=" + foto.peso : foto.archivo);
+
   // --- Portada -------------------------------------------------------------
 
   // Solo se turnan en la portada las fotos con al menos tres colores vivos. Con menos (las
@@ -174,7 +182,7 @@
       return;
     }
 
-    nodos.muestraFoto.src = foto.archivo;
+    nodos.muestraFoto.src = urlDe(foto);
     nodos.muestraFoto.alt = foto.alt || foto.nombre;
     nodos.muestraNombre.textContent = foto.nombre;
     nodos.muestraBarra.replaceChildren(...foto.paletas.presentes.colores.map(tramoDe));
@@ -234,7 +242,7 @@
 
     const foto_ = document.createElement("img");
     foto_.className = "tarjeta__foto";
-    foto_.src = foto.archivo;
+    foto_.src = urlDe(foto);
     foto_.alt = foto.alt || foto.nombre;
     foto_.loading = "lazy";
     foto_.decoding = "async";
@@ -689,7 +697,7 @@
     decirEstado("Analizando " + elegida.nombre + " con la API…", "trabajando");
 
     try {
-      const descarga = await fetch(elegida.archivo);
+      const descarga = await fetch(urlDe(elegida));
       if (!descarga.ok) {
         throw new Error("No se ha podido leer " + elegida.archivo + ".");
       }
