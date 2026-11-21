@@ -34,7 +34,7 @@ ve con fotos reales.
 
 ## Probarlo
 
-[La web está publicada](https://maragramonte.github.io/photo-palette/) y cada `git push` a
+[La web está publicada](https://paleta.maragramonte.com/) y cada `git push` a
 `main` que toque la web la vuelve a publicar.
 
 **Para verlo en un minuto:** pulsa el interruptor **Vivos** y mira cómo cambia el feed
@@ -187,7 +187,8 @@ cd web && python -m http.server 8000                  # http://localhost:8000
 Ábrela en `http://localhost:8000`, no con doble clic en el archivo: el feed lee
 `paletas.json` con `fetch` y `file://` lo bloquea. El perfil `dev` es el único que acepta
 llamadas desde `localhost`; sin él, la API solo responde al navegador desde
-`https://maragramonte.github.io`.
+`https://paleta.maragramonte.com` (y desde `https://maragramonte.github.io`, mientras
+sigan llegando visitas por los enlaces viejos).
 
 | Para | Documento |
 |------|-----------|

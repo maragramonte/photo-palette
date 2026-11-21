@@ -98,7 +98,7 @@ Los errores van en formato ProblemDetail (RFC 9457), con `title` y `detail` en e
 
 Cambios sobre el código actual: añadir `modo` en la respuesta y `variable` en cada color.
 
-**CORS:** la API solo acepta peticiones desde `https://maragramonte.github.io`. Cualquier otro origen recibe un rechazo del navegador.
+**CORS:** la API solo acepta peticiones desde `https://paleta.maragramonte.com` y, mientras queden enlaces viejos, desde `https://maragramonte.github.io`. Cualquier otro origen recibe un rechazo del navegador.
 
 **Salud:** `GET /api/salud` responde `200` sin cuerpo. La web lo consulta al cargar y, si falla, desactiva la subida con un aviso. El feed sigue funcionando con `paletas.json`.
 

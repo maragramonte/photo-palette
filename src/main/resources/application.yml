@@ -49,8 +49,9 @@ spring:
       enabled: true
 
 photopalette:
-  # La web publicada. En local se añade http://localhost:5173 con el perfil dev.
-  origenes-permitidos: https://maragramonte.github.io
+  # La web publicada. github.io se queda mientras haya enlaces viejos que redirigen
+  # al dominio nuevo. En local se añade http://localhost:5173 con el perfil dev.
+  origenes-permitidos: https://paleta.maragramonte.com,https://maragramonte.github.io
   peticiones-por-minuto: 10
   analisis-simultaneos: 2
   # Subidas que se leen a la vez, contando las que se están analizando. Las demás reciben

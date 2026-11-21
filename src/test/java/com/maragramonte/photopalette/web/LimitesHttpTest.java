@@ -32,7 +32,7 @@ import org.springframework.util.MultiValueMap;
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {
             "photopalette.peticiones-por-minuto=3",
-            "photopalette.origenes-permitidos=https://maragramonte.github.io"
+            "photopalette.origenes-permitidos=https://paleta.maragramonte.com,https://maragramonte.github.io"
         })
 class LimitesHttpTest {
 
@@ -134,6 +134,19 @@ class LimitesHttpTest {
         ResponseEntity<String> respuesta = analizar(
                 "203.0.113.50",
                 FotosDePrueba.png(FotosDePrueba.atardecer()),
+                "https://paleta.maragramonte.com");
+
+        assertThat(respuesta.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(respuesta.getHeaders().getAccessControlAllowOrigin())
+                .isEqualTo("https://paleta.maragramonte.com");
+    }
+
+    @Test
+    @DisplayName("CORS: la dirección vieja de github.io sigue funcionando durante el cambio")
+    void aceptaTambienLaDireccionVieja() {
+        ResponseEntity<String> respuesta = analizar(
+                "203.0.113.52",
+                FotosDePrueba.png(FotosDePrueba.atardecer()),
                 "https://maragramonte.github.io");
 
         assertThat(respuesta.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -154,7 +167,7 @@ class LimitesHttpTest {
     @Test
     @DisplayName("CORS: el preflight del origen permitido pasa y no gasta cupo")
     void respondeAlPreflight() {
-        HttpHeaders cabeceras = cabecerasCon("Origin", "https://maragramonte.github.io");
+        HttpHeaders cabeceras = cabecerasCon("Origin", "https://paleta.maragramonte.com");
         cabeceras.set("Access-Control-Request-Method", "POST");
         cabeceras.set("Access-Control-Request-Headers", "content-type");
         cabeceras.set("X-Forwarded-For", "203.0.113.60");
@@ -180,7 +193,7 @@ class LimitesHttpTest {
     @DisplayName("el error del 429 llega con cabecera CORS, para que la web pueda contarlo")
     void el429TambienLlevaCabecerasCors() {
         String ip = "203.0.113.80";
-        String origen = "https://maragramonte.github.io";
+        String origen = "https://paleta.maragramonte.com";
         byte[] foto = FotosDePrueba.png(FotosDePrueba.atardecer());
 
         List<HttpStatus> estados = new java.util.ArrayList<>();

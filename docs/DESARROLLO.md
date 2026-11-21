@@ -15,7 +15,7 @@ cd web && python -m http.server 8000       # la web en localhost:8000
 ```
 
 El perfil `dev` es el único que permite llamar a la API desde `localhost`. Publicado, solo
-acepta `https://maragramonte.github.io`.
+acepta `https://paleta.maragramonte.com` y, de momento, `https://maragramonte.github.io`.
 
 ## Reglas del proyecto
 
