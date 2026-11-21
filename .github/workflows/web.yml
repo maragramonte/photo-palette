@@ -2,6 +2,11 @@
 #
 # Pages no ejecuta Java: lo que se sube es HTML, CSS, JS, las fotos y el paletas.json que
 # genera `mvn compile exec:java@paletas`. La URL de la API vive en web/js/config.js.
+#
+# Las paletas se recalculan aquí antes de publicar, con el mismo código que la API. Así,
+# para añadir una foto basta con subirla a web/fotos y apuntarla en fotos.json, también
+# desde la web de GitHub: no hace falta tener Java ni Maven. Si el resultado cambia, se
+# guarda en el repositorio para que paletas.json no se quede atrás.
 name: web
 
 on:
@@ -9,11 +14,12 @@ on:
     branches: [main, master]
     paths:
       - "web/**"
+      - "src/main/**"
       - ".github/workflows/web.yml"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write # para guardar paletas.json si cambia
   pages: write
   id-token: write
 
@@ -32,12 +38,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Comprobar que hay paletas que enseñar
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+
+      - name: Calcular las paletas de las fotos
+        run: mvn -B -q compile exec:java@paletas
+
+      # La línea "generado" cambia en cada ejecución: solo se guarda si cambió algo más,
+      # es decir, si hay fotos nuevas o el k-means da otro resultado.
+      - name: Guardar paletas.json si ha cambiado
         run: |
-          test -f web/paletas.json || {
-            echo "Falta web/paletas.json. Ejecuta: mvn compile exec:java@paletas" >&2
-            exit 1
-          }
+          if git diff --unified=0 -- web/paletas.json | grep '^[-+] ' | grep -vq '"generado"'; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add web/paletas.json
+            git commit -m "Recalcula las paletas del feed"
+            git push || echo "::warning::No se pudo guardar paletas.json en main; la web se publica igual con las paletas nuevas."
+          else
+            git checkout -- web/paletas.json
+          fi
 
       # Si esto falla con "Get Pages site failed ... Not Found", Pages esta apagado en el
       # repositorio. La causa habitual no es el workflow: en el plan gratuito, Pages solo

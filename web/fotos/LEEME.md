@@ -46,7 +46,11 @@ foto que ves.
    media, `#727b7d`; las zonas iluminadas, gris neutro): es la luz cálida de la sala la
    que hace que el ojo las vea verdes.
 
-4. Regenera las paletas desde la raíz del repo:
+4. Súbelo a `main`. El despliegue calcula las paletas con el código de la API, publica la
+   web y guarda el `paletas.json` nuevo en el repositorio. Todo esto se puede hacer desde la
+   web de GitHub, sin tener Java instalado.
+
+   Para verlo antes en local, regenera las paletas desde la raíz del repo:
 
    ```bash
    mvn compile exec:java@paletas
