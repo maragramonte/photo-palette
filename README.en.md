@@ -11,7 +11,7 @@ colour libraries, and the photo is analysed in memory without being stored anywh
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
-![Photo Palette home page: on a night-blue background, the headline "Every photo hides a palette." and the area to drop a photo. On the right, the tulips photo with a colour ruler along its edge, where the almost black green of the leaves covers 24 % and the ochre of the flowers 20 %, and below it its six vivid colours with their HEX](docs/capturas/01-portada.jpg)
+![Photo Palette home page: on a night-blue background, the headline "Every photo hides a palette.", a sentence anyone can follow ("You take a photo for a colour. This website finds it…"), a smaller one about the Java API, and the area to drop a photo. On the right, the tulips photo with a colour ruler along its edge, where the almost black green of the leaves covers 24 % and the ochre of the flowers 20 %, and below it its six vivid colours with their HEX](docs/capturas/01-portada.jpg)
 
 > The website, the code and the rest of the documentation are in Spanish. This page is the
 > same README, translated.
@@ -73,6 +73,9 @@ screen by screen.
   WCAG AA.
 - **Upload your photo** by dragging it in or with the button, with its loading, error, API
   unavailable and retry states.
+- **Copy for people who don't code.** The website says what you can do in everyday words, and
+  the technical part goes below, in smaller type. On mobile, «Prueba con tu foto» (try it with
+  your photo) takes you straight to the upload box, which sits below the first screen there.
 - **Probar con una de ejemplo** (try an example) for anyone who arrives without a photo at
   hand: it takes one from the feed and sends it to the live API. The palette that comes back is
   the same one as in `paletas.json`, which also shows that the k-means is deterministic and that

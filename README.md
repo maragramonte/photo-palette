@@ -11,7 +11,7 @@ foto se analiza en memoria sin guardarse en ningún sitio.
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
-![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto. A la derecha, la foto de los tulipanes con una regla de color pegada a su borde, donde el verde casi negro de las hojas ocupa el 24 % y el ocre de las flores el 20 %, y debajo sus seis colores vivos con su HEX](docs/capturas/01-portada.jpg)
+![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.», una frase para cualquiera («Haces una foto por un color. Esta web lo encuentra…»), otra más pequeña sobre la API en Java y la zona para soltar una foto. A la derecha, la foto de los tulipanes con una regla de color pegada a su borde, donde el verde casi negro de las hojas ocupa el 24 % y el ocre de las flores el 20 %, y debajo sus seis colores vivos con su HEX](docs/capturas/01-portada.jpg)
 
 ---
 
@@ -69,6 +69,9 @@ pantalla.
   WCAG AA.
 - **Subir tu foto** arrastrándola o desde el botón, con sus estados de cargando, error, API
   no disponible y reintentar.
+- **Textos para quien no programa.** La web dice qué puedes hacer con palabras de todos los
+  días, y lo técnico va debajo, más pequeño. En el móvil, «Prueba con tu foto» te lleva
+  directa a la subida, que allí queda fuera del primer pantallazo.
 - **Probar con una de ejemplo** para quien llega sin foto a mano: coge una del feed y la
   manda a la API en vivo. Sale la misma paleta que en `paletas.json`, lo que enseña de paso
   que el k-means es determinista y que el feed no miente.

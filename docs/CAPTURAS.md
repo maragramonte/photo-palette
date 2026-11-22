@@ -1,7 +1,9 @@
 # Capturas
 
 La web pantalla a pantalla, para quien prefiera no pulsar nada. Todas son de la aplicación
-real, con las paletas que calcula la API sobre las fotos del feed.
+real, con las paletas que calcula la API sobre las fotos del feed. Se hicieron con la web del
+repositorio y la API simulada dentro del navegador, igual que en las pruebas E2E: sus
+respuestas salen de `paletas.json`, que genera el mismo código Java.
 
 ← [Volver al README](../README.md)
 
@@ -9,12 +11,14 @@ real, con las paletas que calcula la API sobre las fotos del feed.
 
 ## La portada
 
-El titular, la zona para soltar una foto y una foto del feed con sus dos paletas a la vez. La
+El titular y, debajo, dos frases: una para cualquiera, que dice qué hace la web, y otra más
+pequeña para quien programa. Después, la zona para soltar una foto y una foto del feed con sus
+dos paletas a la vez. La
 regla pegada a la foto mide lo que ocupa cada color «más presente»; debajo van los «vivos».
 Verlas juntas es la idea del proyecto: la paleta fiel no es la paleta útil. «Otra foto» pasa
 a la siguiente.
 
-![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto, con el aviso de que la subida está en pausa. A la derecha, la foto de los tulipanes con una regla de color pegada a su borde, donde el verde casi negro de las hojas ocupa el 24 % y el ocre de las flores el 20 %, y debajo sus seis colores vivos con su HEX](capturas/01-portada.jpg)
+![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.», la frase «Haces una foto por un color. Esta web lo encuentra…», otra más pequeña sobre la API en Java y la zona para soltar una foto con sus dos botones. A la derecha, la foto de los tulipanes con una regla de color pegada a su borde, donde el verde casi negro de las hojas ocupa el 24 % y el ocre de las flores el 20 %, y debajo sus seis colores vivos con su HEX](capturas/01-portada.jpg)
 
 ---
 
@@ -51,13 +55,10 @@ el contraste calculado para que se vea que cumple WCAG AA.
 ## La API, en vivo
 
 «Probar con una de ejemplo» coge una foto del feed y se la manda a la API. El panel avisa de
-que esa paleta se acaba de calcular y no viene de `paletas.json`, y sale idéntica a la del
-feed: el k-means es determinista.
+que esa paleta se acaba de calcular, y explica por qué sale idéntica a la guardada: el
+k-means es determinista.
 
-Esta captura es de cuando la API estaba publicada en Render, antes de que las fotos llevaran la
-firma. La subida está en pausa hasta que la API vuelva a estar en línea en un servidor propio.
-
-![Panel de detalle con el aviso «Calculada ahora mismo por la API, no leída de paletas.json» sobre las seis muestras del ala desde la ventanilla en modo más presentes y su bloque :root](capturas/05-api-en-vivo.jpg)
+![Panel de detalle con el aviso «Calculada ahora mismo, en directo. Sale igual que la guardada porque el mismo cálculo siempre da el mismo resultado» sobre las seis muestras de los tulipanes y banderas en modo más presentes y su bloque :root](capturas/05-api-en-vivo.jpg)
 
 ---
 
@@ -66,4 +67,4 @@ firma. La subida está en pausa hasta que la API vuelva a estar en línea en un 
 El feed pasa a una columna, el interruptor se coloca bajo el título y las tarjetas mantienen
 su recorte 4:5.
 
-![La web en un móvil: el título «El feed», el interruptor entre «Más presentes» y «Vivos» y la tarjeta de los tulipanes a todo el ancho con sus seis muestras](capturas/06-movil.jpg)
+![La web en un móvil: el título «Mis fotos», el resumen que invita a tocar una foto, el interruptor entre «Más presentes» y «Vivos» y la tarjeta de los tulipanes a todo el ancho con sus seis muestras](capturas/06-movil.jpg)
