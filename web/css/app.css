@@ -156,6 +156,23 @@ a {
   font-size: var(--txt-l);
 }
 
+/* Lo técnico va debajo y más pequeño: quien no programa lee la frase de arriba y sigue. */
+.hero__detalle {
+  margin: var(--e-2) 0 0;
+  max-width: 48ch;
+  color: var(--text-3);
+  font-size: var(--txt-m);
+}
+
+.hero__accion {
+  margin-top: var(--e-3);
+}
+
+/* La cabecera es sticky: sin este margen, el salto desde «Prueba con tu foto» la deja tapada. */
+.subida {
+  scroll-margin-top: var(--e-10);
+}
+
 /* --- Muestra de la portada ---------------------------------------------- */
 
 /*
@@ -387,6 +404,7 @@ a {
   font: inherit;
   font-weight: var(--peso-nombre);
   font-size: var(--txt-s);
+  text-decoration: none;
   cursor: pointer;
   transition: background var(--transicion), border-color var(--transicion);
 }
@@ -896,6 +914,10 @@ a {
 
   .hero__texto {
     grid-area: texto;
+  }
+
+  .hero__accion {
+    display: none;
   }
 
   .muestra {

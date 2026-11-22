@@ -161,7 +161,7 @@ API coverage is **97 % of lines and 91 % of branches** (JaCoCo), and `mvn verify
 drops below 90 and 85. The `paletas.json` generator has no tests: it's a tool that is run by
 hand and stays outside that floor, although it shows up in the report.
 
-The website has **20 E2E tests with Playwright**, run in a desktop Chrome and a mobile one
+The website has **21 E2E tests with Playwright**, run in a desktop Chrome and a mobile one
 against a simulated API: the feed, the mode switch, the detail panel, copying to the
 clipboard, uploads and their errors, the API being down, and axe-core with WCAG 2.1 AA.
 Writing them turned up three accessibility bugs that Lighthouse had missed, and they are now
@@ -223,7 +223,7 @@ arriving through the old links).
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, the one that writes paletas.json
 ├── src/test/         98 tests: domain, configuration and HTTP layer
-├── e2e/              20 E2E tests for the website with Playwright, against a simulated API
+├── e2e/              21 E2E tests for the website with Playwright, against a simulated API
 ├── carga/i03.py      The load test against the docker-compose
 ├── herramientas/     marcar_fotos.py, which crops the photos and adds the mark and the signature
 ├── web/              The website published by GitHub Pages
