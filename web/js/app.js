@@ -312,6 +312,20 @@
 
   // --- Detalle -------------------------------------------------------------
 
+  /**
+   * Todo lo que queda detrás del panel. Con el panel abierto se marca inert: ni el teclado
+   * ni un lector de pantalla pueden llegar a ello, que es lo que promete aria-modal. El
+   * aviso de «copiado» se queda fuera porque tiene que oírse con el panel abierto.
+   */
+  const fondoDelDetalle = () =>
+    [...document.body.children].filter(
+      (elemento) =>
+        elemento !== nodos.detalle &&
+        elemento !== nodos.telon &&
+        elemento.id !== "avisoCopiado" &&
+        elemento.tagName !== "SCRIPT"
+    );
+
   function abrirDetalle(foto, origen, enVivo) {
     const paleta = paletaDe(foto);
     if (!paleta) {
@@ -330,11 +344,13 @@
 
     nodos.telon.hidden = false;
     nodos.detalle.hidden = false;
+    fondoDelDetalle().forEach((elemento) => (elemento.inert = true));
     document.body.style.overflow = "hidden";
     nodos.cerrarDetalle.focus();
   }
 
   function cerrarDetalle() {
+    fondoDelDetalle().forEach((elemento) => (elemento.inert = false));
     nodos.telon.hidden = true;
     nodos.detalle.hidden = true;
     document.body.style.overflow = "";
