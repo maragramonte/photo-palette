@@ -14,27 +14,27 @@ regla pegada a la foto mide lo que ocupa cada color «más presente»; debajo va
 Verlas juntas es la idea del proyecto: la paleta fiel no es la paleta útil. «Otra foto» pasa
 a la siguiente.
 
-![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto. A la derecha, la foto del eclipse con una regla de color pegada a su borde, donde el negro ocupa el 70 % y el naranja el 13 %, y debajo sus cinco colores vivos con su HEX](capturas/01-portada.jpg)
+![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto, con el aviso de que la subida está en pausa. A la derecha, la foto de los tulipanes con una regla de color pegada a su borde, donde el verde casi negro de las hojas ocupa el 24 % y el ocre de las flores el 20 %, y debajo sus seis colores vivos con su HEX](capturas/01-portada.jpg)
 
 ---
 
 ## Los dos modos, con la misma foto
 
-A la izquierda, `presentes`: la paleta empieza por el negro, que ocupa el 70 % del eclipse.
-A la derecha, `vivos`: empieza por el naranja del sol, se olvida de las sombras y se queda en
-cinco colores. Por qué existen los dos está en
+A la izquierda, `presentes`: la paleta empieza por el verde casi negro de las hojas, que ocupa
+el 24 % de la foto. A la derecha, `vivos`: empieza por el ocre de las flores amarillas y deja
+entrar el rojo de los tulipanes, que en `presentes` ni aparece. Por qué existen los dos está en
 [DECISIONES-TECNICAS.md](DECISIONES-TECNICAS.md#1-dos-modos-porque-contar-píxeles-da-paletas-apagadas).
 
-![La tarjeta del eclipse parcial dos veces. En «Más presentes» sus seis muestras empiezan por un negro casi puro; en «Vivos» son cinco y empiezan por el naranja del sol](capturas/02-dos-modos.jpg)
+![La tarjeta de los tulipanes y banderas dos veces. En «Más presentes» sus seis muestras empiezan por un verde casi negro y no hay ningún rojo; en «Vivos» empiezan por el ocre de las flores, y la tercera es el rojo de los tulipanes](capturas/02-dos-modos.jpg)
 
 ---
 
 ## El feed en modo vivos
 
-Cada tarjeta enseña la foto, su nombre, cuántos colores salen y las muestras. El eclipse da
-cinco y el ala vista desde la ventanilla, seis.
+Cada tarjeta enseña la foto, su nombre, cuántos colores salen y las muestras. Los tulipanes y
+las rosas arcoíris dan seis cada una; las fotos más apagadas, menos.
 
-![El feed en modo Vivos: dos tarjetas con su foto y sus muestras de color debajo. La del eclipse da cinco colores encabezados por el naranja del sol; la del ala vista desde la ventanilla da seis, empezando por el azul del cielo](capturas/04-feed-vivos.jpg)
+![El feed en modo Vivos: dos tarjetas con su foto y sus muestras de color debajo. La de los tulipanes da seis colores encabezados por el ocre de las flores; la de las rosas arcoíris da seis, empezando por un azul intenso](capturas/04-feed-vivos.jpg)
 
 ---
 
@@ -54,6 +54,9 @@ el contraste calculado para que se vea que cumple WCAG AA.
 que esa paleta se acaba de calcular y no viene de `paletas.json`, y sale idéntica a la del
 feed: el k-means es determinista.
 
+Esta captura es de cuando la API estaba publicada en Render, antes de que las fotos llevaran la
+firma. La subida está en pausa hasta que la API vuelva a estar en línea en un servidor propio.
+
 ![Panel de detalle con el aviso «Calculada ahora mismo por la API, no leída de paletas.json» sobre las seis muestras del ala desde la ventanilla en modo más presentes y su bloque :root](capturas/05-api-en-vivo.jpg)
 
 ---
@@ -63,4 +66,4 @@ feed: el k-means es determinista.
 El feed pasa a una columna, el interruptor se coloca bajo el título y las tarjetas mantienen
 su recorte 4:5.
 
-![La web en un móvil: el título «El feed», el interruptor entre «Más presentes» y «Vivos» y la tarjeta del eclipse a todo el ancho con sus seis muestras](capturas/06-movil.jpg)
+![La web en un móvil: el título «El feed», el interruptor entre «Más presentes» y «Vivos» y la tarjeta de los tulipanes a todo el ancho con sus seis muestras](capturas/06-movil.jpg)

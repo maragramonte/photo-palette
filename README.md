@@ -9,7 +9,7 @@ foto se analiza en memoria sin guardarse en ningún sitio.
 
 [![tests](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml/badge.svg)](https://github.com/maragramonte/photo-palette/actions/workflows/tests.yml)
 
-![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto. A la derecha, la foto del eclipse con una regla de color pegada a su borde, donde el negro ocupa el 70 % y el naranja el 13 %, y debajo sus cinco colores vivos con su HEX](docs/capturas/01-portada.jpg)
+![Portada de Photo Palette: sobre fondo azul noche, el titular «Cada foto esconde una paleta.» y la zona para soltar una foto. A la derecha, la foto de los tulipanes con una regla de color pegada a su borde, donde el verde casi negro de las hojas ocupa el 24 % y el ocre de las flores el 20 %, y debajo sus seis colores vivos con su HEX](docs/capturas/01-portada.jpg)
 
 ---
 
@@ -28,7 +28,7 @@ Por eso hay dos modos. `presentes` cuenta píxeles; `vivos` busca los colores qu
 Y por eso el feed solo tiene fotos mías, nada de stock: el contraste entre los dos modos se
 ve con fotos reales.
 
-![La tarjeta del eclipse parcial dos veces. En «Más presentes» sus seis muestras empiezan por un negro casi puro; en «Vivos» son cinco y empiezan por el naranja del sol](docs/capturas/02-dos-modos.jpg)
+![La tarjeta de los tulipanes y banderas dos veces. En «Más presentes» sus seis muestras empiezan por un verde casi negro y no hay ningún rojo; en «Vivos» empiezan por el ocre de las flores, y la tercera es el rojo de los tulipanes](docs/capturas/02-dos-modos.jpg)
 
 ---
 
@@ -38,10 +38,10 @@ ve con fotos reales.
 `main` que toque la web la vuelve a publicar.
 
 **Para verlo en un minuto:** pulsa el interruptor **Vivos** y mira cómo cambia el feed
-entero. El eclipse deja de abrir con negro y abre con el naranja del sol; el cielo con tejado
-pasa de cinco azules a dos colores, y el primero es la teja. Después pulsa cualquier tarjeta y
-copia un color, o dale a **Probar con una de ejemplo** para ver a la API calcular la misma
-paleta en directo.
+entero. Los tulipanes dejan de abrir con el verde oscuro de las hojas y abren con el ocre de
+las flores amarillas; el cielo con tejado pasa de una paleta casi toda en grises azulados a solo
+tres colores, y el primero es la teja. Después pulsa cualquier tarjeta y copia un color. Cuando la API vuelva a estar
+publicada, **Probar con una de ejemplo** la enseña calculando la misma paleta en directo.
 
 Si prefieres no pulsar nada, en [docs/CAPTURAS.md](docs/CAPTURAS.md) está la web pantalla a
 pantalla.
