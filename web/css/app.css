@@ -667,6 +667,8 @@ a {
 }
 
 .color-grande {
+  /* Para que el «Copiar» solo-lector se quede dentro del botón. */
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -686,9 +688,10 @@ a {
   font-weight: var(--peso-nombre);
 }
 
+/* Sin opacidad: el color del texto ya está calculado para llegar a 4,5:1 sobre el fondo, y
+   rebajarlo lo dejaba por debajo en los colores de luz media. */
 .color-grande__dato {
   font-size: var(--txt-xs);
-  opacity: 0.75;
 }
 
 .codigo {

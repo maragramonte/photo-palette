@@ -79,20 +79,24 @@
   };
 
   /**
-   * Elige blanco o casi negro para escribir encima de un color (F05).
+   * Elige blanco o negro para escribir encima de un color (F05).
    *
    * No se decide por si el color "parece oscuro": se calculan los dos contrastes y gana el
    * mayor. Se devuelve también la razón de contraste para poder enseñarla, porque un 4,5:1
    * es lo que pide la WCAG en nivel AA para texto normal.
+   *
+   * El oscuro es negro puro a propósito. Con él, cualquier color llega a 4,5:1 con uno de
+   * los dos (el peor caso de todo el espacio RGB da 4,58:1). Con el azul noche de la web
+   * (#0b0d1a), los grises y malvas de luz media se quedaban en 4,43:1 con ambos.
    */
   const textoLegible = (rgb) => {
     const blanco = [255, 255, 255];
-    const negro = [11, 13, 26];
+    const negro = [0, 0, 0];
     const conBlanco = contraste(rgb, blanco);
     const conNegro = contraste(rgb, negro);
     const gana = conBlanco >= conNegro;
     return {
-      hex: gana ? "#ffffff" : "#0b0d1a",
+      hex: gana ? "#ffffff" : "#000000",
       nombre: gana ? "blanco" : "negro",
       razon: gana ? conBlanco : conNegro,
     };
@@ -282,7 +286,6 @@
       etiqueta.id = id + "-etiqueta";
       partes.unshift(etiqueta.id);
     }
-    boton.setAttribute("aria-labelledby", partes.join(" "));
 
     const muestras = document.createElement("span");
     muestras.className = "muestras";
@@ -295,16 +298,20 @@
     });
     boton.append(muestras);
 
-    // Para la foto cuya paleta parece un fallo sin serlo. Va como descripción y no dentro
-    // del nombre accesible, que sigue siendo lo que se lee en el pie.
+    // Para la foto cuya paleta parece un fallo sin serlo. Se ve dentro de la tarjeta, así que
+    // va también al final de su nombre accesible: si se queda fuera, el nombre no contiene
+    // todo el texto visible (WCAG 2.5.3). Sigue empezando por el nombre de la foto.
     if (foto.nota) {
       const nota = document.createElement("span");
       nota.className = "tarjeta__nota";
       nota.id = id + "-nota";
       nota.textContent = foto.nota;
-      boton.append(nota);
-      boton.setAttribute("aria-describedby", nota.id);
+      // El espacio, como en el pie: sin él, el texto se lee «2 coloresSe ven…».
+      boton.append(" ", nota);
+      partes.push(nota.id);
     }
+
+    boton.setAttribute("aria-labelledby", partes.join(" "));
 
     item.append(boton);
     return item;
@@ -373,7 +380,13 @@
       boton.className = "color-grande";
       boton.style.background = color.hex;
       boton.style.color = texto.hex;
-      boton.setAttribute("aria-label", "Copiar " + color.hex);
+
+      // El nombre del botón es su propio texto, con «Copiar» delante solo para el lector de
+      // pantalla. Con un aria-label aparte, el nombre se quedaba sin el porcentaje y la
+      // variable que sí se ven (WCAG 2.5.3).
+      const accion = document.createElement("span");
+      accion.className = "solo-lector";
+      accion.textContent = "Copiar ";
 
       const hex = document.createElement("span");
       hex.className = "color-grande__hex";
@@ -383,7 +396,7 @@
       dato.className = "color-grande__dato";
       dato.textContent = color.porcentaje + " % · " + color.variable;
 
-      boton.append(hex, dato);
+      boton.append(accion, hex, " ", dato);
       boton.addEventListener("click", () => copiar(color.hex, "Copiado " + color.hex));
       rejilla.append(boton);
     });
