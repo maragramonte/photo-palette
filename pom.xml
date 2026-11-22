@@ -20,7 +20,7 @@
   <properties>
     <java.version>21</java.version>
     <bucket4j.version>8.10.1</bucket4j.version>
-    <jacoco.version>0.8.13</jacoco.version>
+    <jacoco.version>0.8.16</jacoco.version>
   </properties>
 
   <dependencies>
