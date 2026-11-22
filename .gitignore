@@ -14,3 +14,8 @@ Thumbs.db
 
 # Python
 __pycache__/
+
+# Pruebas E2E
+e2e/node_modules/
+e2e/playwright-report/
+e2e/test-results/

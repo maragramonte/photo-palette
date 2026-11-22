@@ -155,6 +155,12 @@ La cobertura de la API es del **97 % de las líneas y el 91 % de las ramas** (Ja
 `mvn verify` falla si baja del 90 y el 85. El generador de `paletas.json` no tiene tests: es
 una herramienta que se ejecuta a mano y se queda fuera de ese suelo, aunque sale en el informe.
 
+La web tiene **20 pruebas E2E con Playwright**, que corren en un Chrome de escritorio y en
+uno de móvil contra una API simulada: el feed, el interruptor de modos, el panel de detalle,
+copiar al portapapeles, la subida con sus errores, la API caída y axe-core con WCAG 2.1 AA.
+Al escribirlas salieron tres fallos de accesibilidad que Lighthouse no había visto, y ya
+están arreglados.
+
 En cada push, el CI ejecuta `mvn verify` y construye la imagen Docker. Lo que llega a `main`
 se publica además en GitHub Container Registry, como `:latest` y como `:sha-xxxxxxx`:
 
@@ -163,10 +169,9 @@ docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette:latest
 curl -fsS http://localhost:8080/api/photo-palette   # 200 sin cuerpo
 ```
 
-Lo que **no** está cubierto, dicho sin adornos: el frontend no tiene pruebas automatizadas y
-no hay E2E. La prueba de carga (I03) está hecha
-y repetible con `carga/i03.py`: 20 subidas de 10 MB a la vez dejan el contenedor en 341 MB
-de sus 512.
+Lo que **no** está cubierto, dicho sin adornos: las E2E no llaman a la API desplegada, y
+la prueba de carga (I03) no corre en el CI. Está hecha y es repetible con `carga/i03.py`:
+20 subidas de 10 MB a la vez dejan el contenedor en 341 MB de sus 512.
 
 **→ [docs/PRUEBAS-Y-CALIDAD.md](docs/PRUEBAS-Y-CALIDAD.md)**
 
@@ -212,6 +217,7 @@ sigan llegando visitas por los enlaces viejos).
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, el que escribe paletas.json
 ├── src/test/         98 pruebas: dominio, configuración y capa HTTP
+├── e2e/              20 pruebas E2E de la web con Playwright, contra una API simulada
 ├── carga/i03.py      La prueba de carga contra el docker-compose
 ├── herramientas/     marcar_fotos.py, que recorta las fotos y les pone la marca y la firma
 ├── web/              La web que publica GitHub Pages
@@ -219,7 +225,7 @@ sigan llegando visitas por los enlaces viejos).
 │   ├── fotos/        Las fotos del feed, su fotos.json y su LEEME
 │   └── paletas.json  Generado. No se edita a mano
 ├── docs/             Documentación y capturas
-├── .github/          tests.yml (tests e imagen Docker), web.yml (Pages) y dependabot.yml
+├── .github/          tests.yml (tests e imagen Docker), e2e.yml, web.yml (Pages) y dependabot.yml
 ├── Dockerfile
 └── docker-compose.yml   La API con 512 MB, escuchando solo en el loopback
 ```

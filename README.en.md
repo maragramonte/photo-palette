@@ -161,6 +161,12 @@ API coverage is **97 % of lines and 91 % of branches** (JaCoCo), and `mvn verify
 drops below 90 and 85. The `paletas.json` generator has no tests: it's a tool that is run by
 hand and stays outside that floor, although it shows up in the report.
 
+The website has **20 E2E tests with Playwright**, run in a desktop Chrome and a mobile one
+against a simulated API: the feed, the mode switch, the detail panel, copying to the
+clipboard, uploads and their errors, the API being down, and axe-core with WCAG 2.1 AA.
+Writing them turned up three accessibility bugs that Lighthouse had missed, and they are now
+fixed.
+
 On every push, CI runs `mvn verify` and builds the Docker image. Whatever reaches `main` is
 also published to GitHub Container Registry, as `:latest` and as `:sha-xxxxxxx`:
 
@@ -169,9 +175,9 @@ docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette:latest
 curl -fsS http://localhost:8080/api/photo-palette   # 200 with no body
 ```
 
-What **isn't** covered, plainly: the frontend has no automated tests and there are no E2E
-tests. The load test (I03) is done and repeatable with `carga/i03.py`: 20 uploads of 10 MB at
-the same time leave the container at 341 MB of its 512.
+What **isn't** covered, plainly: the E2E tests don't call the deployed API, and the load
+test (I03) doesn't run in CI. It is done and repeatable with `carga/i03.py`: 20 uploads of
+10 MB at the same time leave the container at 341 MB of its 512.
 
 **→ [docs/PRUEBAS-Y-CALIDAD.md](docs/PRUEBAS-Y-CALIDAD.md)**
 
@@ -217,6 +223,7 @@ arriving through the old links).
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, the one that writes paletas.json
 ├── src/test/         98 tests: domain, configuration and HTTP layer
+├── e2e/              20 E2E tests for the website with Playwright, against a simulated API
 ├── carga/i03.py      The load test against the docker-compose
 ├── herramientas/     marcar_fotos.py, which crops the photos and adds the mark and the signature
 ├── web/              The website published by GitHub Pages
@@ -224,7 +231,7 @@ arriving through the old links).
 │   ├── fotos/        The feed photos, their fotos.json and their LEEME
 │   └── paletas.json  Generated. Not edited by hand
 ├── docs/             Documentation and screenshots
-├── .github/          tests.yml (tests and Docker image), web.yml (Pages) and dependabot.yml
+├── .github/          tests.yml (tests and Docker image), e2e.yml, web.yml (Pages) and dependabot.yml
 ├── Dockerfile
 └── docker-compose.yml   The API with 512 MB, listening only on loopback
 ```
