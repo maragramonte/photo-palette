@@ -7,6 +7,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Por defecto, el GITHUB_TOKEN solo lee el repositorio. El job que publica en GHCR pide
+# aparte el permiso de packages que necesita.
+permissions:
+  contents: read
+
 jobs:
   backend:
     name: mvn test
