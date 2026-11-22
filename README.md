@@ -40,8 +40,9 @@ ve con fotos reales.
 **Para verlo en un minuto:** pulsa el interruptor **Vivos** y mira cómo cambia el feed
 entero. Los tulipanes dejan de abrir con el verde oscuro de las hojas y abren con el ocre de
 las flores amarillas; el cielo con tejado pasa de una paleta casi toda en grises azulados a solo
-tres colores, y el primero es la teja. Después pulsa cualquier tarjeta y copia un color. Cuando la API vuelva a estar
-publicada, **Probar con una de ejemplo** la enseña calculando la misma paleta en directo.
+tres colores, y el primero es la teja. Después pulsa cualquier tarjeta y copia un color. Para
+terminar, **Probar con una de ejemplo** manda una foto del feed a la API y calcula la misma
+paleta en directo.
 
 Si prefieres no pulsar nada, en [docs/CAPTURAS.md](docs/CAPTURAS.md) está la web pantalla a
 pantalla.
@@ -210,12 +211,13 @@ sigan llegando visitas por los enlaces viejos).
 │   └── cli/          GeneradorPaletasJson, el que escribe paletas.json
 ├── src/test/         98 pruebas: dominio, configuración y capa HTTP
 ├── carga/i03.py      La prueba de carga contra el docker-compose
+├── herramientas/     marcar_fotos.py, que recorta las fotos y les pone la marca y la firma
 ├── web/              La web que publica GitHub Pages
 │   ├── index.html · css/ · js/
 │   ├── fotos/        Las fotos del feed, su fotos.json y su LEEME
 │   └── paletas.json  Generado. No se edita a mano
 ├── docs/             Documentación y capturas
-├── .github/workflows/   tests.yml (tests e imagen Docker) y web.yml (Pages)
+├── .github/          tests.yml (tests e imagen Docker), web.yml (Pages) y dependabot.yml
 ├── Dockerfile
 └── docker-compose.yml   La API con 512 MB, escuchando solo en el loopback
 ```
@@ -247,8 +249,8 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
       quitar los bloqueos del primer pintado y subir dos tokens de contraste.
 - [x] **I03**: Prueba de carga, 20 subidas de 10 MB a la vez contra los mismos 512 MB. Pasa
       con 171 MB de margen, después de cortar las subidas sobrantes antes de leerlas.
-- [x] **D03**: Las fotos del feed son reales y llevan mi marca de agua (eran seis; en
-      noviembre entraron tres de flores).
+- [x] **D03**: Las fotos del feed son reales: dieciséis, todas con mi marca y la firma
+      m.agramonte.
 - [x] **P02**: La API está desplegada en Render y su URL vive en `web/js/config.js`.
 
 ---
