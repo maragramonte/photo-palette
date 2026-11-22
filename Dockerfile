@@ -1,5 +1,5 @@
 # Compilación: una imagen con Maven que no llega al VPS.
-FROM maven:3.9-eclipse-temurin-21 AS construccion
+FROM maven:3.9-eclipse-temurin-26 AS construccion
 WORKDIR /obra
 
 # Las dependencias en su propia capa: si solo cambia el código, Docker no vuelve a
