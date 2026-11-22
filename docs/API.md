@@ -9,12 +9,12 @@ memoria y no se guarda en ningún sitio.
 
 ## `POST /api/paletas`
 
-`multipart/form-data`, con la foto en el campo `imagen`. Los ejemplos van contra la API en
-local (`docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette`), porque ahora mismo no
-está publicada.
+`multipart/form-data`, con la foto en el campo `imagen`. Los ejemplos van contra la API
+publicada en Render. En local vale lo mismo cambiando la URL por `http://localhost:8080`
+(con `docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette`).
 
 ```bash
-curl -X POST "http://localhost:8080/api/paletas?n=6&modo=vivos" -F imagen=@foto.jpg
+curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F imagen=@foto.jpg
 ```
 
 > **En PowerShell, `curl` no es curl**: es un alias de `Invoke-WebRequest`, que no entiende
