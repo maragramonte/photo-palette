@@ -21,11 +21,12 @@
 
   const EXPLICACION = {
     presentes:
-      "Más presentes: los colores que más píxeles ocupan. Es fiel a la foto, y por eso " +
-      "una foto oscura da una paleta oscura.",
+      "Más presentes: los colores que más espacio ocupan en la foto. Es la paleta fiel, y " +
+      "por eso una foto oscura da colores oscuros.",
     vivos:
-      "Vivos: se ignoran las sombras, se tira el ruido y se ordena por saturación sin " +
-      "repetir tonos. Puede devolver menos de " + COLORES + " colores, y eso es correcto.",
+      "Vivos: los colores que se te quedan en la memoria. Deja fuera las sombras y las " +
+      "manchas sueltas, y no repite tonos parecidos. Por eso a veces salen menos de " +
+      COLORES + ", y está bien.",
   };
 
   const estado = {
@@ -227,9 +228,12 @@
 
     estado.fotos.forEach((foto) => nodos.tarjetas.append(tarjetaDe(foto)));
 
-    const cuantas = estado.fotos.length;
+    // Las que sube quien visita no cuentan: el resumen habla de las fotos del feed.
+    const mias = estado.fotos.filter((foto) => !foto.fichero).length;
     nodos.resumen.textContent =
-      cuantas + (cuantas === 1 ? " foto" : " fotos") + ", con su paleta real calculada por la API.";
+      mias === 1
+        ? "Una foto mía y los colores que esconde. Tócala para ver su paleta y copiarla."
+        : mias + " fotos mías y los colores que esconde cada una. Toca una para ver su paleta y copiarla.";
   }
 
   let tarjetasCreadas = 0;
@@ -490,7 +494,7 @@
     punto.className = "en-vivo__punto";
     punto.setAttribute("aria-hidden", "true");
     const texto = document.createElement("span");
-    texto.textContent = "Calculada ahora mismo por la API, no leída de paletas.json.";
+    texto.textContent = "Calculada ahora mismo, en directo. Sale igual que la guardada porque el mismo cálculo siempre da el mismo resultado.";
     aviso.append(punto, texto);
     return aviso;
   }
@@ -605,7 +609,7 @@
       API + "/api/paletas?n=" + COLORES + "&modo=" + modo,
       { method: "POST", body: cuerpo }
     ).catch(() => {
-      throw new Error("No se ha podido llegar a la API. Comprueba tu conexión.");
+      throw new Error("No se ha podido conectar. Comprueba tu conexión a internet.");
     });
 
     if (respuesta.ok) {
@@ -635,7 +639,7 @@
       return;
     }
     if (!estado.apiViva) {
-      decirEstado("La API no está disponible, así que no se puede analizar tu foto.", "error");
+      decirEstado("Ahora mismo no se pueden analizar fotos nuevas. Las de abajo siguen funcionando.", "error");
       return;
     }
 
@@ -677,7 +681,7 @@
       if (error.estado !== 503) {
         throw error;
       }
-      decirEstado("La API está ocupada. Reintentando en 3 segundos…", "trabajando");
+      decirEstado("Hay mucho trabajo ahora mismo. Lo intento otra vez en 3 segundos…", "trabajando");
       await new Promise((sigue) => setTimeout(sigue, 3000));
       return intento();
     }
@@ -717,7 +721,7 @@
       return;
     }
     if (!estado.apiViva) {
-      decirEstado("La API no está disponible, así que no se puede analizar nada.", "error");
+      decirEstado("Ahora mismo no se pueden analizar fotos nuevas. Las de abajo siguen funcionando.", "error");
       return;
     }
 
@@ -816,9 +820,9 @@
 
     const avisar = setTimeout(() => {
       decirEstado(
-        "La API se está despertando: el plan gratuito la duerme tras 15 minutos sin " +
-          "visitas y suele tardar menos de un minuto. Mientras, toca cualquier foto del " +
-          "feed para ver su paleta completa.",
+        "El servicio que analiza las fotos se está despertando: si nadie lo usa en 15 " +
+          "minutos se duerme, y suele tardar menos de un minuto en arrancar. Mientras, toca " +
+          "cualquier foto de abajo para ver su paleta completa.",
         "trabajando"
       );
       nodos.estadoSubida.after(contador);
@@ -842,13 +846,13 @@
 
     if (viva) {
       // Solo se dice algo si hubo espera: si contestó al momento, no hay nada que contar.
-      decirEstado(Date.now() - inicio > AVISAR_DESPUES_DE_MS ? "La API ya está despierta." : "");
+      decirEstado(Date.now() - inicio > AVISAR_DESPUES_DE_MS ? "Listo, ya puedes subir tu foto." : "");
       return;
     }
 
     decirEstado(
-      "La API no ha respondido en " + ESPERA_MAXIMA_MS / 1000 + " segundos. " +
-        "El feed sigue funcionando.",
+      "El servicio que analiza las fotos no ha respondido en " + ESPERA_MAXIMA_MS / 1000 +
+        " segundos. Las fotos de abajo siguen funcionando.",
       "error"
     );
     const boton = document.createElement("button");

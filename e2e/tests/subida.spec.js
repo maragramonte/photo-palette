@@ -84,7 +84,7 @@ test("«Probar con una de ejemplo» abre una paleta calculada en vivo", async ({
 
   const detalle = page.getByRole("dialog");
   await expect(detalle).toBeVisible();
-  await expect(detalle).toContainText("Calculada ahora mismo por la API, no leída de paletas.json.");
+  await expect(detalle).toContainText("Calculada ahora mismo, en directo. Sale igual que la guardada porque el mismo cálculo siempre da el mismo resultado.");
   expect(api.analisis).toHaveLength(1);
 });
 

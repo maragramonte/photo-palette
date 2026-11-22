@@ -21,7 +21,7 @@ test("con la API caída, la subida se apaga, se dice por qué y el feed sigue", 
   await adelantar(page, 95_000);
 
   const estado = page.locator("#subidaEstado");
-  await expect(estado).toHaveText("La API no ha respondido en 90 segundos. El feed sigue funcionando.");
+  await expect(estado).toHaveText("El servicio que analiza las fotos no ha respondido en 90 segundos. Las fotos de abajo siguen funcionando.");
   await expect(page.getByRole("button", { name: "Probar con una de ejemplo" })).toBeDisabled();
   await expect(page.locator("#archivo")).toBeDisabled();
   await expect(page.locator("#tarjetas .tarjeta")).toHaveCount(FOTOS.length);
@@ -40,11 +40,11 @@ test("si la API tarda, avisa de que se está despertando y luego de que ya está
   await page.goto("/");
 
   await adelantar(page, 3_000, 1_000);
-  await expect(page.locator("#subidaEstado")).toContainText("La API se está despertando");
+  await expect(page.locator("#subidaEstado")).toContainText("El servicio que analiza las fotos se está despertando");
   await expect(page.getByRole("button", { name: "Probar con una de ejemplo" })).toBeDisabled();
 
   await despertarApi(api);
 
-  await expect(page.locator("#subidaEstado")).toHaveText("La API ya está despierta.");
+  await expect(page.locator("#subidaEstado")).toHaveText("Listo, ya puedes subir tu foto.");
   await expect(page.getByRole("button", { name: "Probar con una de ejemplo" })).toBeEnabled();
 });

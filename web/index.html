@@ -9,7 +9,7 @@
 
   <link rel="canonical" href="https://paleta.maragramonte.com/">
   <meta property="og:title" content="Photo Palette">
-  <meta property="og:description" content="Cada foto esconde una paleta. Esta API la encuentra.">
+  <meta property="og:description" content="Cada foto esconde una paleta. Esta web la encuentra.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://paleta.maragramonte.com/">
   <meta property="og:locale" content="es_ES">
@@ -32,7 +32,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body>
-  <a class="salto-al-contenido" href="#feed">Saltar al feed</a>
+  <a class="salto-al-contenido" href="#feed">Saltar a las fotos</a>
 
   <header class="cabecera">
     <div class="cabecera__interior">
@@ -44,7 +44,7 @@
         <span class="logo__texto">Photo&nbsp;Palette</span>
       </a>
       <nav class="navegacion" aria-label="Secciones">
-        <a href="#feed">Feed</a>
+        <a href="#feed">Fotos</a>
         <a href="#api">API</a>
         <a href="https://github.com/maragramonte/photo-palette" rel="noopener">GitHub</a>
       </nav>
@@ -113,7 +113,7 @@
     <section class="feed" id="feed" aria-labelledby="feedTitulo">
       <div class="feed__cabecera">
         <div>
-          <h2 class="feed__titulo" id="feedTitulo">El feed</h2>
+          <h2 class="feed__titulo" id="feedTitulo">Mis fotos</h2>
           <p class="feed__apoyo" id="feedResumen">Cargando las paletas…</p>
         </div>
 
@@ -137,8 +137,9 @@
     <section class="api" id="api" aria-labelledby="apiTitulo">
       <h2 class="api__titulo" id="apiTitulo">La API</h2>
       <p class="api__apoyo">
-        Un solo endpoint. La foto se analiza en memoria y no se guarda. Si lleva un rato sin
-        visitas, la primera llamada tarda unos segundos en despertarla.
+        Si programas, puedes pedir lo mismo desde tu código. Es un solo endpoint: la foto se
+        analiza en memoria y no se guarda. Si lleva un rato sin visitas, la primera llamada
+        tarda unos segundos en despertarla.
       </p>
       <pre class="api__codigo" tabindex="0"><code>curl -X POST "https://photo-palette-9yqy.onrender.com/api/paletas?n=6&amp;modo=vivos" \
   -F imagen=@atardecer.jpg</code></pre>
@@ -156,7 +157,11 @@
   </main>
 
   <footer class="pie">
-    <p>Fotos y código de Mar Agramonte. El <a href="https://github.com/maragramonte/photo-palette" rel="noopener">código fuente</a> está en GitHub.</p>
+    <p>
+      Fotos y código de Mar Agramonte. Si buscas a alguien para QA o backend, escríbeme por
+      <a href="https://www.linkedin.com/in/maragramonte" rel="noopener">LinkedIn</a>. El
+      <a href="https://github.com/maragramonte/photo-palette" rel="noopener">código fuente</a> está en GitHub.
+    </p>
   </footer>
 
   <!-- Panel de detalle: hoja desde abajo en móvil, panel lateral en escritorio. -->
@@ -184,6 +189,6 @@
     no decir nada. Súbele el número cada vez que cambie config.js o app.js.
   -->
   <script src="js/config.js?v=4" defer></script>
-  <script src="js/app.js?v=4" defer></script>
+  <script src="js/app.js?v=5" defer></script>
 </body>
 </html>

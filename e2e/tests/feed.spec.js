@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
 test("pinta una tarjeta por cada foto de paletas.json", async ({ page }) => {
   await expect(page.locator("#tarjetas .tarjeta")).toHaveCount(FOTOS.length);
   await expect(page.locator("#feedResumen")).toHaveText(
-    `${FOTOS.length} fotos, con su paleta real calculada por la API.`
+    `${FOTOS.length} fotos mías y los colores que esconde cada una. Toca una para ver su paleta y copiarla.`
   );
 });
 
@@ -38,7 +38,7 @@ test("el interruptor pasa el feed entero a vivos sin recargar", async ({ page })
 
   await expect(vivos).toHaveAttribute("aria-checked", "true");
   await expect(page.getByRole("radio", { name: "Más presentes" })).toHaveAttribute("aria-checked", "false");
-  await expect(page.locator("#explicacionModo")).toContainText("Vivos: se ignoran las sombras");
+  await expect(page.locator("#explicacionModo")).toContainText("Vivos: los colores que se te quedan en la memoria");
 
   // Todas las tarjetas, no solo la primera: el modo afecta al feed entero.
   const cuantos = await page.locator(".tarjeta__cuantos").allTextContents();
