@@ -18,7 +18,10 @@ updates:
     directory: /
     schedule:
       interval: monthly
-    # Java 21 es el mismo JDK del CI y del pom: subir de mayor va junto a ellos.
+    # Java 21 es el mismo JDK del CI y del pom: subir de mayor va junto a ellos. La imagen de
+    # Maven lleva el JDK en la etiqueta (3.9-eclipse-temurin-21), así que Dependabot la
+    # propondría con otro Java; se sube a mano.
     ignore:
       - dependency-name: "eclipse-temurin"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "maven"
