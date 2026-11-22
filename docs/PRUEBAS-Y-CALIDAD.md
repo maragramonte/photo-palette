@@ -63,7 +63,7 @@ cumplen:
 
 ## Pruebas E2E de la web
 
-**20 pruebas con Playwright**, que corren dos veces: en un Chrome de escritorio y en uno de
+**21 pruebas con Playwright**, que corren dos veces: en un Chrome de escritorio y en uno de
 móvil (Pixel 7). Se sirve `web/` tal cual y la API se simula dentro del navegador
 ([`e2e/tests/api-simulada.js`](../e2e/tests/api-simulada.js)). Así no hace falta Java ni
 Docker, y las respuestas salen de `paletas.json`, el mismo fichero que genera la API.
@@ -72,7 +72,7 @@ Docker, y las respuestas salen de `paletas.json`, el mismo fichero que genera la
 | --- | --- |
 | `feed.spec.js` | Una tarjeta por foto, con sus colores; el interruptor pasa el feed entero a `vivos`; la portada y «Otra foto» |
 | `detalle.spec.js` | Cada color con su HEX y el bloque `:root`; copiar al portapapeles; el foco no se escapa al feed; Escape y el telón cierran |
-| `subida.spec.js` | Subir una foto; cambiar de modo pide la paleta que falta; un WebP se rechaza sin llamar a la API; el error de la API se enseña tal cual y se puede reintentar; la foto de ejemplo |
+| `subida.spec.js` | Subir una foto; cambiar de modo pide la paleta que falta; un WebP se rechaza sin llamar a la API; el error de la API se enseña tal cual y se puede reintentar; la foto de ejemplo; en el móvil, «Prueba con tu foto» lleva a la caja de subida |
 | `estado-api.spec.js` | Con la API caída, la subida se apaga y el feed sigue; si tarda, avisa de que se despierta. El reloj del navegador es falso para no esperar 90 segundos de verdad |
 | `accesibilidad.spec.js` | axe-core con WCAG 2.1 A y AA en la portada, el feed en `vivos` y el panel de detalle |
 

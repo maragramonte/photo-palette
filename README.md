@@ -155,7 +155,7 @@ La cobertura de la API es del **97 % de las líneas y el 91 % de las ramas** (Ja
 `mvn verify` falla si baja del 90 y el 85. El generador de `paletas.json` no tiene tests: es
 una herramienta que se ejecuta a mano y se queda fuera de ese suelo, aunque sale en el informe.
 
-La web tiene **20 pruebas E2E con Playwright**, que corren en un Chrome de escritorio y en
+La web tiene **21 pruebas E2E con Playwright**, que corren en un Chrome de escritorio y en
 uno de móvil contra una API simulada: el feed, el interruptor de modos, el panel de detalle,
 copiar al portapapeles, la subida con sus errores, la API caída y axe-core con WCAG 2.1 AA.
 Al escribirlas salieron tres fallos de accesibilidad que Lighthouse no había visto, y ya
@@ -217,7 +217,7 @@ sigan llegando visitas por los enlaces viejos).
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, el que escribe paletas.json
 ├── src/test/         98 pruebas: dominio, configuración y capa HTTP
-├── e2e/              20 pruebas E2E de la web con Playwright, contra una API simulada
+├── e2e/              21 pruebas E2E de la web con Playwright, contra una API simulada
 ├── carga/i03.py      La prueba de carga contra el docker-compose
 ├── herramientas/     marcar_fotos.py, que recorta las fotos y les pone la marca y la firma
 ├── web/              La web que publica GitHub Pages

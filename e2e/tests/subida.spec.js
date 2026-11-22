@@ -87,3 +87,19 @@ test("«Probar con una de ejemplo» abre una paleta calculada en vivo", async ({
   await expect(detalle).toContainText("Calculada ahora mismo por la API, no leída de paletas.json.");
   expect(api.analisis).toHaveLength(1);
 });
+
+test("en el móvil, «Prueba con tu foto» lleva a la caja de subida; en escritorio no hace falta", async ({ page, isMobile }) => {
+  await simularApi(page);
+  await page.goto("/");
+  const accion = page.getByRole("link", { name: "Prueba con tu foto" });
+
+  if (!isMobile) {
+    await expect(accion).toBeHidden();
+    return;
+  }
+
+  await expect(page.locator("#formularioSubida")).not.toBeInViewport();
+  await accion.click();
+  await expect(page).toHaveURL(/#subida$/);
+  await expect(page.locator("#formularioSubida")).toBeInViewport();
+});
