@@ -27,7 +27,7 @@ jobs:
 
       - name: Informe de tests
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: surefire-reports
           path: target/surefire-reports/
@@ -51,7 +51,7 @@ jobs:
 
       - name: Informe de cobertura
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: jacoco
           path: target/site/jacoco/
