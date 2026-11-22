@@ -92,7 +92,7 @@ jobs:
       # que añade metadata-action es la que enlaza el paquete con este repositorio.
       - name: Etiquetas
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ghcr.io/${{ github.repository_owner }}/photo-palette
           tags: |
