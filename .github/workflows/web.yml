@@ -82,7 +82,7 @@ jobs:
       # No se usa `enablement: true`: el GITHUB_TOKEN no tiene permiso para crear un sitio
       # de Pages y lo unico que consigue es cambiar ese mensaje por un
       # "Resource not accessible by integration" que despista mas.
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
 
       - uses: actions/upload-pages-artifact@v5
         with:
