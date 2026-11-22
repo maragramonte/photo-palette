@@ -103,7 +103,7 @@ jobs:
       # funciona en tu portátil no sirve de nada el día del despliegue. La caché de Actions
       # evita repetir el dependency:go-offline cuando el pom no ha cambiado.
       - name: Construir (y publicar si es main)
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: .
           push: ${{ env.PUBLICAR == 'true' }}
