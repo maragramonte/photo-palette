@@ -789,9 +789,9 @@
 
     if (!API) {
       decirEstado(
-        "La subida está en pausa mientras la API se muda a un servidor propio. El feed " +
-          "funciona igual: toca cualquier foto para ver la paleta que le calculó la API.",
-        null
+        "La subida está apagada porque no hay ninguna API configurada (web/js/config.js). " +
+          "El feed funciona igual: toca cualquier foto para ver la paleta que le calculó la API.",
+        "error"
       );
       return;
     }
@@ -803,8 +803,9 @@
 
     const avisar = setTimeout(() => {
       decirEstado(
-        "La API está tardando en contestar; puede que esté arrancando. Mientras, toca " +
-          "cualquier foto del feed para ver su paleta completa.",
+        "La API se está despertando: el plan gratuito la duerme tras 15 minutos sin " +
+          "visitas y suele tardar menos de un minuto. Mientras, toca cualquier foto del " +
+          "feed para ver su paleta completa.",
         "trabajando"
       );
       nodos.estadoSubida.after(contador);

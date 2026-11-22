@@ -12,9 +12,9 @@
   const EN_LOCAL = ["localhost", "127.0.0.1", ""].includes(location.hostname);
 
   window.PHOTO_PALETTE = {
-    // Publicado: la API no está desplegada mientras se muda a un servidor propio. Cuando
-    // esté levantado, aquí va su dominio y no hay que tocar nada más.
-    api: EN_LOCAL ? "http://localhost:8080" : "",
+    // Publicado: la API en Render, en un contenedor con este mismo Dockerfile. Si algún día
+    // cambia de host, aquí va su nueva URL y no hay que tocar nada más.
+    api: EN_LOCAL ? "http://localhost:8080" : "https://photo-palette.onrender.com",
     repositorio: "https://github.com/maragramonte/photo-palette",
   };
 })();

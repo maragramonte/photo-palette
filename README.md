@@ -46,11 +46,10 @@ publicada, **Probar con una de ejemplo** la enseña calculando la misma paleta e
 Si prefieres no pulsar nada, en [docs/CAPTURAS.md](docs/CAPTURAS.md) está la web pantalla a
 pantalla.
 
-> **Estado del despliegue.** La web está en GitHub Pages. La API **no está publicada ahora
-> mismo**: estaba en el plan gratuito de Render y se está mudando a un servidor propio. Mientras
-> tanto, la subida de fotos aparece en pausa con un aviso, y el feed funciona igual porque sus
-> paletas viven en un JSON estático. Para probar la API, arranca la imagen de Docker en local
-> (más abajo).
+> **Estado del despliegue.** La web está en GitHub Pages y la API en el plan gratuito de
+> Render. Si nadie la ha usado en 15 minutos, se duerme y la primera subida tarda menos de un
+> minuto en despertarla; la web avisa y cuenta los segundos. El feed no depende de ella: sus
+> paletas viven en un JSON estático.
 
 ---
 
@@ -243,16 +242,14 @@ El código y los comentarios están en español, nombres de clase incluidos. Es 
 
 - [ ] **P04**: El GIF del flujo para este README.
 - [ ] Medir la distancia entre colores en CIELAB en lugar de RGB, más cerca de cómo los vemos.
-- [ ] Llevar la API a servidor propio cuando haya dominio que decidir.
+- [ ] Llevar la API a un servidor propio si el plan gratuito de Render se queda corto.
 - [x] **I02**: Lighthouse en móvil: rendimiento de 96 a 100 y accesibilidad 100, después de
       quitar los bloqueos del primer pintado y subir dos tokens de contraste.
 - [x] **I03**: Prueba de carga, 20 subidas de 10 MB a la vez contra los mismos 512 MB. Pasa
       con 171 MB de margen, después de cortar las subidas sobrantes antes de leerlas.
 - [x] **D03**: Las fotos del feed son reales y llevan mi marca de agua (eran seis; en
       noviembre entraron tres de flores).
-- [x] **P02**: La API se desplegó en Render y su URL vive en `web/js/config.js`. En
-      noviembre de 2026 salió de Render; vuelve a estar en línea cuando el servidor propio esté
-      levantado.
+- [x] **P02**: La API está desplegada en Render y su URL vive en `web/js/config.js`.
 
 ---
 
