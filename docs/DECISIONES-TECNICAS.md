@@ -160,7 +160,7 @@ contenedor solo escucha en el loopback del servidor.
 
 ```bash
 docker compose up -d --build
-curl -fsS http://localhost:8080/api/salud   # 200 sin cuerpo
+curl -fsS http://localhost:8080/api/photo-palette   # 200 sin cuerpo
 ```
 
 Sea cual sea el host, su URL va a [`web/js/config.js`](../web/js/config.js) y con un
@@ -170,7 +170,7 @@ feed sigue funcionando.
 **Lo que cuesta Render.** Su instancia gratuita se duerme a los quince minutos sin tráfico, y
 la primera llamada tarda unos treinta segundos. Mientras arranca, su proxy puede contestar
 con un error que el navegador ve como fallo de red. Por eso la web no da la API por caída al
-primer intento, y eso se queda aunque cambie el host: vuelve a preguntar a `/api/salud` durante 90 segundos, dice que la
+primer intento, y eso se queda aunque cambie el host: vuelve a preguntar a `/api/photo-palette` durante 90 segundos, dice que la
 API se está despertando y cuánto lleva, y mantiene apagadas las dos formas de subir hasta que
 contesta. Si algún día se queda corta, el paso natural es un servidor propio con el
 `docker compose` de arriba.

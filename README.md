@@ -160,7 +160,7 @@ se publica además en GitHub Container Registry, como `:latest` y como `:sha-xxx
 
 ```
 docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette:latest
-curl -fsS http://localhost:8080/api/salud   # 200 sin cuerpo
+curl -fsS http://localhost:8080/api/photo-palette   # 200 sin cuerpo
 ```
 
 Lo que **no** está cubierto, dicho sin adornos: el frontend no tiene pruebas automatizadas y
@@ -207,7 +207,7 @@ sigan llegando visitas por los enlaces viejos).
 ├── src/main/java/com/maragramonte/photopalette/
 │   ├── dominio/      ExtractorPaleta (k-means), LectorImagen (lectura segura),
 │   │                 ServicioPaletas (semáforo), Modo, ColorPaleta, RespuestaPaleta
-│   ├── web/          ControladorPaletas, ControladorSalud, ManejadorErrores (ProblemDetail),
+│   ├── web/          ControladorPaletas, ControladorEstado, ManejadorErrores (ProblemDetail),
 │   │                 FiltroLimitePorIp (Bucket4j), FiltroSubidasEnCurso
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, el que escribe paletas.json

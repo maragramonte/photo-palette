@@ -100,7 +100,7 @@ Cambios sobre el código actual: añadir `modo` en la respuesta y `variable` en 
 
 **CORS:** la API solo acepta peticiones desde `https://paleta.maragramonte.com` y, mientras queden enlaces viejos, desde `https://maragramonte.github.io`. Cualquier otro origen recibe un rechazo del navegador.
 
-**Salud:** `GET /api/salud` responde `200` sin cuerpo. La web lo consulta al cargar y, si falla, desactiva la subida con un aviso. El feed sigue funcionando con `paletas.json`.
+**Estado:** `GET /api/photo-palette` responde `200` sin cuerpo. La web lo consulta al cargar y, si falla, desactiva la subida con un aviso. El feed sigue funcionando con `paletas.json`.
 
 CORS solo decide qué webs pueden llamar a la API desde el navegador. No protege contra abuso: eso lo hacen los límites de tamaño, píxeles, tasa y concurrencia.
 
@@ -121,7 +121,7 @@ Son 26 tareas en 14–17 días a tiempo parcial. Es menos que el plan anterior p
 
 - [ ] **B08** Lectura segura: leer primero las dimensiones con `ImageReader` y rechazar más de 40 MP; después decodificar con `setSourceSubsampling`: *una foto de 12 MP no pasa de 10 MB de memoria al analizarse.*
 - [ ] **B09** Límites de uso: `Semaphore(2)` con 503 y 10 peticiones por minuto por IP con 429 (Bucket4j, con server.forward-headers-strategy=native para leer la IP real de X-Forwarded-For solo si viene de la red interna de Docker, y el puerto 8080 sin publicar fuera del VPS): *un test para cada código, y otro que compruebe que dos IP distintas detrás del proxy tienen límites separados.*
-- [ ] **B10** `GET /api/salud`: *responde 200 y está fuera del límite por IP.*
+- [ ] **B10** `GET /api/photo-palette`: *responde 200 y está fuera del límite por IP.*
 
 ### 02 · Diseño (2 días)
 

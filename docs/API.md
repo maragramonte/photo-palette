@@ -79,7 +79,7 @@ enseñar el motivo en lugar de un error de red genérico.
 
 ---
 
-## `GET /api/salud`
+## `GET /api/photo-palette`
 
 Responde `200` sin cuerpo y queda fuera del límite por IP. La web lo consulta al cargar: si
 falla, apaga la subida con un aviso y el feed sigue funcionando, porque sus paletas están en
