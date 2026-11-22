@@ -14,7 +14,7 @@ publicada en Render. En local vale lo mismo cambiando la URL por `http://localho
 (con `docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette`).
 
 ```bash
-curl -X POST "https://photo-palette.onrender.com/api/paletas?n=6&modo=vivos" -F imagen=@foto.jpg
+curl -X POST "https://photo-palette-9yqy.onrender.com/api/paletas?n=6&modo=vivos" -F imagen=@foto.jpg
 ```
 
 > **En PowerShell, `curl` no es curl**: es un alias de `Invoke-WebRequest`, que no entiende
