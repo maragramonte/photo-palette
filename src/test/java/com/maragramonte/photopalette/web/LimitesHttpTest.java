@@ -99,17 +99,17 @@ class LimitesHttpTest {
     }
 
     @Test
-    @DisplayName("GET /api/salud responde 200 y no gasta cupo (B10)")
-    void laSaludQuedaFueraDelLimite() {
+    @DisplayName("GET /api/photo-palette responde 200 y no gasta cupo (B10)")
+    void laComprobacionDeEstadoQuedaFueraDelLimite() {
         String ip = "203.0.113.30";
 
         for (int i = 0; i < LIMITE * 3; i++) {
-            ResponseEntity<Void> salud = cliente.exchange(
-                    "/api/salud",
+            ResponseEntity<Void> estado = cliente.exchange(
+                    "/api/photo-palette",
                     HttpMethod.GET,
                     new HttpEntity<>(cabecerasCon("X-Forwarded-For", ip)),
                     Void.class);
-            assertThat(salud.getStatusCode()).isEqualTo(HttpStatus.OK);
+            assertThat(estado.getStatusCode()).isEqualTo(HttpStatus.OK);
         }
         // Y el cupo de análisis sigue intacto.
         assertThat(analizar(ip).getStatusCode()).isEqualTo(HttpStatus.OK);

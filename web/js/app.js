@@ -738,7 +738,7 @@
     }
   }
 
-  // --- Salud ---------------------------------------------------------------
+  // --- Estado de la API ----------------------------------------------------
 
   // Un servidor que arranca, o que su host ha dormido por falta de visitas, puede tardar
   // en contestar, y mientras tanto el navegador ve un fallo de red. Con un solo intento la
@@ -758,11 +758,11 @@
     nodos.caja.classList.toggle("esta-apagada", !si);
   }
 
-  async function saludResponde() {
+  async function apiResponde() {
     const control = new AbortController();
     const corte = setTimeout(() => control.abort(), TIEMPO_POR_INTENTO_MS);
     try {
-      const respuesta = await fetch(API + "/api/salud", {
+      const respuesta = await fetch(API + "/api/photo-palette", {
         method: "GET",
         cache: "no-store",
         signal: control.signal,
@@ -783,7 +783,7 @@
    * Si tarda, se dice por qué y cuánto lleva, con el contador fuera de la región viva para
    * que un lector de pantalla no lo cante cada segundo.
    */
-  async function comprobarSalud() {
+  async function comprobarApi() {
     document.getElementById("volverAComprobar")?.remove();
     permitirSubida(false);
 
@@ -816,7 +816,7 @@
 
     let viva = false;
     while (!viva && Date.now() - inicio < ESPERA_MAXIMA_MS) {
-      viva = await saludResponde();
+      viva = await apiResponde();
       if (!viva && Date.now() - inicio < ESPERA_MAXIMA_MS) {
         await new Promise((sigue) => setTimeout(sigue, PAUSA_ENTRE_INTENTOS_MS));
       }
@@ -843,7 +843,7 @@
     boton.id = "volverAComprobar";
     boton.className = "boton";
     boton.textContent = "Volver a comprobar";
-    boton.addEventListener("click", comprobarSalud);
+    boton.addEventListener("click", comprobarApi);
     nodos.estadoSubida.after(boton);
   }
 
@@ -909,5 +909,5 @@
   nodos.explicacion.textContent = EXPLICACION[estado.modo];
   conectarEventos();
   cargarFeed();
-  comprobarSalud();
+  comprobarApi();
 })();

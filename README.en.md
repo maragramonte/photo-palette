@@ -166,7 +166,7 @@ also published to GitHub Container Registry, as `:latest` and as `:sha-xxxxxxx`:
 
 ```
 docker run -p 8080:8080 ghcr.io/maragramonte/photo-palette:latest
-curl -fsS http://localhost:8080/api/salud   # 200 with no body
+curl -fsS http://localhost:8080/api/photo-palette   # 200 with no body
 ```
 
 What **isn't** covered, plainly: the frontend has no automated tests and there are no E2E
@@ -212,7 +212,7 @@ arriving through the old links).
 ├── src/main/java/com/maragramonte/photopalette/
 │   ├── dominio/      ExtractorPaleta (k-means), LectorImagen (safe reading),
 │   │                 ServicioPaletas (semaphore), Modo, ColorPaleta, RespuestaPaleta
-│   ├── web/          ControladorPaletas, ControladorSalud, ManejadorErrores (ProblemDetail),
+│   ├── web/          ControladorPaletas, ControladorEstado, ManejadorErrores (ProblemDetail),
 │   │                 FiltroLimitePorIp (Bucket4j), FiltroSubidasEnCurso
 │   ├── config/       ConfiguracionCors
 │   └── cli/          GeneradorPaletasJson, the one that writes paletas.json

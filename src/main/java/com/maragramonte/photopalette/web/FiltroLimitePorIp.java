@@ -32,7 +32,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
  * de Docker. Una cabecera falsa enviada desde internet no cuela, porque el puerto 8080 no
  * se publica fuera del VPS.
  *
- * <p>{@code GET /api/salud} queda fuera: la web lo usa para decidir si la subida está
+ * <p>{@code GET /api/photo-palette} queda fuera: la web lo usa para decidir si la subida está
  * disponible y un 429 ahi apagaría la subida sin motivo.
  */
 @Component
@@ -70,7 +70,7 @@ public class FiltroLimitePorIp extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest peticion) {
-        // Solo el análisis gasta credito. El preflight OPTIONS y la salud, no.
+        // Solo el análisis gasta credito. El preflight OPTIONS y la comprobación de estado, no.
         return !("POST".equals(peticion.getMethod()) && RUTA_LIMITADA.equals(peticion.getRequestURI()));
     }
 
